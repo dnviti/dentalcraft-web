@@ -1,0 +1,34 @@
+{
+  "_note": "Language-independent site data. Statuses here are the single source for the EN and IT pages: exists | progress | planned. Only the Case stage of Aligners is in progress.",
+  "presentationStatus": [
+    { "key": "presentation.status.1", "status": "exists" },
+    { "key": "presentation.status.2", "status": "exists" },
+    { "key": "presentation.status.3", "status": "exists" },
+    { "key": "presentation.status.4", "status": "progress" },
+    { "key": "presentation.status.5", "status": "progress" }
+  ],
+  "alignerStages": [
+    { "n": 1, "status": "progress" },
+    { "n": 2, "status": "planned" },
+    { "n": 3, "status": "planned" },
+    { "n": 4, "status": "planned" },
+    { "n": 5, "status": "planned" },
+    { "n": 6, "status": "planned" },
+    { "n": 7, "status": "planned" },
+    { "n": 8, "status": "planned" }
+  ],
+  "modules": [
+    { "n": 1, "code": "al", "status": "progress" },
+    { "n": 2, "code": "mb", "status": "planned" },
+    { "n": 3, "code": "sp", "status": "planned" },
+    { "n": 4, "code": "cb", "status": "planned" },
+    { "n": 5, "code": "im", "status": "planned" }
+  ],
+  "platforms": [
+    { "id": "linux", "code": "LNX", "tag": "tag.comingSoon" },
+    { "id": "windows", "code": "WIN", "tag": "tag.comingSoon" },
+    { "id": "macos", "code": "MAC", "tag": "tag.later" }
+  ],
+  "transcriptTimes": ["0:00", "0:06", "0:14", "0:24", "0:34", "0:47", "0:55", "1:03", "1:10"],
+  "siteUrl": "https://dentalcraft.app"
+}

@@ -2,6 +2,8 @@
 
 Status of this text: draft. Vision and presentation are kept apart: "Presentation" describes what exists today; everything else is intent.
 
+**Build source:** the site is generated from `content/site.en.json`, `content/site.it.json` (same keys, flat) and `content/site.data.json` (statuses). This file is the editorial copy; keep the three in sync. The build fails if EN and IT keys differ.
+
 ---
 
 ## Global
@@ -47,12 +49,12 @@ Presentation / Vision / Aligners / Roadmap / Technology / Regulatory / Downloads
 - **Body:**
   DentalCraft is a native dental CAD. It grows out of an orthodontic aligner planning tool that its author first built as a Blender add-on. DentalCraft rebuilds that work as a dedicated, faster, standalone application, with a structure inspired by professional dental CAD suites: a common core plus modules.
 
-  The project is at an early stage. Today the application shell, the project format, the 3D viewport and scan import exist. The clinical algorithms are being ported and validated.
+  The project is at an early stage. Today the application shell, the project format and the 3D viewport exist. Scan import and the clinical algorithms are being ported and validated.
 - **Status list (with tags):**
   - Application shell - `Exists today`
   - Project format (.dcprj) - `Exists today`
   - GPU 3D viewport - `Exists today`
-  - Scan import - `Exists today`
+  - Scan import - `In progress` (being ported and validated)
   - Clinical algorithms - `In progress` (being ported and validated)
 
 ### Video block
@@ -110,15 +112,15 @@ Presentation / Vision / Aligners / Roadmap / Technology / Regulatory / Downloads
 | Group | Stages | Tag |
 |---|---|---|
 | **Case** | Import intraoral scans (STL, OBJ, PLY) | In progress |
-| **Preparation** | Orientation and arch; FDI tooth numbering; segmentation; tooth reconstruction and gingiva | In progress |
-| **Diagnosis** | Space analysis; Little irregularity index; Bolton analysis | In progress |
-| **Planning** | Setup of the final position; staging per aligner with per-tooth movement limits; IPR; attachments | In progress |
+| **Preparation** | Orientation and arch; FDI tooth numbering; segmentation; tooth reconstruction and gingiva | Planned |
+| **Diagnosis** | Space analysis; Little irregularity index; Bolton analysis | Planned |
+| **Planning** | Setup of the final position; staging per aligner with per-tooth movement limits; IPR; attachments | Planned |
 | **Occlusion** | Occlusion and bite, including bite with aligners | Planned |
 | **Aligner production** | Aligner shell with thickness and clearance; trim line; identification stamp; print check | Planned |
 | **Follow-up** | Follow-up visits | Planned |
 | **Output** | STL export per stage; reports | Planned |
 
-*(Tag per row is a proposal. Align it with the real status before publishing; per the brief, every item is "planned / in progress" and none is "available".)*
+*(Decision: only Case is In progress; every other stage is Planned. The site reads the statuses from `content/site.data.json`.)*
 
 - **Group microcopy:**
   - Case: Start from the scan.
@@ -181,19 +183,13 @@ Presentation / Vision / Aligners / Roadmap / Technology / Regulatory / Downloads
 
 - **Section label:** Downloads
 - **Headline:** Coming soon
-- **Body:** There is nothing to download yet. Leave your email and we will tell you when early access opens.
+- **Body:** There is nothing to download yet. Come back to this page for news, or write to us.
 - **Platform cards (disabled):**
   - **Linux** - Coming soon
   - **Windows** - Coming soon
   - **macOS** - Later
 - **Button on each card (disabled):** Not available yet
-- **Notify form:**
-  - Label: Email address
-  - Placeholder: you@example.com
-  - Button: Notify me
-  - Consent microcopy: We will use your email only to tell you about DentalCraft. [PRIVACY NOTE - to be finalised]
-  - Success message: Thanks. We will be in touch when there is news.
-  - Error message: Please enter a valid email address.
+- **Notify form:** removed (decision: no back end, no data collection). A note under the cards says: This site has no forms and collects no data. See the privacy note.
 - **Or contact:** hello@dentalcraft.app
 - **Disclaimer:** In development. Not a medical device. Not for clinical use.
 
@@ -202,7 +198,7 @@ Presentation / Vision / Aligners / Roadmap / Technology / Regulatory / Downloads
 ## 9. FAQ
 
 1. **Is DentalCraft available?**
-   Not yet. It is in early development. The application shell, project format, 3D viewport and scan import exist. The clinical algorithms are being ported and validated.
+   Not yet. It is in early development. The application shell, project format and 3D viewport exist. Scan import and the clinical algorithms are being ported and validated.
 
 2. **Is it certified? Is it a medical device?**
    No. DentalCraft is not a medical device and holds no certification. It is not for clinical use. We are building with a regulatory mindset and intend to pursue the appropriate conformity path in the future.
@@ -217,7 +213,7 @@ Presentation / Vision / Aligners / Roadmap / Technology / Regulatory / Downloads
    The design is offline-first: projects stay on your machine. Project files are pseudonymised and carry no patient names. An account is planned only for licences and support.
 
 6. **Can I try it?**
-   Not yet. Early access is planned for later. Leave your email on this page to be notified.
+   Not yet. Early access is planned for later. Come back to this site for news.
 
 7. **What can it do first?**
    The first module is Aligners, for clear aligner planning. The intended workflow is described above; it is being ported and validated, and nothing in it is available yet.
@@ -234,15 +230,51 @@ Presentation / Vision / Aligners / Roadmap / Technology / Regulatory / Downloads
 - **Contact label:** Contact
 - **Contact:** hello@dentalcraft.app
 - **Links:** Presentation / Vision / Roadmap / Downloads / FAQ
-- **Privacy note:** Privacy policy - [LINK TO COME]
-- **Copyright:** (c) 2026 DentalCraft
+- **Privacy note:** Privacy note (link to the About page, section Privacy)
+- **Copyright:** © 2026 DentalCraft
 - **Language switch:** English | Italiano
 
 ---
 
 ## Button labels (index)
-Watch the presentation / Follow the development / Play video / Read the transcript / Notify me / Not available yet / Contact us
+Watch the presentation / Follow the development / Play video / Read the transcript / Not available yet / Contact us
 
 ## Notes
-- Placeholders: [PRIVACY NOTE], [LINK TO COME], screenshot final alt texts, video file.
+- Placeholders: screenshot final alt texts.
 - No dates, prices, customers, certifications or performance numbers are stated anywhere.
+
+---
+
+## 11. New keys (added for the site build)
+
+| Key | Text |
+|---|---|
+| `disclaimer.band` | In development · Not a medical device · Not for clinical use |
+| `disclaimer.link` | Regulatory stance |
+| `a11y.skip` | Skip to content |
+| `presentation.rail` | What exists today |
+| `presentation.status.title` | Status, today |
+| `video.kicker` | DentalCraft / Presentation |
+| `video.poster.title` | A dental CAD, built native. |
+| `video.meta` | About 75 seconds. English text, Italian subtitles. |
+| `vision.rail` | Intent, not features |
+| `roadmap.rail` | No dates announced |
+| `roadmap.core.label` | Core |
+| `roadmap.core.items` | Application shell, project format (.dcprj), GPU 3D viewport |
+| `roadmap.m1.note` | First module. In active development. |
+| `aligners.rail` | First module |
+| `aligners.legend.inprogress` | Being ported or validated. |
+| `aligners.legend.planned` | Not started. |
+| `downloads.rail` | Nothing to download yet |
+| `downloads.note` | This site has no forms and collects no data. See the privacy note. |
+| `technology.rail` | Technology and data |
+| `regulatory.rail` | Regulatory stance |
+| `faq.headline` | Questions, answered plainly |
+| `footer.links.label` | Site |
+| `footer.language.label` | Language |
+| `privacy.label` | Privacy |
+| `privacy.rail` | Privacy note |
+| `privacy.headline` | No cookies, no tracking, no forms |
+| `privacy.body.1` | This website sets no cookies, runs no analytics or tracking scripts, loads nothing from third parties and has no forms. We do not collect personal data through it. Your language choice is kept only in your own browser, so that the site can open in your language next time. |
+| `privacy.body.2` | Like any web server, the one hosting this site may keep standard access logs (IP address, time, page requested) for security and troubleshooting. If you write to hello@dentalcraft.app, we use your message only to reply. |
+| `footer.privacy` | Privacy note |

@@ -1,0 +1,12 @@
+{
+  "name": "dentalcraft-web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DentalCraft marketing site: static HTML/CSS, EN and IT. No dependencies.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node build/build.mjs",
+    "serve": "node build/build.mjs && python3 -m http.server 8080 --bind 127.0.0.1 --directory dist"
+  }
+}

@@ -2,6 +2,8 @@
 
 Stato: bozza. Visione e presentazione sono tenute separate: "Presentazione" descrive ciò che esiste oggi; tutto il resto è intenzione.
 
+**Sorgente della build:** il sito è generato da `content/site.en.json`, `content/site.it.json` (stesse chiavi, piatte) e `content/site.data.json` (stati). Questo file è il testo editoriale: tenere i tre allineati. La build fallisce se le chiavi EN e IT differiscono.
+
 ---
 
 ## Globale
@@ -47,12 +49,12 @@ Presentazione / Visione / Allineatori / Roadmap / Tecnologia / Normativa / Downl
 - **Testo:**
   DentalCraft è un CAD odontoiatrico nativo. Nasce da uno strumento di pianificazione per allineatori ortodontici che l'autore aveva realizzato come add-on di Blender. DentalCraft riprende quel lavoro e lo ricostruisce come applicazione dedicata, autonoma e più veloce, con un'impostazione ispirata alle suite CAD dentali professionali: un nucleo comune più moduli.
 
-  Il progetto è in fase iniziale. Oggi esistono la struttura dell'applicazione, il formato di progetto, il viewport 3D e l'importazione delle scansioni. Gli algoritmi clinici sono in fase di porting e validazione.
+  Il progetto è in fase iniziale. Oggi esistono la struttura dell'applicazione, il formato di progetto e il viewport 3D. L'importazione delle scansioni e gli algoritmi clinici sono in fase di porting e validazione.
 - **Elenco di stato (con etichette):**
   - Struttura dell'applicazione - `Esiste oggi`
   - Formato di progetto (.dcprj) - `Esiste oggi`
   - Viewport 3D su GPU - `Esiste oggi`
-  - Importazione delle scansioni - `Esiste oggi`
+  - Importazione delle scansioni - `In corso` (porting e validazione)
   - Algoritmi clinici - `In corso` (porting e validazione)
 
 ### Blocco video
@@ -110,15 +112,15 @@ Presentazione / Visione / Allineatori / Roadmap / Tecnologia / Normativa / Downl
 | Gruppo | Fasi | Stato |
 |---|---|---|
 | **Caso** | Importazione delle scansioni intraorali (STL, OBJ, PLY) | In corso |
-| **Preparazione** | Orientamento e arcata; numerazione dentale FDI; segmentazione; ricostruzione dei denti e della gengiva | In corso |
-| **Diagnosi** | Analisi dello spazio; indice di irregolarità di Little; analisi di Bolton | In corso |
-| **Pianificazione** | Setup della posizione finale; staging per allineatore con limiti di movimento per dente; IPR; attachment | In corso |
+| **Preparazione** | Orientamento e arcata; numerazione dentale FDI; segmentazione; ricostruzione dei denti e della gengiva | Pianificato |
+| **Diagnosi** | Analisi dello spazio; indice di irregolarità di Little; analisi di Bolton | Pianificato |
+| **Pianificazione** | Setup della posizione finale; staging per allineatore con limiti di movimento per dente; IPR; attachment | Pianificato |
 | **Occlusione** | Occlusione e morso, compreso il morso con gli allineatori | Pianificato |
 | **Produzione allineatori** | Shell dell'allineatore con spessore e clearance; linea di taglio; marcatura identificativa; controllo di stampa | Pianificato |
 | **Follow-up** | Visite di controllo | Pianificato |
 | **Output** | Esportazione STL per ogni stage; report | Pianificato |
 
-*(Lo stato per riga è una proposta: allinearlo a quello reale prima della pubblicazione. Come da brief, nessuna voce è "disponibile".)*
+*(Decisione: solo Caso è In corso; tutte le altre fasi sono Pianificato. Il sito legge gli stati da `content/site.data.json`.)*
 
 - **Microcopy dei gruppi:**
   - Caso: Si parte dalla scansione.
@@ -181,19 +183,13 @@ Presentazione / Visione / Allineatori / Roadmap / Tecnologia / Normativa / Downl
 
 - **Etichetta sezione:** Download
 - **Titolo:** In arrivo
-- **Testo:** Per ora non c'è nulla da scaricare. Lascia la tua email: ti avviseremo quando si aprirà l'accesso anticipato.
+- **Testo:** Per ora non c'è nulla da scaricare. Torna su questa pagina per le novità, oppure scrivici.
 - **Card piattaforma (disattivate):**
   - **Linux** - In arrivo
   - **Windows** - In arrivo
   - **macOS** - In seguito
 - **Pulsante su ogni card (disattivato):** Non ancora disponibile
-- **Modulo di avviso:**
-  - Etichetta: Indirizzo email
-  - Segnaposto: nome@esempio.it
-  - Pulsante: Avvisami
-  - Consenso: Useremo la tua email solo per aggiornarti su DentalCraft. [INFORMATIVA PRIVACY - da definire]
-  - Messaggio di successo: Grazie. Ti scriveremo quando ci saranno novità.
-  - Messaggio di errore: Inserisci un indirizzo email valido.
+- **Modulo di avviso:** rimosso (decisione: nessun back end, nessuna raccolta dati). Una nota sotto le card dice: Questo sito non ha moduli e non raccoglie dati. Leggi la nota sulla privacy.
 - **Oppure scrivici:** hello@dentalcraft.app
 - **Avviso:** In sviluppo. Non è un dispositivo medico. Non per uso clinico.
 
@@ -202,7 +198,7 @@ Presentazione / Visione / Allineatori / Roadmap / Tecnologia / Normativa / Downl
 ## 9. FAQ
 
 1. **DentalCraft è disponibile?**
-   Non ancora. È in fase iniziale di sviluppo. Esistono la struttura dell'applicazione, il formato di progetto, il viewport 3D e l'importazione delle scansioni. Gli algoritmi clinici sono in porting e validazione.
+   Non ancora. È in fase iniziale di sviluppo. Esistono la struttura dell'applicazione, il formato di progetto e il viewport 3D. L'importazione delle scansioni e gli algoritmi clinici sono in porting e validazione.
 
 2. **È certificato? È un dispositivo medico?**
    No. DentalCraft non è un dispositivo medico e non ha alcuna certificazione. Non è per uso clinico. Lo sviluppo segue un approccio regolatorio e l'intenzione è percorrere in futuro il percorso di conformità appropriato.
@@ -217,7 +213,7 @@ Presentazione / Visione / Allineatori / Roadmap / Tecnologia / Normativa / Downl
    L'impostazione è offline-first: i progetti restano sul tuo computer. I file di progetto sono pseudonimizzati e non contengono nomi di pazienti. L'account è previsto solo per licenze e assistenza.
 
 6. **Posso provarlo?**
-   Non ancora. L'accesso anticipato è previsto più avanti. Lascia la tua email in questa pagina per essere avvisato.
+   Non ancora. L'accesso anticipato è previsto più avanti. Torna su questo sito per le novità.
 
 7. **Che cosa farà per primo?**
    Il primo modulo è Allineatori, per la pianificazione di allineatori trasparenti. Il flusso previsto è descritto sopra; è in porting e validazione e nessuna parte è ancora disponibile.
@@ -234,15 +230,51 @@ Presentazione / Visione / Allineatori / Roadmap / Tecnologia / Normativa / Downl
 - **Etichetta contatti:** Contatti
 - **Contatto:** hello@dentalcraft.app
 - **Link:** Presentazione / Visione / Roadmap / Download / FAQ
-- **Nota privacy:** Informativa privacy - [LINK DA INSERIRE]
-- **Copyright:** (c) 2026 DentalCraft
+- **Nota privacy:** Nota sulla privacy (link alla pagina Su, sezione Privacy)
+- **Copyright:** © 2026 DentalCraft
 - **Cambio lingua:** English | Italiano
 
 ---
 
 ## Etichette dei pulsanti (indice)
-Guarda la presentazione / Segui lo sviluppo / Riproduci il video / Leggi la trascrizione / Avvisami / Non ancora disponibile / Scrivici
+Guarda la presentazione / Segui lo sviluppo / Riproduci il video / Leggi la trascrizione / Non ancora disponibile / Scrivici
 
 ## Note
-- Segnaposto: [INFORMATIVA PRIVACY], [LINK DA INSERIRE], alt definitivi delle schermate, file video.
+- Segnaposto: alt definitivi delle schermate.
 - Nessuna data, prezzo, cliente, certificazione o dato di prestazione è riportato.
+
+---
+
+## 11. Nuove chiavi (aggiunte per la build del sito)
+
+| Key | Text |
+|---|---|
+| `disclaimer.band` | In sviluppo · Non è un dispositivo medico · Non per uso clinico |
+| `disclaimer.link` | Posizione normativa |
+| `a11y.skip` | Vai al contenuto |
+| `presentation.rail` | Cosa esiste oggi |
+| `presentation.status.title` | Stato, oggi |
+| `video.kicker` | DentalCraft / Presentazione |
+| `video.poster.title` | Un CAD odontoiatrico, costruito nativo. |
+| `video.meta` | Circa 75 secondi. Testi in inglese, sottotitoli in italiano. |
+| `vision.rail` | Intenzioni, non funzioni |
+| `roadmap.rail` | Nessuna data annunciata |
+| `roadmap.core.label` | Nucleo |
+| `roadmap.core.items` | Struttura dell'applicazione, formato di progetto (.dcprj), viewport 3D su GPU |
+| `roadmap.m1.note` | Primo modulo. In sviluppo attivo. |
+| `aligners.rail` | Primo modulo |
+| `aligners.legend.inprogress` | Porting o validazione in atto. |
+| `aligners.legend.planned` | Non ancora avviato. |
+| `downloads.rail` | Nulla da scaricare, per ora |
+| `downloads.note` | Questo sito non ha moduli e non raccoglie dati. Leggi la nota sulla privacy. |
+| `technology.rail` | Tecnologia e dati |
+| `regulatory.rail` | Posizione normativa |
+| `faq.headline` | Domande, risposte chiare |
+| `footer.links.label` | Sito |
+| `footer.language.label` | Lingua |
+| `privacy.label` | Privacy |
+| `privacy.rail` | Nota sulla privacy |
+| `privacy.headline` | Niente cookie, niente tracciamento, niente moduli |
+| `privacy.body.1` | Questo sito non imposta cookie, non usa strumenti di analisi o tracciamento, non carica nulla da terze parti e non ha moduli. Non raccogliamo dati personali tramite il sito. La lingua scelta resta solo nel tuo browser, così il sito può aprirsi nella tua lingua la volta successiva. |
+| `privacy.body.2` | Come ogni server web, quello che ospita il sito può conservare i normali log di accesso (indirizzo IP, ora, pagina richiesta) per sicurezza e diagnosi. Se scrivi a hello@dentalcraft.app, useremo il tuo messaggio solo per risponderti. |
+| `footer.privacy` | Nota sulla privacy |
