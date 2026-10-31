@@ -1,0 +1,65 @@
+{
+  "$schema_note": "DentalCraft brand tokens v1.0. Colours are sRGB hex. Contrast ratios are WCAG 2.x. App UI tokens stay in dentalcraft-design/tokens.json; values here match them.",
+  "meta": { "name": "DentalCraft", "version": "1.0.0", "date": "2026-10-31", "concept": "Arch & Shell: a D drawn as the aligner shell, offset around the dental arch" },
+  "color": {
+    "brand": {
+      "amber":            { "hex": "#F2A93B", "role": "Curing Amber. The arch in the mark on dark; actions in UI", "contrast": { "on_graphite_161B1E": 8.69, "on_canvas_0F1214": 9.41, "on_white": 2.0 }, "note": "Never as text or mark colour on light backgrounds" },
+      "amber_deep":       { "hex": "#B8740F", "role": "Arch in the mark on light backgrounds; large display accents on light", "contrast": { "on_white": 3.79, "on_paper_F6F7F5": 3.53 }, "note": "Graphics and text >= 24 px (or 19 px bold) only" },
+      "amber_text_light": { "hex": "#8A5200", "role": "Amber text and links on light backgrounds", "contrast": { "on_white": 6.39, "on_band_DCE0DF": 4.8 } },
+      "on_amber":         { "hex": "#1C1204", "role": "Text on amber fills", "contrast": { "on_amber": 9.24 } },
+      "enamel":           { "hex": "#ECE6DA", "role": "Mark shell, wordmark and primary text on dark", "contrast": { "on_graphite": 13.97, "on_canvas": 15.13, "on_raised_1D2327": 12.78 } },
+      "ink":              { "hex": "#15191C", "role": "Mark shell, wordmark and primary text on light", "contrast": { "on_white": 17.68, "on_paper": 16.45 } }
+    },
+    "secondary": {
+      "curing_blue_dark":  { "hex": "#6F9BFF", "role": "Selection, focus and links in dark UI (not in the logo)", "contrast": { "on_graphite": 6.46 } },
+      "curing_blue_light": { "hex": "#2F5FD0", "role": "Selection, focus and links in light UI (not in the logo)", "contrast": { "on_paper": 5.33, "on_white": 5.72 } }
+    },
+    "neutral": {
+      "canvas":     { "hex": "#0F1214", "role": "Darkest brand background (OG, splash)" },
+      "graphite":   { "hex": "#161B1E", "role": "Primary dark surface, app-icon tile" },
+      "raised":     { "hex": "#1D2327", "role": "Raised dark surface, app-icon body, module tab body" },
+      "sunken":     { "hex": "#0B0E10", "role": "Shade-tab handle band on dark" },
+      "line_dark":  { "hex": "#262E33", "role": "Hairlines on dark" },
+      "stone":      { "hex": "#A9A397", "role": "Secondary text on dark", "contrast": { "on_canvas": 7.5, "on_graphite": 6.92 } },
+      "slate":      { "hex": "#4E565B", "role": "Secondary text on light", "contrast": { "on_white": 7.48, "on_paper": 6.96 } },
+      "band_light": { "hex": "#DCE0DF", "role": "Shade-tab handle band on light" },
+      "line_light": { "hex": "#D3D8D7", "role": "Hairlines on light" },
+      "paper":      { "hex": "#F6F7F5", "role": "Primary light surface" },
+      "white":      { "hex": "#FFFFFF", "role": "Raised light surface" }
+    },
+    "logo_schemes": {
+      "dark":  { "shell": "#ECE6DA", "arch": "#F2A93B", "background": ["#0F1214", "#161B1E", "#1D2327"] },
+      "light": { "shell": "#15191C", "arch": "#B8740F", "background": ["#FFFFFF", "#F6F7F5", "#E7E9E8"] },
+      "black": { "shell": "#000000", "arch": "#000000" },
+      "white": { "shell": "#FFFFFF", "arch": "#FFFFFF" }
+    }
+  },
+  "font": {
+    "display_and_text": { "family": "Atkinson Hyperlegible Next", "licence": "OFL 1.1", "source": "Google Fonts", "weights": [400, 500, 600, 700, 800], "fallback": "system-ui, -apple-system, 'Segoe UI', sans-serif", "wordmark": "Bold 700, tracking -12/1000 em, outlined" },
+    "mono":             { "family": "B612 Mono", "licence": "OFL 1.1", "source": "Google Fonts", "weights": [400, 700], "fallback": "ui-monospace, 'SFMono-Regular', Menlo, monospace", "use": "module codes (Bold), measurements, versions, labels in caps (Regular, +40/1000 em)" },
+    "web_css_import": "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600;700;800&family=B612+Mono:wght@400;700&display=swap"
+  },
+  "type_scale_web": {
+    "display": { "size": 56, "line": 60, "weight": 700, "tracking": -0.01 },
+    "h1": { "size": 40, "line": 46, "weight": 700, "tracking": -0.01 },
+    "h2": { "size": 28, "line": 34, "weight": 600 },
+    "h3": { "size": 20, "line": 26, "weight": 600 },
+    "body": { "size": 17, "line": 26, "weight": 400 },
+    "small": { "size": 14, "line": 20, "weight": 500 },
+    "mono_label": { "size": 13, "line": 18, "weight": 400, "family": "B612 Mono", "case": "upper", "tracking": 0.04 }
+  },
+  "logo": {
+    "unit_x": "x = shell band width = 12.3 % of the mark height",
+    "clear_space": "2x on every side of the mark and of both lockups",
+    "lockup_horizontal": { "mark_height": "1.8 x cap height", "gap": "2.75x", "alignment": "cap height centred on the mark" },
+    "lockup_stacked": { "mark_height": "3.0 x cap height", "gap": "2.5x", "alignment": "mark centred over the wordmark" },
+    "min_size": {
+      "mark_px": 16, "mark_mm": 5,
+      "small_mark_switch_px": 48,
+      "lockup_horizontal_px_width": 120, "lockup_horizontal_mm_width": 30,
+      "lockup_stacked_px_width": 80, "lockup_stacked_mm_width": 22,
+      "wordmark_px_width": 90
+    }
+  },
+  "shape": { "shade_tab_radii_ratio": "top 1/5 of tab width, bottom 1/20; handle band 30 % of tab height", "app_icon_radius": "22.3 % of tile (macOS grid 824 in 1024, Windows/Linux full bleed)" }
+}

@@ -1,0 +1,15 @@
+# WAV masters (~30 MB) stay out of git; release asset vs LFS decision pending
+*.wav
+
+# Build outputs
+dist/
+node_modules/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+.idea/
+.vscode/

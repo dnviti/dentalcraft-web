@@ -1,0 +1,11 @@
+{
+  "name": "DentalCraft",
+  "short_name": "DentalCraft",
+  "icons": [
+    { "src": "android-chrome-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "android-chrome-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#161B1E",
+  "background_color": "#0F1214",
+  "display": "standalone"
+}
