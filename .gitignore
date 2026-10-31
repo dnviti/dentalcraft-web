@@ -13,3 +13,9 @@ Thumbs.db
 *.swo
 .idea/
 .vscode/
+
+# Video: only the web encodes are tracked (webm, 720p mp4, poster, captions)
+media/video/dentalcraft-presentation.mp4
+media/video/*.ecproj
+media/video/*.fcproj
+media/video/project-media/
