@@ -1,0 +1,86 @@
+WEBVTT
+
+1
+00:00:05.200 --> 00:00:07.500
+DentalCraft
+
+2
+00:00:08.500 --> 00:00:10.000
+Un CAD odontoiatrico, costruito nativo.
+
+3
+00:00:10.000 --> 00:00:15.000
+Un CAD odontoiatrico, costruito nativo.
+Da add-on di Blender ad applicazione autonoma.
+
+4
+00:00:15.500 --> 00:00:17.000
+Si parte dalla scansione.
+
+5
+00:00:17.000 --> 00:00:22.500
+Si parte dalla scansione.
+STL, OBJ, PLY. Arcata. Numerazione FDI.
+
+6
+00:00:23.000 --> 00:00:27.500
+Segmenta. Ricostruisci. Diagnostica.
+
+7
+00:00:27.500 --> 00:00:30.000
+Segmenta. Ricostruisci. Diagnostica.
+Analisi dello spazio, indice di Little, Bolton.
+
+8
+00:00:30.500 --> 00:00:33.750
+Pianifica la posizione finale.
+
+9
+00:00:33.750 --> 00:00:42.500
+Pianifica la posizione finale.
+Stage dopo stage, entro i limiti di ogni dente.
+
+10
+00:00:43.000 --> 00:00:52.000
+Shell, linea di taglio, marcatura.
+
+11
+00:00:52.000 --> 00:00:55.000
+Shell, linea di taglio, marcatura.
+Esportazione STL per ogni stage.
+
+12
+00:00:55.400 --> 00:00:56.200
+L'applicazione oggi:
+
+13
+00:00:56.200 --> 00:00:59.900
+L'applicazione oggi:
+struttura, formato di progetto, viewport 3D, importazione scansioni.
+
+14
+00:01:00.100 --> 00:01:02.500
+Algoritmi clinici: in porting e validazione.
+
+15
+00:01:02.900 --> 00:01:04.100
+Prima gli Allineatori.
+
+16
+00:01:04.100 --> 00:01:07.500
+Prima gli Allineatori.
+Altri moduli in programma.
+
+17
+00:01:08.400 --> 00:01:10.000
+In sviluppo.
+
+18
+00:01:10.000 --> 00:01:11.350
+In sviluppo.
+dentalcraft.app
+
+19
+00:01:11.350 --> 00:01:15.000
+In sviluppo · Non è un dispositivo medico · Non per uso clinico
+

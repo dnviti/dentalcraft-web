@@ -1,0 +1,107 @@
+{
+  "$schema_note": "DentalCraft marketing site tokens v1.0 (2026-10-31). Source of truth: dentalcraft-web.figcraft, variable collections 'Color' (mode Dark) and 'Dimension', text styles 'Web/*'. Values match brand/brand-tokens.json and docs/design/tokens.json. The site is dark-only in v1 (see site-spec.md, open issues). CSS custom property names follow the FigCraft variable paths: color/bg/canvas -> --color-bg-canvas.",
+  "meta": {
+    "name": "DentalCraft web",
+    "version": "1.0.0",
+    "theme": "dark",
+    "concept": "Arch & Shell, read as a shade guide on a lab bench: graphite surfaces, enamel text, curing amber for the one action, solid / half / dashed markers for exists / in progress / planned"
+  },
+  "color": {
+    "bg": {
+      "canvas":  { "hex": "#0F1214", "css": "--color-bg-canvas",  "use": "Page background, Hero, Vision, Downloads, About sections" },
+      "panel":   { "hex": "#161B1E", "css": "--color-bg-panel",   "use": "Alternating sections (Presentation, Modules, Regulatory, Contact), notify form" },
+      "raised":  { "hex": "#1D2327", "css": "--color-bg-raised",  "use": "Platform card body, disabled button fill, active language segment, pressed secondary button" },
+      "sunken":  { "hex": "#0B0E10", "css": "--color-bg-sunken",  "use": "Disclaimer band, footer, video player, input fill, shade-tab handle, disclaimer boxes, core plate" },
+      "hover":   { "hex": "#242B30", "css": "--color-bg-hover",   "use": "Secondary button hover" }
+    },
+    "line": {
+      "subtle":  { "hex": "#262E33", "css": "--color-line-subtle", "use": "Hairlines: header and band bottom border, ledger rows, stage rows, FAQ dividers, card outlines" },
+      "strong":  { "hex": "#5E6B73", "css": "--color-line-strong", "use": "Interactive boundaries (secondary button, input, toggle), Planned dashed outlines, principle top rules", "contrast": { "on_canvas": 3.43, "on_panel": 3.16, "on_sunken": 3.53 } }
+    },
+    "text": {
+      "primary":   { "hex": "#ECE6DA", "css": "--color-text-primary",   "contrast": { "on_canvas": 15.13, "on_panel": 13.97, "on_raised": 12.78, "on_sunken": 15.58 } },
+      "secondary": { "hex": "#A9A397", "css": "--color-text-secondary", "contrast": { "on_canvas": 7.5, "on_panel": 6.92, "on_raised": 6.33, "on_sunken": 7.72 } },
+      "disabled":  { "hex": "#6C6A64", "css": "--color-text-disabled",  "contrast": { "on_raised": 2.94 }, "note": "Disabled controls only (WCAG exempt); always paired with a lock icon and a status tag" }
+    },
+    "accent": {
+      "amber":         { "hex": "#F2A93B", "css": "--color-accent-amber",         "use": "Primary button fill, video play button, the arch line in art. One amber action per viewport. Never on light backgrounds." },
+      "amber-hover":   { "hex": "#FFBC57", "css": "--color-accent-amber-hover" },
+      "amber-pressed": { "hex": "#D98F22", "css": "--color-accent-amber-pressed" },
+      "on-amber":      { "hex": "#1C1204", "css": "--color-accent-on-amber", "contrast": { "on_amber": 9.24, "on_amber_hover": 11.06, "on_amber_pressed": 6.95 } }
+    },
+    "focus": {
+      "ring": { "hex": "#8FB2FF", "css": "--color-focus-ring", "contrast": { "on_canvas": 8.94, "on_panel": 8.25 }, "use": "2px focus outline, 2px offset, on every focusable element" }
+    },
+    "status": {
+      "danger":  { "hex": "#F2727F", "css": "--color-status-danger",  "contrast": { "on_panel": 6.19 }, "use": "Email field error border, icon and message" },
+      "success": { "hex": "#5CC98F", "css": "--color-status-success", "contrast": { "on_panel": 8.44 }, "use": "Email field success icon and message" }
+    }
+  },
+  "font": {
+    "sans": { "family": "Atkinson Hyperlegible Next", "weights": [400, 500, 600, 700], "fallback": "system-ui, -apple-system, 'Segoe UI', sans-serif", "css": "--font-sans" },
+    "mono": { "family": "B612 Mono", "weights": [400, 700], "fallback": "ui-monospace, 'SFMono-Regular', Menlo, monospace", "css": "--font-mono" },
+    "import": "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&family=B612+Mono:wght@400;700&display=swap"
+  },
+  "type_scale": {
+    "hero":       { "figcraft": "Web/Hero",          "family": "sans", "size": 64, "line": 68, "weight": 700, "tracking": "-0.02em", "use": "Hero headline, desktop >= 1024" },
+    "display":    { "figcraft": "Web/Display",       "family": "sans", "size": 56, "line": 60, "weight": 700, "tracking": "-0.01em", "use": "Downloads 'Coming soon', About Technology headline" },
+    "h1":         { "figcraft": "Web/H1",            "family": "sans", "size": 40, "line": 46, "weight": 700, "tracking": "-0.01em", "use": "Section headlines" },
+    "h2":         { "figcraft": "Web/H2",            "family": "sans", "size": 28, "line": 34, "weight": 600, "use": "Sub-blocks (video, screenshots), platform names, regulatory callout (700)" },
+    "h3":         { "figcraft": "Web/H3",            "family": "sans", "size": 20, "line": 26, "weight": 600, "use": "Principle titles, stage groups, module names, FAQ questions" },
+    "lead":       { "figcraft": "Web/Lead",          "family": "sans", "size": 20, "line": 30, "weight": 400, "use": "Hero subhead and section intros (desktop)" },
+    "body":       { "figcraft": "Web/Body",          "family": "sans", "size": 17, "line": 26, "weight": 400, "use": "Body text; disclaimer lines use 700" },
+    "detail":     { "figcraft": "(Web/Small override)", "family": "sans", "size": 15, "line": 22, "weight": 400, "use": "Principle bodies, stage lists" },
+    "small":      { "figcraft": "Web/Small",         "family": "sans", "size": 14, "line": 20, "weight": 500, "use": "Nav links, captions, microcopy, form label" },
+    "button":     { "figcraft": "Web/Button",        "family": "sans", "size": 16, "line": 20, "weight": 700 },
+    "mono-label": { "figcraft": "Web/Mono label",    "family": "mono", "size": 13, "line": 18, "weight": 400, "tracking": "0.04em", "case": "uppercase (CSS text-transform; keep sentence case in the source text)", "use": "Rail labels, status tags, disclaimer band, video kicker, footer column labels" },
+    "mono-code":  { "figcraft": "Web/Mono code",     "family": "mono", "size": 15, "line": 20, "weight": 700, "use": "Language switch (13), CORE label, platform codes (20/24)" },
+    "mobile": {
+      "hero": { "figcraft": "Web/Mobile/Hero", "size": 40, "line": 44, "weight": 700, "tracking": "-0.02em", "use": "Hero headline and 'Coming soon' < 768" },
+      "h1":   { "figcraft": "Web/Mobile/H1",   "size": 30, "line": 36, "weight": 700, "tracking": "-0.01em", "use": "Section headlines < 768" },
+      "h2":   { "size": 24, "line": 30, "weight": 600 },
+      "lead": { "note": "Lead becomes body (17/26) below 768" }
+    }
+  },
+  "space": {
+    "scale_px": [4, 8, 12, 16, 20, 24, 28, 32, 48, 56, 64, 80, 96, 112],
+    "figcraft_variables": { "space/4": 4, "space/8": 8, "space/12": 12, "space/16": 16, "space/24": 24, "space/32": 32, "space/48": 48, "space/64": 64, "space/96": 96, "space/128": 128 },
+    "page_gutter":  { "desktop": 80, "tablet": 40, "mobile": 16 },
+    "section_padding_y": { "desktop": 112, "mobile": 64 },
+    "grid": { "desktop": "12 columns, content 1280, gutter 24; rail = 3 columns (302), content = 9 columns (954)", "mobile": "1 column, 358" }
+  },
+  "radius": {
+    "sm":   { "px": 4,  "css": "--radius-sm",  "use": "Buttons, inputs, tags, boxes, video player, screenshots" },
+    "segment": { "px": 2, "use": "Active language segment inside the switch" },
+    "tab":  { "px": [16, 16, 4, 4], "css": "--radius-tab", "use": "Shade-tab shape only: platform cards and module tabs (top-left, top-right, bottom-right, bottom-left)" },
+    "none": { "px": 0, "use": "Sections, bands, rules" },
+    "rule": "No pills, no circles for controls. Round shapes appear only as status markers (10-14 px)."
+  },
+  "stroke": {
+    "hairline": 1,
+    "control": 1.5,
+    "focus_ring": 2,
+    "focus_offset": 2,
+    "disclaimer_bar": 3,
+    "regulatory_bar": 4,
+    "dash_planned": "4 4 (outlines), 3 3 (tags), 2 2 (markers)"
+  },
+  "elevation": {
+    "rule": "No shadows. Depth comes from the surface steps sunken < canvas < panel < raised and from 1 px lines."
+  },
+  "breakpoints": {
+    "mobile":  { "max": 767,  "frame": 390 },
+    "tablet":  { "min": 768,  "max": 1199, "note": "Header nav collapses to the menu button below 1200" },
+    "desktop": { "min": 1200, "frame": 1440, "content_max": 1280 }
+  },
+  "motion": {
+    "duration_ms": { "hover": 120, "accordion": 200, "menu": 200 },
+    "easing": "cubic-bezier(0.2, 0, 0, 1)",
+    "reduced_motion": "prefers-reduced-motion: reduce -> no transitions, no smooth scroll, video never autoplays"
+  },
+  "status_markers": {
+    "exists_today": { "marker": "filled circle 10 px, text/primary", "outline": "solid 1 px line/strong", "label_en": "Exists today", "label_it": "Esiste oggi" },
+    "in_progress":  { "marker": "ring 1.5 px + left half filled, text/primary", "outline": "solid 1 px text/secondary", "label_en": "In progress", "label_it": "In corso" },
+    "planned":      { "marker": "dashed ring 1.5 px, text/secondary", "outline": "dashed 1 px line/strong", "label_en": "Planned", "label_it": "Pianificato" },
+    "rule": "Status is always marker shape + word, never colour alone. Dashed = intent / not started everywhere on the site (Planned tags, intent banners, video placeholder)."
+  }
+}
