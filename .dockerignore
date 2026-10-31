@@ -1,0 +1,15 @@
+.git
+.github
+dist
+node_modules
+README.md
+# not used by the site
+media/music
+media/video/*.ecproj
+media/video/*.fcproj
+media/video/project-media
+media/video/dentalcraft-presentation.mp4
+design/*.figcraft
+design/screens
+brand/png
+brand/*.vectorcraft
