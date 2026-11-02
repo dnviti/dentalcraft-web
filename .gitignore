@@ -3,6 +3,9 @@
 
 # Build outputs
 dist/
+
+# App archives for /download/, fetched from the app release (see README)
+downloads/
 node_modules/
 
 # OS / editor junk

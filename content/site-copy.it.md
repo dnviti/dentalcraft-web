@@ -24,7 +24,7 @@ Stato: bozza. Visione e presentazione sono tenute separate: "Presentazione" desc
 
 ### Navigazione
 Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / Download / FAQ
-**Pulsante header:** Segui lo sviluppo
+**Pulsante header:** Prova l'alpha
 **Cambio lingua:** EN | IT
 
 ---
@@ -35,7 +35,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 - **Titolo:** Un nuovo CAD dentale per studio e laboratorio.
 - **Sottotitolo:** DentalCraft è un'applicazione per l'odontoiatria digitale, da installare sul computer dello studio o del laboratorio. Si parte dalla pianificazione degli allineatori; altri ambiti di lavoro sono previsti in seguito.
 - **CTA primaria:** Guarda la presentazione
-- **CTA secondaria:** Segui lo sviluppo
+- **CTA secondaria:** Prova l'alpha
 - **Avviso (ben visibile, sotto le CTA):** In sviluppo. Non è un dispositivo medico. Non per uso clinico.
 - **Microcopy:** Fase iniziale. Prima Linux e Windows. Made in Italy.
 - **Alt immagine hero:** Vista 3D stilizzata di un'arcata superiore in DentalCraft, con i denti contornati e numerati.
@@ -104,7 +104,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 ## 4. Area Allineatori
 
 - **Etichetta sezione:** Allineatori - primo ambito
-- **Banner:** Flusso di lavoro previsto. Ogni fase è indicata come `Pianificato` o `In corso`. Nulla di quanto segue è ancora disponibile.
+- **Banner:** Flusso di lavoro previsto. Ogni fase è indicata come `Pianificato` o `In corso`. Nulla di quanto segue è ancora completo.
 - **Titolo:** Dalla scansione all'allineatore, in un'unica area di lavoro
 - **Testo:** L'area Allineatori è pensata per seguire il percorso clinico dalla scansione intraorale ai file per la stampa. Le fasi sono raggruppate come nel menu dell'applicazione.
 - **Legenda:** `In corso` = in lavorazione o in validazione. `Pianificato` = non ancora avviato.
@@ -179,18 +179,20 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 
 ---
 
-## 8. Download - In arrivo
+## 8. Download - Prova la versione alpha
 
 - **Etichetta sezione:** Download
-- **Titolo:** In arrivo
-- **Testo:** Per ora non c'è nulla da scaricare. Torna su questa pagina per le novità, oppure scrivici.
-- **Card piattaforma (disattivate):**
-  - **Linux** - In arrivo
-  - **Windows** - In arrivo
-  - **macOS** - In seguito
-- **Pulsante su ogni card (disattivato):** Non ancora disponibile
+- **Rail:** Alpha, da provare
+- **Titolo:** Prova la versione alpha
+- **Testo:** Una prima versione di prova per Linux e Windows. È in sviluppo: molte funzioni mancano e può cambiare o smettere di funzionare da una versione all'altra.
+- **Card delle piattaforme:**
+  - **Linux** - tag Alpha. Pulsante: Scarica per Linux. Requisiti: PC a 64 bit (x86_64). Estrai l'archivio e apri dentalcraft.
+  - **Windows** - tag Alpha. Pulsante: Scarica per Windows. Requisiti: Windows 10 o 11 a 64 bit. Estrai la cartella e apri dentalcraft.exe.
+  - **macOS** - tag In seguito. Pulsante (disattivato): Non ancora disponibile
+- **Sotto ogni card scaricabile:** Versione {version} · {size} · {date}, e una nota chiusa "Per il tuo tecnico informatico: checksum SHA-256" con l'hash.
+- **Sotto le card:** Windows potrebbe dire che l'editore è sconosciuto: i file non sono ancora firmati. Scegli «Ulteriori informazioni», poi «Esegui comunque». / Gratuita da provare, solo per valutazione, così com'è e senza garanzia. Non è un dispositivo medico: non usarla sui pazienti né per decisioni cliniche. / Tutti i checksum (file di testo)
 - **Modulo di avviso:** rimosso (decisione: nessun back end, nessuna raccolta dati). Una nota sotto le card dice: Questo sito non ha moduli e non raccoglie dati. Leggi la nota sulla privacy.
-- **Oppure scrivici:** hello@dentalcraft.app
+- **Problemi o suggerimenti:** hello@dentalcraft.app
 - **Avviso:** In sviluppo. Non è un dispositivo medico. Non per uso clinico.
 
 ---
@@ -198,7 +200,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 ## 9. FAQ
 
 1. **DentalCraft è disponibile?**
-   Non ancora. È in fase iniziale di sviluppo. Esistono la struttura dell'applicazione, il file unico per ogni caso e la visualizzazione 3D. L'importazione delle scansioni e le funzioni cliniche vengono riprese dallo strumento di partenza e validate.
+   Una versione alpha per Linux e Windows si può scaricare dalla pagina iniziale, solo per valutazione. È in fase iniziale di sviluppo: non è un dispositivo medico e non è per uso clinico. Esistono la struttura dell'applicazione, il file unico per ogni caso e la visualizzazione 3D. L'importazione delle scansioni e le funzioni cliniche vengono riprese dallo strumento di partenza e validate.
 
 2. **È certificato? È un dispositivo medico?**
    No. DentalCraft non è un dispositivo medico e non ha alcuna certificazione. Non è per uso clinico. Lo sviluppo segue un approccio regolatorio e l'intenzione è percorrere in futuro il percorso di conformità appropriato.
@@ -213,10 +215,10 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
    I casi sono pensati per restare sul tuo computer. I file dei casi sono pseudonimizzati e non contengono nomi di pazienti. L'account è previsto solo per licenze e assistenza.
 
 6. **Posso provarlo?**
-   Non ancora. L'accesso anticipato è previsto più avanti. Torna su questo sito per le novità.
+   Sì. Una versione alpha per Linux e Windows si può scaricare dalla pagina iniziale. È solo per valutazione: non è un dispositivo medico e non è per uso clinico.
 
 7. **Che cosa farà per primo?**
-   Il primo ambito è Allineatori, per la pianificazione degli allineatori trasparenti. Il flusso previsto è descritto nella pagina iniziale: le fasi sono in corso o pianificate e nessuna è ancora disponibile.
+   Il primo ambito è Allineatori, per la pianificazione degli allineatori trasparenti. Il flusso previsto è descritto nella pagina iniziale: le fasi sono in corso o pianificate e nessuna è ancora completa.
 
 8. **Quali file potrò usare?**
    È previsto di importare le scansioni in STL, OBJ e PLY e di esportare ogni stadio in STL. Ogni caso si salva in un unico file aperto.
@@ -237,7 +239,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 ---
 
 ## Etichette dei pulsanti (indice)
-Guarda la presentazione / Segui lo sviluppo / Riproduci il video / Leggi la trascrizione / Non ancora disponibile / Scrivici
+Guarda la presentazione / Prova l'alpha / Riproduci il video / Leggi la trascrizione / Non ancora disponibile / Scrivici
 
 ## Note
 - Segnaposto: alt definitivi delle schermate.
@@ -265,7 +267,7 @@ Guarda la presentazione / Segui lo sviluppo / Riproduci il video / Leggi la tras
 | `aligners.rail` | Primo ambito |
 | `aligners.legend.inprogress` | In lavorazione o in validazione. |
 | `aligners.legend.planned` | Non ancora avviato. |
-| `downloads.rail` | Nulla da scaricare, per ora |
+| `downloads.rail` | Alpha, da provare |
 | `downloads.note` | Questo sito non ha moduli e non raccoglie dati. Leggi la nota sulla privacy. |
 | `technology.rail` | Lavoro e dati |
 | `regulatory.rail` | Posizione normativa |

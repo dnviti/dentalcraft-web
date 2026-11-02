@@ -24,7 +24,7 @@ Status of this text: draft. Vision and presentation are kept apart: "Presentatio
 
 ### Navigation
 Presentation / Vision / Aligners / What's next / In practice / Regulatory / Downloads / FAQ
-**Header button:** Follow the development
+**Header button:** Try the alpha
 **Language switch:** EN | IT
 
 ---
@@ -35,7 +35,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 - **Headline:** A new dental CAD for the practice and the lab.
 - **Subhead:** DentalCraft is an application for digital dentistry that you install on your practice or lab computer. It starts with clear aligner planning; more areas of work are planned for later.
 - **Primary CTA:** Watch the presentation
-- **Secondary CTA:** Follow the development
+- **Secondary CTA:** Try the alpha
 - **Disclaimer line (prominent, under CTAs):** In development. Not a medical device. Not for clinical use.
 - **Microcopy:** Early stage. Linux and Windows first. Made in Italy.
 - **Hero visual alt:** Stylised 3D view of an upper dental arch in DentalCraft, teeth outlined and numbered.
@@ -104,7 +104,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 ## 4. Aligners area
 
 - **Section label:** Aligners - first area
-- **Label banner:** Intended workflow. Each stage is tagged `Planned` or `In progress`. Nothing here is available yet.
+- **Label banner:** Intended workflow. Each stage is tagged `Planned` or `In progress`. Nothing here is finished yet.
 - **Headline:** From scan to aligner, in one workspace
 - **Body:** The Aligners area is designed to follow the clinical path from intraoral scan to files for printing. The stages below are grouped like the application menu.
 - **Legend:** `In progress` = being worked on or validated. `Planned` = not started.
@@ -179,18 +179,20 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 
 ---
 
-## 8. Downloads - Coming soon
+## 8. Downloads - Try the alpha
 
 - **Section label:** Downloads
-- **Headline:** Coming soon
-- **Body:** There is nothing to download yet. Come back to this page for news, or write to us.
-- **Platform cards (disabled):**
-  - **Linux** - Coming soon
-  - **Windows** - Coming soon
-  - **macOS** - Later
-- **Button on each card (disabled):** Not available yet
+- **Rail:** Alpha, to try
+- **Headline:** Try the alpha
+- **Body:** An early test version for Linux and Windows. It is in development: many functions are missing, and it may change or stop working between versions.
+- **Platform cards:**
+  - **Linux** - tag Alpha. Button: Download for Linux. Requirements: 64-bit PC (x86_64). Unpack the archive and open dentalcraft.
+  - **Windows** - tag Alpha. Button: Download for Windows. Requirements: Windows 10 or 11, 64-bit. Unzip the folder and open dentalcraft.exe.
+  - **macOS** - tag Later. Button (disabled): Not available yet
+- **Under each downloadable card:** Version {version} · {size} · {date}, and a collapsed note "For your IT support: SHA-256 checksum" with the hash.
+- **Below the cards:** Windows may say the publisher is unknown: the files are not signed yet. Choose More info, then Run anyway. / Free to try, for evaluation only, as is and without warranty. Not a medical device: do not use it on patients or for clinical decisions. / All checksums (text file)
 - **Notify form:** removed (decision: no back end, no data collection). A note under the cards says: This site has no forms and collects no data. See the privacy note.
-- **Or contact:** hello@dentalcraft.app
+- **Problems or feedback:** hello@dentalcraft.app
 - **Disclaimer:** In development. Not a medical device. Not for clinical use.
 
 ---
@@ -198,7 +200,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 ## 9. FAQ
 
 1. **Is DentalCraft available?**
-   Not yet. It is in early development. The application structure, the single file for each case and the 3D view exist. Scan import and the clinical functions are being brought over from the earlier tool and validated.
+   An alpha version for Linux and Windows can be downloaded from the home page, for evaluation only. It is in early development: it is not a medical device and not for clinical use. The application structure, the single file for each case and the 3D view exist. Scan import and the clinical functions are being brought over from the earlier tool and validated.
 
 2. **Is it certified? Is it a medical device?**
    No. DentalCraft is not a medical device and holds no certification. It is not for clinical use. We are building with a regulatory mindset and intend to pursue the appropriate conformity path in the future.
@@ -213,10 +215,10 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
    Cases are designed to stay on your computer. Case files are pseudonymised and carry no patient names. An account is planned only for licences and support.
 
 6. **Can I try it?**
-   Not yet. Early access is planned for later. Come back to this site for news.
+   Yes. An alpha version for Linux and Windows can be downloaded from the home page. It is for evaluation only: it is not a medical device and not for clinical use.
 
 7. **What can it do first?**
-   The first area is Aligners, for clear aligner planning. The intended workflow is described on the home page: its stages are in progress or planned, and none is available yet.
+   The first area is Aligners, for clear aligner planning. The intended workflow is described on the home page: its stages are in progress or planned, and none is finished yet.
 
 8. **Which files will I be able to use?**
    The plan is to import scans in STL, OBJ and PLY and to export each stage as STL. Each case is saved in a single open file.
@@ -237,7 +239,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 ---
 
 ## Button labels (index)
-Watch the presentation / Follow the development / Play video / Read the transcript / Not available yet / Contact us
+Watch the presentation / Try the alpha / Play video / Read the transcript / Not available yet / Contact us
 
 ## Notes
 - Placeholders: screenshot final alt texts.
@@ -265,7 +267,7 @@ Watch the presentation / Follow the development / Play video / Read the transcri
 | `aligners.rail` | First area |
 | `aligners.legend.inprogress` | Being worked on or validated. |
 | `aligners.legend.planned` | Not started. |
-| `downloads.rail` | Nothing to download yet |
+| `downloads.rail` | Alpha, to try |
 | `downloads.note` | This site has no forms and collects no data. See the privacy note. |
 | `technology.rail` | Work and data |
 | `regulatory.rail` | Regulatory stance |

@@ -510,6 +510,13 @@ html:not(.js) .top { position: static; }
   .dl-after { flex-direction: row; justify-content: space-between; align-items: center; gap: 24px; }
 }
 .dl-note { max-width: 640px; }
+.dl-info { display: flex; flex-direction: column; gap: 12px; max-width: 640px; }
+.dl-terms { font: 700 16px/24px var(--font-sans); color: var(--color-text-primary); }
+.dl-meta { font-size: 13px; line-height: 18px; }
+.dl-sum summary { cursor: pointer; font: 500 14px/20px var(--font-sans); color: var(--color-text-secondary); text-underline-offset: 3px; }
+.dl-sum summary:hover { color: var(--color-text-primary); }
+.dl-sum[open] summary { margin-bottom: 8px; }
+.dl-hash { display: block; font: 400 12px/16px var(--font-mono); color: var(--color-text-primary); word-break: break-all; }
 
 /* ---------- About ---------- */
 .techs { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px 24px; margin-top: 12px; }

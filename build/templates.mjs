@@ -30,6 +30,12 @@ const ICON = {
     '<path d="M7 0.5V13.5M0.5 7H13.5" stroke="currentColor" stroke-width="1.5"/>',
     "ico ico--plus",
   ),
+  download: svg(
+    14,
+    16,
+    '<path d="M7 0.75V10.5M2.5 6.5L7 11L11.5 6.5M1 14.75H13" stroke="currentColor" stroke-width="1.5"/>',
+    "ico",
+  ),
   minus: svg(14, 14, '<path d="M0.5 7H13.5" stroke="currentColor" stroke-width="1.5"/>', "ico ico--minus"),
 };
 
@@ -420,14 +426,33 @@ ${banner(t("aligners.banner"))}
 </section>`;
 }
 
+// "24.3 MB" / "24,3 MB"
+const fmtSize = (lang, bytes) =>
+  `${new Intl.NumberFormat(lang, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(bytes / 1e6)} MB`;
+const fmtDate = (lang, iso) => new Intl.DateTimeFormat(lang, { dateStyle: "long", timeZone: "UTC" }).format(new Date(iso));
+
 function downloads(ctx) {
-  const { t, data } = ctx;
-  const cards = data.platforms
-    .map(
-      (p) =>
-        `<li class="pcard"><div class="pcard__handle"><span class="pcard__code" aria-hidden="true">${p.code}</span>${tag(ctx, "planned", t(p.tag))}</div><div class="pcard__body"><h3 class="h2">${esc(t(`downloads.platform.${p.id}`))}</h3><button class="btn btn--disabled" type="button" aria-disabled="true">${ICON.lock}<span>${esc(t("downloads.button"))}</span></button></div></li>`,
-    )
-    .join("");
+  const { t, data, lang } = ctx;
+  const rel = data.release;
+  const card = (p) => {
+    const f = p.file ? rel.files[p.file] : null;
+    const handle = `<div class="pcard__handle"><span class="pcard__code" aria-hidden="true">${p.code}</span>${tag(ctx, f ? "progress" : "planned", t(p.tag))}</div>`;
+    const title = `<h3 class="h2">${esc(t(`downloads.platform.${p.id}`))}</h3>`;
+    if (!f) {
+      return `<li class="pcard">${handle}<div class="pcard__body">${title}<button class="btn btn--disabled" type="button" aria-disabled="true">${ICON.lock}<span>${esc(t("downloads.button"))}</span></button></div></li>`;
+    }
+    const meta = t("downloads.meta")
+      .replace("{version}", rel.version)
+      .replace("{size}", fmtSize(lang, f.size))
+      .replace("{date}", fmtDate(lang, rel.date));
+    return `<li class="pcard">${handle}<div class="pcard__body">${title}
+<a class="btn btn--primary" href="/download/${f.name}" download>${ICON.download}<span>${esc(t(`downloads.get.${p.id}`))}</span></a>
+<p class="detail">${esc(t(`downloads.req.${p.id}`))}</p>
+<p class="small dl-meta">${esc(meta)}</p>
+<details class="dl-sum"><summary>${esc(t("downloads.checksum"))}</summary><code class="dl-hash">${f.sha256}</code></details>
+</div></li>`;
+  };
+  const cards = data.platforms.map(card).join("");
   const note = esc(t("downloads.note")).replace(
     esc(t("downloads.note.link")),
     `<a class="ul" href="${aboutPath(ctx.lang)}#privacy">${esc(t("downloads.note.link"))}</a>`,
@@ -440,6 +465,11 @@ ${rail(t("downloads.label"), t("downloads.rail"), true)}
 <h2 class="display" id="downloads-h">${esc(t("downloads.headline"))}</h2>
 <p class="lead max640">${esc(t("downloads.body"))}</p>
 <ul class="pcards">${cards}</ul>
+<div class="dl-info">
+<p class="small">${esc(t("downloads.smartscreen"))}</p>
+<p class="dl-terms">${esc(t("downloads.terms"))}</p>
+<p class="small"><a class="ul" href="/download/${rel.sums}">${esc(t("downloads.sums.link"))}</a></p>
+</div>
 <p class="small dl-note">${note}</p>
 <div class="dl-after">
 <p class="dl-contact">${esc(t("downloads.contact"))} <a class="ul" href="mailto:${esc(mail)}">${esc(mail)}</a></p>

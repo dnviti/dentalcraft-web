@@ -17,6 +17,8 @@ COPY content ./content
 COPY brand ./brand
 COPY design/assets ./design/assets
 COPY media/video ./media/video
+# App archives fetched by CI (or by hand, see README): the build verifies them against content/site.data.json
+COPY downloads ./downloads
 RUN node build/build.mjs
 
 FROM docker.io/nginxinc/nginx-unprivileged:stable-alpine

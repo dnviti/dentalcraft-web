@@ -1,5 +1,5 @@
 {
-  "_note": "Language-independent site data. Statuses here are the single source for the EN and IT pages: exists | progress | planned. Only the Case stage of Aligners is in progress.",
+  "_note": "Language-independent site data. Statuses here are the single source for the EN and IT pages: exists | progress | planned. Only the Case stage of Aligners is in progress. The release block is the downloadable alpha: the build fetches nothing, it checks downloads/ against these sizes and hashes.",
   "presentationStatus": [
     { "key": "presentation.status.1", "status": "exists" },
     { "key": "presentation.status.2", "status": "exists" },
@@ -24,9 +24,28 @@
     { "n": 4, "code": "cb", "status": "planned" },
     { "n": 5, "code": "im", "status": "planned" }
   ],
+  "release": {
+    "version": "0.2.0-alpha.1",
+    "repo": "dnviti-personal-org/dentalcraft-app",
+    "tag": "v0.2.0-alpha.1",
+    "date": "2026-11-01",
+    "sums": "dentalcraft_0.2.0-alpha.1_SHA256SUMS.txt",
+    "files": {
+      "linux": {
+        "name": "dentalcraft_0.2.0-alpha.1_linux_x86_64.tar.gz",
+        "size": 24296487,
+        "sha256": "c9195953f47f6b950cad15161d3a93440d4d92997fea38ae0942b44d7524030b"
+      },
+      "windows": {
+        "name": "dentalcraft_0.2.0-alpha.1_windows_x86_64.zip",
+        "size": 31546538,
+        "sha256": "a0d6341cadab0d1df1a5c909155b2f86735bb7f568b03388b1f7f41a8649cfc4"
+      }
+    }
+  },
   "platforms": [
-    { "id": "linux", "code": "LNX", "tag": "tag.comingSoon" },
-    { "id": "windows", "code": "WIN", "tag": "tag.comingSoon" },
+    { "id": "linux", "code": "LNX", "tag": "tag.alpha", "file": "linux" },
+    { "id": "windows", "code": "WIN", "tag": "tag.alpha", "file": "windows" },
     { "id": "macos", "code": "MAC", "tag": "tag.later" }
   ],
   "transcriptTimes": ["0:00", "0:06", "0:14", "0:24", "0:34", "0:47", "0:55", "1:03", "1:10"],

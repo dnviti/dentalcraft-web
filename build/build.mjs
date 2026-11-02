@@ -3,8 +3,9 @@
 //   node build/build.mjs            -> dist/
 //   SITE_URL=https://example.org node build/build.mjs
 //
-// Inputs : content/site.{en,it}.json, content/site.data.json, src/, brand/, design/assets, media/video
-// Output : dist/ (HTML for /en/, /it/, about pages, 404, sitemap, robots, hashed assets, media)
+// Inputs : content/site.{en,it}.json, content/site.data.json, src/, brand/, design/assets, media/video,
+//          downloads/ (app archives from the release named in site.data.json, not in git)
+// Output : dist/ (HTML for /en/, /it/, about pages, 404, sitemap, robots, hashed assets, media, download/)
 
 import { createHash } from "node:crypto";
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
@@ -131,6 +132,30 @@ for (const f of ["dentalcraft-presentation.webm", "dentalcraft-presentation-720p
   if (!existsSync(from)) throw new Error(`Missing media file: media/video/${f}`);
   mkdirSync(join(DIST, "media/video"), { recursive: true });
   cpSync(from, join(DIST, "media/video", f));
+}
+
+// Downloads: the app archives are not in git. They come from the private app release
+// (see data.release) into downloads/, and are checked against the manifest before they ship.
+{
+  const rel = data.release;
+  const lines = [];
+  for (const [id, f] of Object.entries(rel.files)) {
+    const from = join(ROOT, "downloads", f.name);
+    if (!existsSync(from)) {
+      throw new Error(
+        `Missing download "downloads/${f.name}" (${id}). Fetch it with:\n` +
+          `  gh release download ${rel.tag} -R ${rel.repo} -p 'dentalcraft_*' -D downloads`,
+      );
+    }
+    const buf = readFileSync(from);
+    if (buf.length !== f.size) throw new Error(`downloads/${f.name}: size ${buf.length}, expected ${f.size}`);
+    const sha = createHash("sha256").update(buf).digest("hex");
+    if (sha !== f.sha256) throw new Error(`downloads/${f.name}: sha256 ${sha}, expected ${f.sha256}`);
+    mkdirSync(join(DIST, "download"), { recursive: true });
+    cpSync(from, join(DIST, "download", f.name));
+    lines.push(`${f.sha256}  ${f.name}`);
+  }
+  write(`download/${rel.sums}`, lines.join("\n") + "\n");
 }
 
 // robots.txt and sitemap.xml
