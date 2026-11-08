@@ -25,21 +25,21 @@
     { "n": 5, "code": "im", "status": "planned" }
   ],
   "release": {
-    "version": "0.2.0-alpha.1",
+    "version": "0.2.0-alpha.2",
     "repo": "dnviti-personal-org/dentalcraft-app",
-    "tag": "v0.2.0-alpha.1",
-    "date": "2026-11-01",
-    "sums": "dentalcraft_0.2.0-alpha.1_SHA256SUMS.txt",
+    "tag": "v0.2.0-alpha.2",
+    "date": "2026-11-08",
+    "sums": "dentalcraft_0.2.0-alpha.2_SHA256SUMS.txt",
     "files": {
       "linux": {
-        "name": "dentalcraft_0.2.0-alpha.1_linux_x86_64.tar.gz",
-        "size": 24296487,
-        "sha256": "c9195953f47f6b950cad15161d3a93440d4d92997fea38ae0942b44d7524030b"
+        "name": "dentalcraft_0.2.0-alpha.2_linux_x86_64.tar.gz",
+        "size": 24889220,
+        "sha256": "7dd319899d495389e2b6367493c653b7afe6dadb19baaea6e15e559fa810c543"
       },
       "windows": {
-        "name": "dentalcraft_0.2.0-alpha.1_windows_x86_64.zip",
-        "size": 31546538,
-        "sha256": "a0d6341cadab0d1df1a5c909155b2f86735bb7f568b03388b1f7f41a8649cfc4"
+        "name": "dentalcraft_0.2.0-alpha.2_windows_x86_64.zip",
+        "size": 32200239,
+        "sha256": "5a989cd656dce0681a62c793c5724e1c744e379a0008a2f590341608eab6f565"
       }
     }
   },
