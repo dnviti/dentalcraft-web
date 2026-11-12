@@ -3,15 +3,15 @@
 //   node build/build.mjs            -> dist/
 //   SITE_URL=https://example.org node build/build.mjs
 //
-// Inputs : content/site.{en,it}.json, content/site.data.json, src/, brand/, design/assets, media/video,
+// Inputs : content/site.{en,it}.json, content/site.data.json, content/licence.md, src/, brand/, design/assets, media/video,
 //          downloads/ (app archives from the release named in site.data.json, not in git)
-// Output : dist/ (HTML for /en/, /it/, about pages, 404, sitemap, robots, hashed assets, media, download/)
+// Output : dist/ (HTML for /en/, /it/, about and licence pages, 404, sitemap, robots, hashed assets, media, download/)
 
 import { createHash } from "node:crypto";
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { basename, dirname, extname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { aboutPage, homePage, indexPage, notFoundPage } from "./templates.mjs";
+import { aboutPage, homePage, indexPage, licencePage, notFoundPage } from "./templates.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = join(ROOT, "dist");
@@ -28,6 +28,7 @@ const write = (p, data) => {
 
 const copy = { en: JSON.parse(read("content/site.en.json")), it: JSON.parse(read("content/site.it.json")) };
 const data = JSON.parse(read("content/site.data.json"));
+const licenceMd = read("content/licence.md");
 
 // EN and IT must define the same keys.
 {
@@ -105,10 +106,11 @@ function heroArt(t) {
 const pages = [];
 for (const lang of ["en", "it"]) {
   const t = translator(lang);
-  const ctx = { lang, t, data, asset, siteUrl: SITE_URL, css, js, art: heroArt(t) };
+  const ctx = { lang, t, data, asset, siteUrl: SITE_URL, css, js, art: heroArt(t), licenceMd };
   write(`${lang}/index.html`, homePage(ctx));
   write(`${lang}/about/index.html`, aboutPage(ctx));
-  pages.push(`/${lang}/`, `/${lang}/about/`);
+  write(`${lang}/licence/index.html`, licencePage(ctx));
+  pages.push(`/${lang}/`, `/${lang}/about/`, `/${lang}/licence/`);
 }
 
 write("index.html", indexPage({ siteUrl: SITE_URL, css, redirectJs, asset }));

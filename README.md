@@ -12,7 +12,7 @@ DentalCraft marketing website: a static site in English and Italian, with its br
 | `src/styles/site.css` | All CSS. Tokens as custom properties, mobile first (breakpoints 768 and 1200) |
 | `src/scripts/` | `site.js` (menu, language links, current section, video) and `redirect.js` (root page) |
 | `src/assets/` | Self-hosted fonts (Atkinson Hyperlegible Next, B612 Mono; woff2, Latin subset) and screenshot WebPs |
-| `content/` | `site.en.json`, `site.it.json` (copy, same keys), `site.data.json` (statuses), `site-copy.*.md` (editorial copy), `video-script.md` |
+| `content/` | `site.en.json`, `site.it.json` (copy, same keys), `site.data.json` (statuses), `licence.md` (end-user licence agreement, Italian and English, rendered by the licence pages), `site-copy.*.md` (editorial copy), `video-script.md` |
 | `design/` | FigCraft source, `site-spec.md`, `web-tokens.json`, reference PNGs, hero art |
 | `brand/` | Brand kit: logos, favicons, Open Graph image, tokens |
 | `media/video/` | Presentation video (WebM, 720p MP4), poster, EN/IT captions. Other files there are source material and are not shipped |
@@ -30,7 +30,7 @@ SITE_URL=https://example.org node build/build.mjs   # absolute URLs in canonical
 
 `SITE_URL` defaults to `https://dentalcraft.app`. The build:
 
-- generates `/en/`, `/it/`, `/en/about/`, `/it/about/`, the root redirect page `/`, `404.html`, `sitemap.xml`, `robots.txt`;
+- generates `/en/`, `/it/`, `/en/about/`, `/it/about/`, `/en/licence/`, `/it/licence/`, the root redirect page `/`, `404.html`, `sitemap.xml`, `robots.txt`;
 - fails when the EN and IT copy keys differ, when a copy key is missing, or when an internal link or asset does not exist;
 - writes CSS, JS, fonts, images and brand SVGs to `dist/assets/` with a content hash in the name;
 - copies the favicon set to the root and the five video files to `dist/media/video/`;
@@ -92,6 +92,10 @@ Pushes to `main`, `v*` tags and manual runs trigger `.github/workflows/image.yml
 - **Statuses** (Exists today / In progress / Planned): one place, `content/site.data.json`. It feeds the EN and IT pages. Only the Aligners stage "Case" is In progress today; every other stage is Planned.
 - **Video**: replace the files in `media/video/` keeping the names. The page uses `preload="none"` with `poster.jpg`, never autoplays, and turns the Italian captions on by default (both pages: the video carries English on-screen text).
 - **Screenshots**: the second one (Aligners workspace) is a design mock, not a capture. Replace `src/assets/img/aligners-{en,it}-{960,1920}.webp` with real captures before launch.
+
+## Licence
+
+The software is proprietary and free of charge to download and use for non-clinical purposes, under the end-user licence agreement in `content/licence.md` (holder: Daniele Viti). The licence pages `/en/licence/` and `/it/licence/` render that file, so edit the agreement there, never in the templates. The download section and the footer link to them. The source of this repository is private: see `LICENSE.md`.
 
 ## Privacy
 

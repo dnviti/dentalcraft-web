@@ -190,7 +190,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
   - **Windows** - tag Alpha. Button: Download for Windows. Requirements: Windows 10 or 11, 64-bit. Unzip the folder and open dentalcraft.exe.
   - **macOS** - tag Later. Button (disabled): Not available yet
 - **Under each downloadable card:** Version {version} · {size} · {date}, and a collapsed note "For your IT support: SHA-256 checksum" with the hash.
-- **Below the cards:** Windows may say the publisher is unknown: the files are not signed yet. Choose More info, then Run anyway. / Free to try, for evaluation only, as is and without warranty. Not a medical device: do not use it on patients or for clinical decisions. / All checksums (text file)
+- **Below the cards:** Windows may say the publisher is unknown: the files are not signed yet. Choose More info, then Run anyway. / Free of charge under the DentalCraft licence, as is and without warranty. Not a medical device: do not use it on patients or for clinical decisions. [Licence link to the licence page] / All checksums (text file)
 - **Notify form:** removed (decision: no back end, no data collection). A note under the cards says: This site has no forms and collects no data. See the privacy note.
 - **Problems or feedback:** hello@dentalcraft.app
 - **Disclaimer:** In development. Not a medical device. Not for clinical use.
@@ -232,8 +232,9 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 - **Contact label:** Contact
 - **Contact:** hello@dentalcraft.app
 - **Links:** Presentation / Vision / What's next / Downloads / FAQ
+- **Licence:** Licence (link to the licence page)
 - **Privacy note:** Privacy note (link to the About page, section Privacy)
-- **Copyright:** © 2026 DentalCraft
+- **Copyright:** © 2026 Daniele Viti
 - **Language switch:** English | Italiano
 
 ---
@@ -268,6 +269,8 @@ Watch the presentation / Try the alpha / Play video / Read the transcript / Not 
 | `aligners.legend.inprogress` | Being worked on or validated. |
 | `aligners.legend.planned` | Not started. |
 | `downloads.rail` | Alpha, to try |
+| `downloads.terms` | Free of charge under the DentalCraft licence, as is and without warranty. Not a medical device: do not use it on patients or for clinical decisions. |
+| `downloads.terms.link` | Licence |
 | `downloads.note` | This site has no forms and collects no data. See the privacy note. |
 | `technology.rail` | Work and data |
 | `regulatory.rail` | Regulatory stance |
@@ -279,4 +282,23 @@ Watch the presentation / Try the alpha / Play video / Read the transcript / Not 
 | `privacy.headline` | No cookies, no tracking, no forms |
 | `privacy.body.1` | This website sets no cookies, runs no analytics or tracking scripts, loads nothing from third parties and has no forms. We do not collect personal data through it. Your language choice is kept only in your own browser, so that the site can open in your language next time. |
 | `privacy.body.2` | Like any website, this one may keep standard access logs (IP address, time, page requested) for security and troubleshooting. If you write to hello@dentalcraft.app, we use your message only to reply. |
+| `footer.licence` | Licence |
 | `footer.privacy` | Privacy note |
+
+## 12. Licence page (`/en/licence/`)
+
+The page renders `content/licence.md` (the end-user licence agreement, Italian part and English part, verbatim). Each language page shows its own part. The English page notes that the Italian text prevails and links to it.
+
+| Key | Text |
+| --- | --- |
+| `meta.licence.title` | Licence - DentalCraft end-user licence agreement |
+| `meta.licence.description` | The DentalCraft end-user licence agreement: free of charge for non-clinical use, as is and without warranty. Not a medical device. |
+| `meta.licence.ogTitle` | Licence - DentalCraft end-user licence agreement |
+| `meta.licence.ogDescription` | DentalCraft is free of charge for non-clinical use under this licence. Not a medical device and not for clinical use. |
+| `licence.label` | Licence |
+| `licence.rail` | End-user licence agreement |
+| `licence.note` | This is the English translation. In case of conflict, the Italian text prevails. |
+| `licence.note.link` | Italian text |
+| `licence.meta.version` | Version |
+| `licence.meta.licensor` | Licensor |
+| `licence.meta.contact` | Contact |
