@@ -200,7 +200,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 ## 9. FAQ
 
 1. **DentalCraft è disponibile?**
-   Una versione alpha per Linux e Windows si può scaricare dalla pagina iniziale, solo per valutazione. È in fase iniziale di sviluppo: non è un dispositivo medico e non è per uso clinico. Esistono la struttura dell'applicazione, il file unico per ogni caso e la visualizzazione 3D. L'importazione delle scansioni e le funzioni cliniche vengono riprese dallo strumento di partenza e validate.
+   Una versione alpha per Linux e Windows si può scaricare dalla pagina iniziale, gratuitamente, per uso non clinico (valutazione, formazione, ricerca e prove di progettazione). È in fase iniziale di sviluppo: non è un dispositivo medico e non è per uso clinico. Esistono la struttura dell'applicazione, il file unico per ogni caso e la visualizzazione 3D. L'importazione delle scansioni e le funzioni cliniche vengono riprese dallo strumento di partenza e validate.
 
 2. **È certificato? È un dispositivo medico?**
    No. DentalCraft non è un dispositivo medico e non ha alcuna certificazione. Non è per uso clinico. Lo sviluppo segue un approccio regolatorio e l'intenzione è percorrere in futuro il percorso di conformità appropriato.
@@ -215,7 +215,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
    I casi sono pensati per restare sul tuo computer. I file dei casi sono pseudonimizzati e non contengono nomi di pazienti. L'account è previsto solo per licenze e assistenza.
 
 6. **Posso provarlo?**
-   Sì. Una versione alpha per Linux e Windows si può scaricare dalla pagina iniziale. È solo per valutazione: non è un dispositivo medico e non è per uso clinico.
+   Sì. Una versione alpha per Linux e Windows si può scaricare dalla pagina iniziale, gratuitamente, per uso non clinico: valutazione, formazione, ricerca e prove di progettazione. È fornita così com'è. Non è un dispositivo medico e non è per uso clinico.
 
 7. **Che cosa farà per primo?**
    Il primo ambito è Allineatori, per la pianificazione degli allineatori trasparenti. Il flusso previsto è descritto nella pagina iniziale: le fasi sono in corso o pianificate e nessuna è ancora completa.

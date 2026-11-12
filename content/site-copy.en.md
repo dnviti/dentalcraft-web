@@ -200,7 +200,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 ## 9. FAQ
 
 1. **Is DentalCraft available?**
-   An alpha version for Linux and Windows can be downloaded from the home page, for evaluation only. It is in early development: it is not a medical device and not for clinical use. The application structure, the single file for each case and the 3D view exist. Scan import and the clinical functions are being brought over from the earlier tool and validated.
+   An alpha version for Linux and Windows can be downloaded from the home page, free of charge, for non-clinical use (evaluation, training, research and design trials). It is in early development: it is not a medical device and not for clinical use. The application structure, the single file for each case and the 3D view exist. Scan import and the clinical functions are being brought over from the earlier tool and validated.
 
 2. **Is it certified? Is it a medical device?**
    No. DentalCraft is not a medical device and holds no certification. It is not for clinical use. We are building with a regulatory mindset and intend to pursue the appropriate conformity path in the future.
@@ -215,7 +215,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
    Cases are designed to stay on your computer. Case files are pseudonymised and carry no patient names. An account is planned only for licences and support.
 
 6. **Can I try it?**
-   Yes. An alpha version for Linux and Windows can be downloaded from the home page. It is for evaluation only: it is not a medical device and not for clinical use.
+   Yes. An alpha version for Linux and Windows can be downloaded from the home page, free of charge, for non-clinical use: evaluation, training, research and design trials. It is provided as is. It is not a medical device and not for clinical use.
 
 7. **What can it do first?**
    The first area is Aligners, for clear aligner planning. The intended workflow is described on the home page: its stages are in progress or planned, and none is finished yet.
