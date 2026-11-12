@@ -75,7 +75,7 @@ The page offers the alpha for Linux and Windows. The files are served by the sit
 - `downloads/` (git-ignored) holds the archives. `node build/build.mjs` fails if one is missing, or if its size or hash differs from the manifest. Fetch them with your own `gh` login:
 
   ```sh
-  gh release download v0.2.0-alpha.2 -R dnviti-personal-org/dentalcraft-app -p 'dentalcraft_*' -D downloads
+  gh release download v0.2.0-alpha.3 -R dnviti-personal-org/dentalcraft-app -p 'dentalcraft_*' -D downloads
   ```
 
 - CI (`image.yml`) does the same before the image build, with the repository secret `APP_RELEASE_TOKEN`: a fine-grained personal access token with read-only `Contents` access to `dnviti-personal-org/dentalcraft-app`. Without it the job stops with a clear message.
