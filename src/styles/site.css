@@ -576,6 +576,8 @@ html:not(.js) .top { position: static; }
 .foot__disc { padding: 24px 0; border-block: 1px solid var(--color-line-subtle); font-weight: 700; }
 .foot__legal { display: flex; flex-direction: column-reverse; gap: 8px; font: 500 14px/20px var(--font-sans); color: var(--color-text-secondary); }
 .foot__legal a { padding: 8px 0; width: fit-content; }
+.foot__legal-links { display: flex; flex-wrap: wrap; gap: 0 24px; }
+.foot__legal-links a { display: inline-block; }
 @media (min-width: 768px) {
   .foot__top { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
   .foot__brand { grid-column: auto; }
@@ -588,6 +590,16 @@ html:not(.js) .top { position: static; }
   .nl--foot { height: 36px; }
   .foot__col ul { gap: 8px; }
 }
+
+/* ---------- Licence (end-user licence agreement) ---------- */
+.eula { max-width: 720px; }
+.eula__meta { display: flex; flex-wrap: wrap; gap: 4px 24px; color: var(--color-text-secondary); font: 500 14px/20px var(--font-sans); }
+.eula__meta .mono-label { margin-right: 6px; }
+.eula__note { font: 500 16px/24px var(--font-sans); color: var(--color-text-primary); padding-left: 16px; border-left: 2px solid var(--color-line-strong); }
+.eula__body { display: flex; flex-direction: column; gap: 16px; margin-top: 12px; }
+.eula__h { margin-top: 20px; color: var(--color-text-primary); }
+.eula__list { display: flex; flex-direction: column; gap: 8px; color: var(--color-text-secondary); }
+.eula__list li { padding-left: 24px; text-indent: -24px; }
 
 /* ---------- Plain pages (root index, 404) ---------- */
 .plain__in { max-width: 640px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 24px; }

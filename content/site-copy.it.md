@@ -190,7 +190,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
   - **Windows** - tag Alpha. Pulsante: Scarica per Windows. Requisiti: Windows 10 o 11 a 64 bit. Estrai la cartella e apri dentalcraft.exe.
   - **macOS** - tag In seguito. Pulsante (disattivato): Non ancora disponibile
 - **Sotto ogni card scaricabile:** Versione {version} · {size} · {date}, e una nota chiusa "Per il tuo tecnico informatico: checksum SHA-256" con l'hash.
-- **Sotto le card:** Windows potrebbe dire che l'editore è sconosciuto: i file non sono ancora firmati. Scegli «Ulteriori informazioni», poi «Esegui comunque». / Gratuita da provare, solo per valutazione, così com'è e senza garanzia. Non è un dispositivo medico: non usarla sui pazienti né per decisioni cliniche. / Tutti i checksum (file di testo)
+- **Sotto le card:** Windows potrebbe dire che l'editore è sconosciuto: i file non sono ancora firmati. Scegli «Ulteriori informazioni», poi «Esegui comunque». / Gratuita con la licenza DentalCraft, così com'è e senza garanzia. Non è un dispositivo medico: non usarla sui pazienti né per decisioni cliniche. [Licenza: link alla pagina della licenza] / Tutti i checksum (file di testo)
 - **Modulo di avviso:** rimosso (decisione: nessun back end, nessuna raccolta dati). Una nota sotto le card dice: Questo sito non ha moduli e non raccoglie dati. Leggi la nota sulla privacy.
 - **Problemi o suggerimenti:** hello@dentalcraft.app
 - **Avviso:** In sviluppo. Non è un dispositivo medico. Non per uso clinico.
@@ -200,7 +200,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 ## 9. FAQ
 
 1. **DentalCraft è disponibile?**
-   Una versione alpha per Linux e Windows si può scaricare dalla pagina iniziale, solo per valutazione. È in fase iniziale di sviluppo: non è un dispositivo medico e non è per uso clinico. Esistono la struttura dell'applicazione, il file unico per ogni caso e la visualizzazione 3D. L'importazione delle scansioni e le funzioni cliniche vengono riprese dallo strumento di partenza e validate.
+   Una versione alpha per Linux e Windows si può scaricare dalla pagina iniziale, gratuitamente, per uso non clinico (valutazione, formazione, ricerca e prove di progettazione). È in fase iniziale di sviluppo: non è un dispositivo medico e non è per uso clinico. Esistono la struttura dell'applicazione, il file unico per ogni caso e la visualizzazione 3D. L'importazione delle scansioni e le funzioni cliniche vengono riprese dallo strumento di partenza e validate.
 
 2. **È certificato? È un dispositivo medico?**
    No. DentalCraft non è un dispositivo medico e non ha alcuna certificazione. Non è per uso clinico. Lo sviluppo segue un approccio regolatorio e l'intenzione è percorrere in futuro il percorso di conformità appropriato.
@@ -215,7 +215,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
    I casi sono pensati per restare sul tuo computer. I file dei casi sono pseudonimizzati e non contengono nomi di pazienti. L'account è previsto solo per licenze e assistenza.
 
 6. **Posso provarlo?**
-   Sì. Una versione alpha per Linux e Windows si può scaricare dalla pagina iniziale. È solo per valutazione: non è un dispositivo medico e non è per uso clinico.
+   Sì. Una versione alpha per Linux e Windows si può scaricare dalla pagina iniziale, gratuitamente, per uso non clinico: valutazione, formazione, ricerca e prove di progettazione. È fornita così com'è. Non è un dispositivo medico e non è per uso clinico.
 
 7. **Che cosa farà per primo?**
    Il primo ambito è Allineatori, per la pianificazione degli allineatori trasparenti. Il flusso previsto è descritto nella pagina iniziale: le fasi sono in corso o pianificate e nessuna è ancora completa.
@@ -232,8 +232,9 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 - **Etichetta contatti:** Contatti
 - **Contatto:** hello@dentalcraft.app
 - **Link:** Presentazione / Visione / In programma / Download / FAQ
+- **Licenza:** Licenza (link alla pagina della licenza)
 - **Nota privacy:** Nota sulla privacy (link alla pagina Su, sezione Privacy)
-- **Copyright:** © 2026 DentalCraft
+- **Copyright:** © 2026 Daniele Viti
 - **Cambio lingua:** English | Italiano
 
 ---
@@ -268,6 +269,8 @@ Guarda la presentazione / Prova l'alpha / Riproduci il video / Leggi la trascriz
 | `aligners.legend.inprogress` | In lavorazione o in validazione. |
 | `aligners.legend.planned` | Non ancora avviato. |
 | `downloads.rail` | Alpha, da provare |
+| `downloads.terms` | Gratuita con la licenza DentalCraft, così com'è e senza garanzia. Non è un dispositivo medico: non usarla sui pazienti né per decisioni cliniche. |
+| `downloads.terms.link` | Licenza |
 | `downloads.note` | Questo sito non ha moduli e non raccoglie dati. Leggi la nota sulla privacy. |
 | `technology.rail` | Lavoro e dati |
 | `regulatory.rail` | Posizione normativa |
@@ -279,4 +282,23 @@ Guarda la presentazione / Prova l'alpha / Riproduci il video / Leggi la trascriz
 | `privacy.headline` | Niente cookie, niente tracciamento, niente moduli |
 | `privacy.body.1` | Questo sito non imposta cookie, non usa strumenti di analisi o tracciamento, non carica nulla da terze parti e non ha moduli. Non raccogliamo dati personali tramite il sito. La lingua scelta resta solo nel tuo browser, così il sito può aprirsi nella tua lingua la volta successiva. |
 | `privacy.body.2` | Come ogni sito web, anche questo può conservare i normali registri di accesso (indirizzo IP, ora, pagina richiesta) per sicurezza e diagnosi. Se scrivi a hello@dentalcraft.app, useremo il tuo messaggio solo per risponderti. |
+| `footer.licence` | Licenza |
 | `footer.privacy` | Nota sulla privacy |
+
+## 12. Pagina Licenza (`/it/licence/`)
+
+La pagina rende `content/licence.md` (il contratto di licenza d'uso, parte italiana e parte inglese, testo invariato). Ogni pagina linguistica mostra la propria parte. La pagina italiana rimanda alla traduzione inglese.
+
+| Chiave | Testo |
+| --- | --- |
+| `meta.licence.title` | Licenza - Contratto di licenza d'uso di DentalCraft |
+| `meta.licence.description` | Il contratto di licenza d'uso di DentalCraft: gratuito per uso non clinico, così com'è e senza garanzia. Non è un dispositivo medico. |
+| `meta.licence.ogTitle` | Licenza - Contratto di licenza d'uso di DentalCraft |
+| `meta.licence.ogDescription` | DentalCraft è gratuito per uso non clinico con questa licenza. Non è un dispositivo medico e non è per uso clinico. |
+| `licence.label` | Licenza |
+| `licence.rail` | Contratto di licenza d'uso |
+| `licence.note` | Questo testo italiano prevale in caso di contrasto. Leggi la traduzione inglese. |
+| `licence.note.link` | traduzione inglese |
+| `licence.meta.version` | Versione |
+| `licence.meta.licensor` | Licenziante |
+| `licence.meta.contact` | Contatto |

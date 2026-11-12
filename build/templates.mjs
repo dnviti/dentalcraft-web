@@ -67,6 +67,8 @@ const statusTag = (ctx, kind) => tag(ctx, kind);
 
 const prefix = (lang) => `/${lang}/`;
 const aboutPath = (lang) => `/${lang}/about/`;
+const licencePath = (lang) => `/${lang}/licence/`;
+const PAGE_REL = { home: "", about: "about/", licence: "licence/" };
 
 // Link to a section: same page => hash only.
 function sectionHref(ctx, page, target, id) {
@@ -88,7 +90,7 @@ const NAV = [
 // ---------- shared parts ----------
 
 function langSwitch(ctx, page, cls = "") {
-  const rel = page === "about" ? "about/" : "";
+  const rel = PAGE_REL[page];
   const item = (l, label, name) => {
     const cur = l === ctx.lang;
     return `<a href="/${l}/${rel}" lang="${l}" hreflang="${l}" data-lang-link="${l}"${cur ? ' aria-current="true"' : ""}><span aria-hidden="true">${label}</span><span class="vh">${esc(name)}</span></a>`;
@@ -162,7 +164,10 @@ ${langSwitch(ctx, page)}
 <p class="foot__disc">${esc(t("disclaimer.full"))}</p>
 <div class="foot__legal">
 <p>${esc(t("footer.copyright"))}</p>
-<a class="ul" href="${sectionHref(ctx, page, "about", "privacy")}">${esc(t("footer.privacy"))}</a>
+<ul class="foot__legal-links">
+<li><a class="ul" href="${licencePath(ctx.lang)}">${esc(t("footer.licence"))}</a></li>
+<li><a class="ul" href="${sectionHref(ctx, page, "about", "privacy")}">${esc(t("footer.privacy"))}</a></li>
+</ul>
 </div>
 </div>
 </footer>`;
@@ -178,10 +183,10 @@ const banner = (text) =>
 
 function head(ctx, page) {
   const { t, lang, siteUrl, asset } = ctx;
-  const key = page === "about" ? "about" : "home";
+  const key = page;
   const title = t(`meta.${key}.title`);
   const desc = t(`meta.${key}.description`);
-  const rel = page === "about" ? "about/" : "";
+  const rel = PAGE_REL[page];
   const url = (l) => `${siteUrl}/${l}/${rel}`;
   const og = `${siteUrl}${asset("brand/og/og-image.png")}`;
   const locale = lang === "it" ? "it_IT" : "en_US";
@@ -467,7 +472,7 @@ ${rail(t("downloads.label"), t("downloads.rail"), true)}
 <ul class="pcards">${cards}</ul>
 <div class="dl-info">
 <p class="small">${esc(t("downloads.smartscreen"))}</p>
-<p class="dl-terms">${esc(t("downloads.terms"))}</p>
+<p class="dl-terms">${esc(t("downloads.terms"))} <a class="ul" href="${licencePath(ctx.lang)}">${esc(t("downloads.terms.link"))}</a></p>
 <p class="small"><a class="ul" href="/download/${rel.sums}">${esc(t("downloads.sums.link"))}</a></p>
 </div>
 <p class="small dl-note">${note}</p>
@@ -573,6 +578,75 @@ ${rail(t("privacy.label"), t("privacy.rail"))}
 export function aboutPage(ctx) {
   const body = [technology(ctx), regulatory(ctx), faq(ctx), contact(ctx), privacy(ctx)].join("\n");
   return shell(ctx, "about", body);
+}
+
+// ---------- Licence ----------
+
+// Inline text: escape, then link e-mail addresses.
+const inline = (s) => esc(s).replace(/[\w.+-]+@[\w-]+(?:\.[\w-]+)+/g, (m) => `<a class="ul" href="mailto:${m}">${m}</a>`);
+
+// content/licence.md = header block, Italian part, English part, separated by "---" lines.
+// Renders one part: "## " title, "### " clauses, paragraphs, and runs of "a) ..." lines as a list.
+function renderPart(md) {
+  const out = [];
+  let list = [];
+  const flush = () => {
+    if (list.length) out.push(`<ul class="eula__list">${list.map((l) => `<li>${inline(l)}</li>`).join("")}</ul>`);
+    list = [];
+  };
+  for (const raw of md.split("\n")) {
+    const line = raw.trim();
+    if (/^[a-z]\) /.test(line)) { list.push(line); continue; }
+    flush();
+    if (!line) continue;
+    if (line.startsWith("### ")) out.push(`<h3 class="h3 eula__h">${inline(line.slice(4))}</h3>`);
+    else if (line.startsWith("## ")) continue;
+    else out.push(`<p class="sec-text">${inline(line)}</p>`);
+  }
+  flush();
+  return out.join("\n");
+}
+
+function licenceBody(ctx) {
+  const { t, lang } = ctx;
+  const blocks = ctx.licenceMd.split(/^---$/m);
+  if (blocks.length !== 3) throw new Error("content/licence.md: expected header, Italian part and English part");
+  const [headBlock, itPart, enPart] = blocks;
+  const part = lang === "it" ? itPart : enPart;
+  const title = (part.match(/^## (.+)$/m) || [])[1];
+  if (!title) throw new Error("content/licence.md: part without title");
+  // Header lines are "Italian / English: value" (the value may be bilingual too); show the side for this language.
+  const meta = headBlock
+    .split("\n")
+    .map((l) => l.match(/^(.+?) \/ (.+?): (.+)$/))
+    .filter(Boolean)
+    .map((m) => {
+      const v = m[3].replace(/\((.+?) \/ (.+?)\)/, (_, it, en) => `(${lang === "it" ? it : en})`); // "(Italia / Italy)"
+      return `<li><span class="mono-label">${esc(lang === "it" ? m[1] : m[2])}</span> ${inline(v)}</li>`;
+    })
+    .join("");
+  const other = lang === "it" ? "en" : "it";
+  const note = esc(t("licence.note")).replace(
+    esc(t("licence.note.link")),
+    `<a class="ul" href="${licencePath(other)}" hreflang="${other}" lang="${other}">${esc(t("licence.note.link"))}</a>`,
+  );
+  return `<section class="sec sec--first" id="licence" aria-labelledby="licence-h">
+<div class="wrap sec__grid">
+${rail(t("licence.label"), t("licence.rail"))}
+<div class="content content--stack-sm eula">
+<h1 class="display" id="licence-h">${esc(title.replace(/\s*\((?:italiano|English)\)\s*$/, ""))}</h1>
+<ul class="eula__meta">${meta}</ul>
+<p class="eula__note">${note}</p>
+<div class="eula__body">
+${renderPart(part)}
+</div>
+</div>
+</div>
+</section>`;
+}
+
+export function licencePage(ctx) {
+  return shell(ctx, "licence", licenceBody(ctx));
 }
 
 // ---------- root index, 404 ----------
