@@ -423,8 +423,10 @@ ${rail(t("aligners.label"), t("aligners.rail"))}
 <p class="lead">${esc(t("aligners.body"))}</p>
 ${banner(t("aligners.banner"))}
 <div class="legend">
-<p>${statusTag(ctx, "progress")}<span class="small">${esc(t("aligners.legend.inprogress"))}</span></p>
-<p>${statusTag(ctx, "planned")}<span class="small">${esc(t("aligners.legend.planned"))}</span></p>
+${["exists", "progress", "planned"]
+  .filter((k) => data.alignerStages.some((s) => s.status === k))
+  .map((k) => `<p>${statusTag(ctx, k)}<span class="small">${esc(t(`aligners.legend.${k === "progress" ? "inprogress" : k}`))}</span></p>`)
+  .join("\n")}
 </div>
 <ol class="stages">${rows}</ol>
 </div>
@@ -470,6 +472,7 @@ ${rail(t("downloads.label"), t("downloads.rail"), true)}
 <div class="dl-info">
 <p class="small">${esc(t("downloads.smartscreen"))}</p>
 <p class="dl-terms">${esc(t("downloads.terms"))} <a class="ul" href="${licencePath(ctx.lang)}">${esc(t("downloads.terms.link"))}</a></p>
+<p class="small"><a class="ul" href="${downloadPath(ctx.lang)}#whats-new">${esc(t("new.link").replace("{version}", rel.version))}</a></p>
 <p class="small"><a class="ul" href="/download/${rel.sums}">${esc(t("downloads.sums.link"))}</a></p>
 </div>
 <p class="small dl-note">${note}</p>
@@ -632,6 +635,13 @@ function downloadBody(ctx) {
     })
     .join("\n");
   const fpr = signing.gpgFingerprint.replace(/(.{4})(?!$)/g, "$1 ");
+  const bullets = data.whatsNew.map((k) => `<li>${esc(t(k))}</li>`).join("");
+  const news = `<div class="dl-new" id="whats-new">
+<h2 class="h2">${esc(t("new.title").replace("{version}", rel.version))}</h2>
+<p class="small">${esc(t("new.meta").replace("{date}", fmtDate(lang, rel.date)))}</p>
+<ul class="dl-new__list detail">${bullets}</ul>
+<p class="small">${esc(t("new.note"))}</p>
+</div>`;
   return `<section class="sec sec--first" id="download" aria-labelledby="download-h">
 <div class="wrap sec__grid">
 ${rail(t("downloads.label"), t("dl.rail"))}
@@ -640,6 +650,7 @@ ${rail(t("downloads.label"), t("dl.rail"))}
 <p class="lead max640">${esc(t("dl.body"))}</p>
 <p class="detail max640">${esc(t("downloads.body"))}</p>
 <p class="detail max640">${esc(t("dl.updates"))}</p>
+${news}
 <ul class="dloss">${cards}</ul>
 <div class="dl-info">
 <p class="dl-terms">${esc(t("downloads.terms"))} <a class="ul" href="${licencePath(lang)}">${esc(t("downloads.terms.link"))}</a></p>
@@ -666,7 +677,7 @@ export function downloadPage(ctx) {
 
 function technology(ctx) {
   const { t } = ctx;
-  const items = [1, 2, 3, 4, 5, 6]
+  const items = [1, 2, 3, 4, 5, 6, 7, 8]
     .map(
       (n) =>
         `<li class="tech"><h3 class="h3">${esc(t(`technology.i${n}.title`))}</h3><p class="sec-text sec-text--sm">${esc(t(`technology.i${n}.body`))}</p></li>`,
@@ -702,7 +713,7 @@ ${rail(t("regulatory.label"), t("regulatory.rail"))}
 
 function faq(ctx) {
   const { t } = ctx;
-  const items = [1, 2, 3, 4, 5, 6, 7, 8]
+  const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     .map(
       (n) =>
         `<details class="faq"${n === 1 ? " open" : ""}><summary><h3 class="h3">${esc(t(`faq.q${n}`))}</h3><span class="faq__tog">${ICON.plus}${ICON.minus}</span></summary><div class="faq__a"><p class="sec-text">${esc(t(`faq.a${n}`))}</p></div></details>`,

@@ -49,13 +49,18 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 - **Body:**
   DentalCraft is a dental CAD. It grows out of an orthodontic aligner planning tool that its author built earlier. It takes up that work and turns it into a dedicated, faster, standalone application, organised like the professional dental CAD suites: a common base and, on top of it, one area for each type of work.
 
-  The project is at an early stage. Today the application structure, the single file for each case and the 3D view exist. Scan import and the clinical functions are being brought over from the earlier tool and validated.
+  The project is at an early stage. The alpha already covers the path from scan import to a first plan: find and separate the teeth, build 3D teeth, analyse the case, register the bite, set a final position, plan the aligners and prepare files for printing. Planning and production are still being validated against the earlier tool: do not rely on their results.
 - **Status list (with tags):**
   - Application structure - `Exists today`
-  - Single file for each case - `Exists today`
-  - 3D view - `Exists today`
-  - Scan import - `In progress` (being brought over from the earlier tool and validated)
-  - Clinical functions - `In progress` (being brought over from the earlier tool and validated)
+  - Single file for each case, saved automatically - `Exists today`
+  - 3D view with selection, move, rotate and scale - `Exists today`
+  - Scan import, with automatic closing of open scans - `Exists today`
+  - Find the teeth, separate teeth and gum, 3D teeth - `Exists today`
+  - Case analysis and bite - `Exists today`
+  - Final position, aligners and clinical review - `In progress`
+  - Production and export for printing - `In progress`
+  - Installers with automatic updates - `Exists today`
+  - Commands for scripts and AI agents - `Exists today`
 
 ### Video block
 - **Heading:** The 75-second presentation
@@ -104,34 +109,34 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 ## 4. Aligners area
 
 - **Section label:** Aligners - first area
-- **Label banner:** Intended workflow. Each stage is tagged `Planned` or `In progress`. Nothing here is finished yet.
+- **Label banner:** Status of each stage in the alpha. Planning, production and export are still in development: their results are not validated and must not be used for patients.
 - **Headline:** From scan to aligner, in one workspace
-- **Body:** The Aligners area is designed to follow the clinical path from intraoral scan to files for printing. The stages below are grouped like the application menu.
-- **Legend:** `In progress` = being worked on or validated. `Planned` = not started.
+- **Body:** The Aligners area follows the clinical path from intraoral scan to files for printing. The stages below are grouped like the application menu, and each one says what the alpha already does.
+- **Legend:** `Exists today` = works in the alpha, early version, not validated for clinical use. `In progress` = partly there, being worked on or validated. `Planned` = not started (shown only when a stage has it).
 
-| Group | Stages | Tag |
+| Group | What the alpha does | Tag |
 |---|---|---|
-| **Case** | Import intraoral scans (STL, OBJ, PLY) | In progress |
-| **Preparation** | Orientation and arch; FDI tooth numbering; tooth segmentation; tooth and gingiva reconstruction | Planned |
-| **Diagnosis** | Space analysis; Little irregularity index; Bolton analysis | Planned |
-| **Planning** | Setup of the final position; staging per aligner with movement limits for each tooth; interproximal reduction (IPR); attachments | Planned |
-| **Occlusion** | Occlusion and bite, including bite with aligners | Planned |
-| **Aligner production** | Aligner shell with thickness and clearance; trim line; identification stamp; print check | Planned |
-| **Follow-up** | Follow-up visits | Planned |
-| **Export** | STL export for each stage; reports | Planned |
+| **Case** | Import intraoral scans (STL, OBJ, PLY). An open scan is closed automatically with a flat base. Choose the arch by hand and flip the occlusal side. | Exists today |
+| **Preparation** | Find the teeth and number them (FDI), with marks you can add, delete or renumber by hand, and missing teeth. Separate teeth and gum, with a brush and border cleaning for corrections. 3D teeth, each a closed model, with a gum that follows them. See a tooth's region and margin line. | Exists today |
+| **Diagnosis** | Case analysis: space, crowding, Little irregularity index, Bolton and the complexity of the case. Enter your own measured values and the results follow them. | Exists today |
+| **Planning** | Final position, with parameters, the arch line drawn by hand, move a tooth and back to the initial position. Aligners: stages, change calendar, slow a tooth, stage slider. Clinical review with attachments and interproximal reduction (IPR) marks. | In progress |
+| **Occlusion** | Bite report, bite scans, registration on the bite scan or with three points picked by hand, bite correction and a contact map. | Exists today |
+| **Aligner production** | Production settings (thickness, clearance, quality), where the aligner ends, trim line with contact bridges, holes and checks, identification stamps, bite with aligners. The aligner can be previewed in the 3D view, only when you ask. High-quality files are still slow to produce. | In progress |
+| **Follow-up** | Control visit: compare a new scan with the plan, and re-plan from a delivered aligner. Tooth-by-tooth tracking is not there yet. | In progress |
+| **Export** | Export for printing: STL files for each stage (aligners and models), change calendar, report and patient programme. Study models, also shown in the 3D view. | In progress |
 
-*(Decision: only Case is In progress; every other stage is Planned. The site reads the statuses from `content/site.data.json`.)*
+*(Rule: DONE in `docs/plan/PORT-GAP-MAP.md` is Exists today, PARTIAL is In progress. Planning and production are never shown as validated. The site reads the statuses from `content/site.data.json`.)*
 
 - **Group microcopy:**
   - Case: Start from the scan.
   - Preparation: Get the scans ready for planning.
   - Diagnosis: Measure before moving.
-  - Planning: Define the target and the steps.
+  - Planning: Define the target and the steps. In development: do not use the results for patients.
   - Occlusion: Check how the arches meet.
-  - Aligner production: Prepare the shell for printing.
-  - Follow-up: Compare plan and progress.
-  - Export: Files and reports.
-- **Workflow diagram alt:** Eight-step flow from Case to Export, each step tagged as planned or in progress.
+  - Aligner production: Prepare the shell for printing. In development.
+  - Follow-up: Compare plan and progress. Early version.
+  - Export: Files and reports. Being completed.
+- **Workflow diagram alt:** Eight-step flow from Case to Export, each step tagged as exists today or in progress.
 
 ---
 
@@ -141,7 +146,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 - **Headline:** One application, several areas of work
 - **Body:** DentalCraft will have a common base and, on top of it, one area for each type of work. Aligners comes first. The others are planned, with no dates.
 - **Areas of work:**
-  - **Aligners** - First area. In active development.
+  - **Aligners** - First area. In active development: from scan to bite it works in the alpha; planning and production are still being validated.
   - **Model Builder** - Planned.
   - **Splint** - Planned.
   - **Crown & Bridge** - Planned.
@@ -157,12 +162,14 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 - **Headline:** Your work, your data
 - **Body:** Choices made for speed, control and traceability of the work.
 - **Items:**
-  - **An application on your computer.** You install and use it on the practice or lab computer, not through a browser.
-  - **A smooth 3D view.** Designed to handle even the most detailed scans smoothly.
-  - **One file for each case.** An open, documented file with an integrity check.
+  - **An application on your computer.** You install and use it on the practice or lab computer, not through a browser. Installers for Linux and Windows check for updates and ask before installing them.
+  - **A smooth 3D view.** Click any tooth, gum or scan to select it and see it outlined, then move, rotate or scale it in the view. Designed to stay smooth even with detailed scans.
+  - **One file for each case.** An open, documented file with an integrity check. It is saved automatically a moment after each change, and whenever you save.
   - **Privacy by design.** Patient data is pseudonymised: no names in case files.
   - **Cases stay with you.** You work on cases saved on your computer. An account is planned for licences and support only.
   - **Two languages.** English and Italian.
+  - **Driven by scripts and AI agents.** Every action is also a command of dentalcraft-cli and its MCP server, so scripts and AI agents can run the same steps.
+  - **Nothing silently out of date.** When you change a step, the later results that depend on it are listed as out of date.
 - **Microcopy:** Details will be published once the file format is final.
 
 ---
@@ -200,7 +207,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 ## 9. FAQ
 
 1. **Is DentalCraft available?**
-   An alpha version for Linux and Windows can be downloaded from the home page, free of charge, for non-clinical use (evaluation, training, research and design trials). It is in early development: it is not a medical device and not for clinical use. The application structure, the single file for each case and the 3D view exist. Scan import and the clinical functions are being brought over from the earlier tool and validated.
+   An alpha version for Linux and Windows can be downloaded from the home page, free of charge, for non-clinical use (evaluation, training, research and design trials). It is in early development: it is not a medical device and not for clinical use. It already lets you import scans, find and separate the teeth, build 3D teeth, analyse the case, register the bite, set a final position, plan the aligners and prepare files for printing. Planning and production are still in development.
 
 2. **Is it certified? Is it a medical device?**
    No. DentalCraft is not a medical device and holds no certification. It is not for clinical use. We are building with a regulatory mindset and intend to pursue the appropriate conformity path in the future.
@@ -208,8 +215,8 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 3. **Which computers will it run on?**
    Linux and Windows first. macOS later.
 
-4. **How much will it cost?**
-   Pricing has not been decided.
+4. **Is it free?**
+   Yes. The alpha can be downloaded and used free of charge, for non-clinical use, under the DentalCraft licence. See the licence page for the terms.
 
 5. **What happens to patient data?**
    Cases are designed to stay on your computer. Case files are pseudonymised and carry no patient names. An account is planned only for licences and support.
@@ -217,11 +224,17 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 6. **Can I try it?**
    Yes. An alpha version for Linux and Windows can be downloaded from the home page, free of charge, for non-clinical use: evaluation, training, research and design trials. It is provided as is. It is not a medical device and not for clinical use.
 
-7. **What can it do first?**
-   The first area is Aligners, for clear aligner planning. The intended workflow is described on the home page: its stages are in progress or planned, and none is finished yet.
+7. **What can it do today?**
+   The first area is Aligners, for clear aligner planning. The home page lists every stage with its status. From scan import to the bite it works in the alpha; the final position, the aligners, the clinical review, production and export are still in development, and their results are not validated: do not use them for patients.
 
-8. **Which files will I be able to use?**
-   The plan is to import scans in STL, OBJ and PLY and to export each stage as STL. Each case is saved in a single open file.
+8. **Which files can I use?**
+   You can import scans in STL, OBJ and PLY; open scans are closed automatically with a base. Export for printing writes STL files for each stage, with a change calendar and a report: that function is still being completed. Each case is saved in a single open file, automatically a moment after each change and whenever you save.
+
+9. **Can I use it from scripts or with an AI agent?**
+   Yes. Every action in the application is also a command of the dentalcraft-cli tool, which comes with the standalone downloads and the installers, and of its MCP server, so a script or an AI agent can run the same steps.
+
+10. **How does it update?**
+    The Flatpak, Fedora and Debian/Ubuntu versions update with your system. All the others check this site when DentalCraft starts, ask before updating and verify the signature of the update before installing it.
 
 ---
 
@@ -263,10 +276,11 @@ Watch the presentation / Try the alpha / Play video / Read the transcript / Not 
 | `vision.rail` | Intent, not features |
 | `roadmap.rail` | No dates announced |
 | `roadmap.core.label` | Common base |
-| `roadmap.core.items` | Application structure, single file for each case, 3D view |
-| `roadmap.m1.note` | First area. In active development. |
+| `roadmap.core.items` | Application structure, single file for each case (saved automatically), 3D view with selection and move, rotate and scale |
+| `roadmap.m1.note` | First area. In active development: from scan to bite it works in the alpha; planning and production are still being validated. |
 | `aligners.rail` | First area |
-| `aligners.legend.inprogress` | Being worked on or validated. |
+| `aligners.legend.exists` | Works in the alpha. Early version, not validated for clinical use. |
+| `aligners.legend.inprogress` | Partly there. Being worked on or validated. |
 | `aligners.legend.planned` | Not started. |
 | `downloads.rail` | Alpha, to try |
 | `downloads.terms` | Free of charge under the DentalCraft licence, as is and without warranty. Not a medical device: do not use it on patients or for clinical decisions. |
@@ -347,3 +361,24 @@ One card per operating system (Linux, Windows, macOS later), each with two colum
 | `meta.download.description` | Download the DentalCraft alpha for Linux (Flatpak, Fedora, Debian and Ubuntu, AppImage) and Windows (setup or MSI), or the standalone version. Not a medical device. |
 | `meta.download.ogTitle` | Download DentalCraft - installer or standalone |
 | `meta.download.ogDescription` | The DentalCraft alpha for Linux and Windows, with installer or standalone. Free of charge for non-clinical use. Not a medical device. |
+
+## 14. What's new (download page, `/en/download/#whats-new`)
+
+A block between the intro and the OS cards, with a link from the home page downloads section. It lists the pinned release (`site.data.json` `whatsNew` = the `new.N` keys, in order). Rewrite it with every app release, together with the functions above.
+
+| Key | Text |
+| --- | --- |
+| `new.title` | What's new in version {version} |
+| `new.meta` | Released {date} |
+| `new.link` | What's new in version {version} |
+| `new.note` | Planning, production and export are still in development. Not a medical device. Not for clinical use. |
+| `new.1` | Installers for Linux (Flatpak, Fedora, Debian and Ubuntu, AppImage) and Windows (setup and MSI). DentalCraft checks for updates when it starts and asks before installing them. |
+| `new.2` | Scans: an open scan is closed automatically with a flat base when you import it. You can choose the arch by hand, flip the occlusal side, and see how each scan was closed. |
+| `new.3` | The menu is grouped by function. Clicking an item only selects it: its panel on the right holds its parameters, its run button and its manual corrections. |
+| `new.4` | Case analysis: enter your own values (crowding, Little index, midline, largest space) and the results follow them. |
+| `new.5` | Bite: a report, slots for the bite scans, registration on the bite scan or with three points picked by hand, and bite correction. With both arches, the bite comes before the final position. |
+| `new.6` | Final position: parameters, the arch line drawn by hand, move a single tooth, a ghost of the target position and a way back to the initial position. |
+| `new.7` | Aligners: parameters, change calendar, slow a tooth and a stage slider. Clinical review with attachments and IPR marks. |
+| `new.8` | Export for printing: production settings, where the aligner ends, contact bridges, trim holes and checks, and stamps. Study models and an aligner preview can be shown in the 3D view; the aligners appear only when you ask. |
+| `new.9` | 3D view: select any tooth, gum or scan, see it outlined and move, rotate or scale it. Delete a tooth, see a tooth's region and margin line. Your work is saved automatically. |
+| `new.10` | Fixes: teeth no longer turn through a full circle in the plan, and the reasons a result is out of date are listed for every arch. |

@@ -144,7 +144,8 @@ Pushes to `main`, `v*` tags and manual runs trigger `.github/workflows/image.yml
 ## Editing
 
 - **Copy**: edit `content/site.en.json` and `content/site.it.json` together. Keep `content/site-copy.*.md` in step (it is the editorial text; the JSON is what the build reads).
-- **Statuses** (Exists today / In progress / Planned): one place, `content/site.data.json`. It feeds the EN and IT pages. Only the Aligners stage "Case" is In progress today; every other stage is Planned.
+- **Statuses** (Exists today / In progress / Planned): one place, `content/site.data.json`. It feeds the EN and IT pages. Rule: DONE in `docs/plan/PORT-GAP-MAP.md` is Exists today, PARTIAL is In progress, a function the site lists and the app lacks is Planned. Never show planning (setup, staging) or production as validated.
+- **What's new**: with every app release, rewrite the `new.*` keys in both language files and the `whatsNew` list in `content/site.data.json`, together with the function texts and statuses above. The block shows on the download page (`#whats-new`) and is linked from the home downloads section.
 - **Video**: replace the files in `media/video/` keeping the names. The page uses `preload="none"` with `poster.jpg`, never autoplays, and turns the Italian captions on by default (both pages: the video carries English on-screen text).
 - **Screenshots**: the second one (Aligners workspace) is a design mock, not a capture. Replace `src/assets/img/aligners-{en,it}-{960,1920}.webp` with real captures before launch.
 
@@ -158,7 +159,7 @@ The site sets no cookies, loads nothing from third parties, has no forms and no 
 
 ## Open points
 
-- The presentation video (scene 7 and its captions) still lists "scan import" among the things that exist today. The site shows Scan import as In progress. The video needs an edit to match.
+- The presentation video (scene 7 and its captions, and the transcript copied from them) still says the clinical algorithms are being ported and validated. The site now shows scan import and the preparation, diagnosis and bite stages as Exists today. The video needs an edit to match.
 - The header and hero buttons read "Try the alpha" and jump to Downloads. There is no sign-up (no back end).
 - The Windows files are not signed; the page tells visitors to expect a SmartScreen warning.
 - Light theme is not designed. The site is dark only.
