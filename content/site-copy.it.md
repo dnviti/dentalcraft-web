@@ -186,10 +186,10 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 - **Titolo:** Prova la versione alpha
 - **Testo:** Una prima versione di prova per Linux e Windows. È in sviluppo: molte funzioni mancano e può cambiare o smettere di funzionare da una versione all'altra.
 - **Card delle piattaforme:**
-  - **Linux** - tag Alpha. Pulsante: Scarica per Linux. Requisiti: PC a 64 bit (x86_64). Estrai l'archivio e apri dentalcraft.
-  - **Windows** - tag Alpha. Pulsante: Scarica per Windows. Requisiti: Windows 10 o 11 a 64 bit. Estrai la cartella e apri dentalcraft.exe.
+  - **Linux** - tag Alpha. Pulsante: Scarica per Linux (apre la pagina di download, `#linux`). Requisiti: PC a 64 bit (x86_64). Con installer (Flatpak, Fedora, Debian e Ubuntu, AppImage) o senza installazione.
+  - **Windows** - tag Alpha. Pulsante: Scarica per Windows (apre la pagina di download, `#windows`). Requisiti: Windows 10 o 11 a 64 bit. Con installer o senza installazione.
   - **macOS** - tag In seguito. Pulsante (disattivato): Non ancora disponibile
-- **Sotto ogni card scaricabile:** Versione {version} · {size} · {date}, e una nota chiusa "Per il tuo tecnico informatico: checksum SHA-256" con l'hash.
+- **Sotto ogni card scaricabile:** Versione {version} · {date}. Dimensioni e checksum sono nella pagina di download (sezione 13).
 - **Sotto le card:** Windows potrebbe dire che l'editore è sconosciuto: i file non sono ancora firmati. Scegli «Ulteriori informazioni», poi «Esegui comunque». / Gratuita con la licenza DentalCraft, così com'è e senza garanzia. Non è un dispositivo medico: non usarla sui pazienti né per decisioni cliniche. [Licenza: link alla pagina della licenza] / Tutti i checksum (file di testo)
 - **Modulo di avviso:** rimosso (decisione: nessun back end, nessuna raccolta dati). Una nota sotto le card dice: Questo sito non ha moduli e non raccoglie dati. Leggi la nota sulla privacy.
 - **Problemi o suggerimenti:** hello@dentalcraft.app
@@ -302,3 +302,48 @@ La pagina rende `content/licence.md` (il contratto di licenza d'uso, parte itali
 | `licence.meta.version` | Versione |
 | `licence.meta.licensor` | Licenziante |
 | `licence.meta.contact` | Contatto |
+
+## 13. Pagina di download (`/it/download/`)
+
+Una card per sistema operativo (Linux, Windows, macOS in seguito), ognuna con due colonne: **Installer** e **Senza installazione**. Compaiono solo i tipi presenti nella versione; una colonna vuota mostra il pulsante disattivato "Non ancora disponibile". Ogni file mostra Versione {version} · {size} · {date} · nome del file e la nota chiusa con lo SHA-256. I comandi da terminale hanno il pulsante Copia. Windows aggiunge la nota su SmartScreen (`downloads.smartscreen`). Sotto le card: le condizioni, il blocco Firme con l'impronta della chiave di rilascio e i link alle due chiavi pubbliche e al file dei checksum, poi l'avviso.
+
+| Chiave | Testo |
+| --- | --- |
+| `downloads.version` | Versione {version} · {date} |
+| `dl.rail` | Installer o senza installazione |
+| `dl.headline` | Scarica DentalCraft |
+| `dl.body` | Scegli come averlo. L'installer aggiunge DentalCraft al computer e lo tiene aggiornato. La versione senza installazione funziona da una cartella che estrai, senza installare nulla. |
+| `dl.updates` | Aggiornamenti: le versioni Flatpak, Fedora e Debian/Ubuntu si aggiornano con il sistema. Tutte le altre controllano questo sito all'avvio di DentalCraft, chiedono prima di aggiornare e verificano la firma dell'aggiornamento prima di installarlo. |
+| `dl.req.linux` | PC a 64 bit (x86_64). |
+| `dl.req.windows` | Windows 10 o 11 a 64 bit. |
+| `dl.installer` | Installer |
+| `dl.standalone` | Senza installazione |
+| `dl.installer.linux` | Scegli quello adatto al tuo sistema. DentalCraft compare poi nel menu delle applicazioni. |
+| `dl.installer.windows` | Aggiunge DentalCraft al menu Start e ad App e funzionalità, da dove puoi anche rimuoverlo. |
+| `dl.standalone.linux` | Un archivio da estrarre in qualsiasi cartella. Apri il file dentalcraft che contiene. Non viene installato nulla. |
+| `dl.standalone.windows` | Una cartella zip da estrarre ovunque, anche su una chiavetta USB. Apri dentalcraft.exe che contiene. Non viene installato nulla. |
+| `dl.recommended` | Consigliato |
+| `dl.copy` / `dl.copied` | Copia / Copiato |
+| `dl.terminal` | Oppure, nel terminale: |
+| `dl.flatpak.title` | Flatpak, qualsiasi distribuzione |
+| `dl.flatpak.body` | Funziona in un ambiente isolato e si aggiorna con le altre app Flatpak. I centri software come GNOME Software e KDE Discover aprono direttamente il link. |
+| `dl.flatpak.open` | Apri nel centro software |
+| `dl.dnf.title` | Fedora (dnf) |
+| `dl.dnf.body` | Nel terminale aggiungi una volta il repository di DentalCraft, poi installa. dnf ti chiede di accettare la chiave di firma: controlla che l'impronta sia quella in fondo a questa pagina. |
+| `dl.rpm.link` | Oppure scarica il pacchetto .rpm |
+| `dl.apt.title` | Debian e Ubuntu (apt) |
+| `dl.apt.body` | Nel terminale aggiungi una volta la chiave di firma e il repository, poi installa. |
+| `dl.deb.link` | Oppure scarica il pacchetto .deb |
+| `dl.appimage.title` / `.body` / `.get` | AppImage / Un unico file per qualsiasi distribuzione. Rendilo eseguibile, poi aprilo. / Scarica l'AppImage |
+| `dl.exe.title` / `.body` / `.get` | Setup / Installa solo per il tuo utente, senza diritti di amministratore. Durante l'installazione puoi aggiungere un collegamento sul desktop. / Scarica il setup (.exe) |
+| `dl.msi.title` / `.body` / `.get` | Pacchetto MSI, per gli amministratori IT / Installa per tutti gli utenti del PC e richiede i diritti di amministratore. / Scarica l'MSI |
+| `dl.msi.silent` | Installazione silenziosa, da un prompt di amministratore: |
+| `dl.targz.title` / `.body` / `.get` | Archivio (.tar.gz) / Estrailo, poi apri dentalcraft. / Scarica l'archivio |
+| `dl.zip.title` / `.body` / `.get` | Cartella (.zip) / Estraila, poi apri dentalcraft.exe. / Scarica lo zip |
+| `dl.keys.title` | Firme |
+| `dl.keys.body` | Pacchetti e repository sono firmati con la chiave di rilascio di DentalCraft. Gli aggiornamenti sono firmati con una chiave separata, che DentalCraft verifica prima di installarli. |
+| `dl.keys.fpr` / `dl.keys.gpg` / `dl.keys.minisign` | Impronta della chiave di rilascio / Chiave di rilascio (OpenPGP) / Chiave degli aggiornamenti (minisign) |
+| `meta.download.title` | Scarica DentalCraft - con installer o senza installazione, per Linux e Windows |
+| `meta.download.description` | Scarica la versione alpha di DentalCraft per Linux (Flatpak, Fedora, Debian e Ubuntu, AppImage) e Windows (setup o MSI), o la versione senza installazione. Non è un dispositivo medico. |
+| `meta.download.ogTitle` | Scarica DentalCraft - con installer o senza installazione |
+| `meta.download.ogDescription` | La versione alpha di DentalCraft per Linux e Windows, con installer o senza installazione. Gratuita per uso non clinico. Non è un dispositivo medico. |

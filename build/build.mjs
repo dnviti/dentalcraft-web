@@ -4,14 +4,16 @@
 //   SITE_URL=https://example.org node build/build.mjs
 //
 // Inputs : content/site.{en,it}.json, content/site.data.json, content/licence.md, src/, brand/, design/assets, media/video,
-//          downloads/ (app archives from the release named in site.data.json, not in git)
-// Output : dist/ (HTML for /en/, /it/, about and licence pages, 404, sitemap, robots, hashed assets, media, download/)
+//          keys/ (public signing keys), downloads/ (release files of the app release named in site.data.json, not in git)
+// Output : dist/ (HTML for /en/, /it/, about, download and licence pages, 404, sitemap, robots, hashed assets, media,
+//          download/, update/, keys/, linux/ descriptors) and repo-input/ (files only the Linux repository stages use)
 
 import { createHash } from "node:crypto";
-import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { chmodSync, cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { basename, dirname, extname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { aboutPage, homePage, indexPage, licencePage, notFoundPage } from "./templates.mjs";
+import { aboutPage, downloadPage, homePage, indexPage, licencePage, notFoundPage } from "./templates.mjs";
+import { SERVED, dearmor, gpgFingerprint, linuxDescriptors, minisignVerify, releaseFiles } from "./release.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = join(ROOT, "dist");
@@ -29,6 +31,10 @@ const write = (p, data) => {
 const copy = { en: JSON.parse(read("content/site.en.json")), it: JSON.parse(read("content/site.it.json")) };
 const data = JSON.parse(read("content/site.data.json"));
 const licenceMd = read("content/licence.md");
+const gpgKeyArmored = read("keys/dentalcraft.gpg");
+const gpgKeyBinary = dearmor(gpgKeyArmored);
+const minisignPub = read("keys/dentalcraft.minisign.pub");
+const signing = { gpgFingerprint: gpgFingerprint(gpgKeyBinary) };
 
 // EN and IT must define the same keys.
 {
@@ -79,6 +85,9 @@ function emit(name, text) {
 
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(DIST, { recursive: true });
+const REPO_INPUT = join(ROOT, "repo-input");
+rmSync(REPO_INPUT, { recursive: true, force: true });
+mkdirSync(REPO_INPUT, { recursive: true });
 
 // CSS: replace {{asset:name}} tokens, then hash.
 const cssSrc = read("src/styles/site.css").replace(/\{\{asset:([^}]+)\}\}/g, (_, n) => asset(n.trim()));
@@ -106,11 +115,12 @@ function heroArt(t) {
 const pages = [];
 for (const lang of ["en", "it"]) {
   const t = translator(lang);
-  const ctx = { lang, t, data, asset, siteUrl: SITE_URL, css, js, art: heroArt(t), licenceMd };
+  const ctx = { lang, t, data, asset, siteUrl: SITE_URL, css, js, art: heroArt(t), licenceMd, signing };
   write(`${lang}/index.html`, homePage(ctx));
   write(`${lang}/about/index.html`, aboutPage(ctx));
+  write(`${lang}/download/index.html`, downloadPage(ctx));
   write(`${lang}/licence/index.html`, licencePage(ctx));
-  pages.push(`/${lang}/`, `/${lang}/about/`, `/${lang}/licence/`);
+  pages.push(`/${lang}/`, `/${lang}/about/`, `/${lang}/download/`, `/${lang}/licence/`);
 }
 
 write("index.html", indexPage({ siteUrl: SITE_URL, css, redirectJs, asset }));
@@ -136,28 +146,64 @@ for (const f of ["dentalcraft-presentation.webm", "dentalcraft-presentation-720p
   cpSync(from, join(DIST, "media/video", f));
 }
 
-// Downloads: the app archives are not in git. They come from the private app release
-// (see data.release) into downloads/, and are checked against the manifest before they ship.
+// Release files: not in git. They come from the private app release (see data.release) into downloads/,
+// and are checked against the pinned size and SHA-256 before they ship. The update manifest must also carry
+// a valid minisign signature by keys/dentalcraft.minisign.pub, and point only at files served here.
 {
   const rel = data.release;
+  const names = releaseFiles(rel.version);
   const lines = [];
+  const bufs = {};
   for (const [id, f] of Object.entries(rel.files)) {
+    if (!(id in names)) throw new Error(`release.files.${id}: unknown kind (known: ${Object.keys(names).join(", ")})`);
+    if (f.name !== names[id]) throw new Error(`release.files.${id}: name ${f.name}, expected ${names[id]}`);
     const from = join(ROOT, "downloads", f.name);
     if (!existsSync(from)) {
       throw new Error(
-        `Missing download "downloads/${f.name}" (${id}). Fetch it with:\n` +
-          `  gh release download ${rel.tag} -R ${rel.repo} -p 'dentalcraft_*' -D downloads`,
+        `Missing download "downloads/${f.name}" (${id}). Fetch the release with:\n` +
+          `  gh release download ${rel.tag} -R ${rel.repo} -D downloads`,
       );
     }
     const buf = readFileSync(from);
     if (buf.length !== f.size) throw new Error(`downloads/${f.name}: size ${buf.length}, expected ${f.size}`);
     const sha = createHash("sha256").update(buf).digest("hex");
     if (sha !== f.sha256) throw new Error(`downloads/${f.name}: sha256 ${sha}, expected ${f.sha256}`);
-    mkdirSync(join(DIST, "download"), { recursive: true });
-    cpSync(from, join(DIST, "download", f.name));
-    lines.push(`${f.sha256}  ${f.name}`);
+    if (id === "update" || id === "updateSig") bufs[id] = buf;
+    if (SERVED.has(id)) {
+      mkdirSync(join(DIST, "download"), { recursive: true });
+      cpSync(from, join(DIST, "download", f.name));
+      chmodSync(join(DIST, "download", f.name), 0o644); // nginx runs as uid 101, whatever the mode of the fetched file
+      lines.push(`${f.sha256}  ${f.name}`);
+    } else if (id === "flatpak") {
+      cpSync(from, join(REPO_INPUT, f.name));
+      chmodSync(join(REPO_INPUT, f.name), 0o644);
+    }
+  }
+  if (!rel.files.linux || !rel.files.windows) throw new Error("release.files: the standalone archives (linux, windows) are required");
+  if (!!bufs.update !== !!bufs.updateSig) throw new Error("release.files: update and updateSig go together");
+  if (bufs.update) {
+    const comment = minisignVerify(minisignPub, bufs.update, bufs.updateSig.toString("utf8"));
+    const m = JSON.parse(bufs.update.toString("utf8"));
+    if (m.version !== rel.version || m.tag !== rel.tag) throw new Error(`update.json: version ${m.version} / ${m.tag}, expected ${rel.version}`);
+    const byName = new Map(Object.entries(rel.files).filter(([id]) => SERVED.has(id)).map(([, f]) => [f.name, f]));
+    for (const [kind, a] of Object.entries(m.assets || {})) {
+      const f = byName.get(basename(new URL(a.url).pathname));
+      if (!f || f.sha256 !== a.sha256 || f.size !== a.size) throw new Error(`update.json: asset ${kind} (${a.url}) is not a served release file`);
+    }
+    write("update/stable.json", bufs.update);
+    write("update/stable.json.minisig", bufs.updateSig);
+    console.log(`update manifest ${m.version} verified (${comment})`);
   }
   write(`download/${rel.sums}`, lines.join("\n") + "\n");
+
+  // Public keys and the one-time setup files of the Linux repositories (only for the formats this release has).
+  write("keys/dentalcraft.gpg", gpgKeyArmored);
+  write("keys/dentalcraft.minisign.pub", minisignPub);
+  const has = { deb: !!rel.files.deb, rpm: !!rel.files.rpm, flatpak: !!rel.files.flatpak };
+  const sources = { list: read("linux/dentalcraft.list"), repo: read("linux/dentalcraft.repo") };
+  for (const [name, text] of Object.entries(linuxDescriptors({ siteUrl: SITE_URL, keyBinary: gpgKeyBinary, linux: data.linux, has, sources }))) {
+    write(`linux/${name}`, text);
+  }
 }
 
 // robots.txt and sitemap.xml

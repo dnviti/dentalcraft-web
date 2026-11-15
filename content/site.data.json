@@ -1,5 +1,5 @@
 {
-  "_note": "Language-independent site data. Statuses here are the single source for the EN and IT pages: exists | progress | planned. Only the Case stage of Aligners is in progress. The release block is the downloadable alpha: the build fetches nothing, it checks downloads/ against these sizes and hashes.",
+  "_note": "Language-independent site data. Statuses here are the single source for the EN and IT pages: exists | progress | planned. Only the Case stage of Aligners is in progress. The release block pins the files of one app release (kinds: linux, windows, appimage, deb, rpm, flatpak, exe, msi, update, updateSig): the build fetches nothing, it checks downloads/ against these sizes and hashes. Rewrite it with `node build/pin-release.mjs downloads`. The page offers only the kinds listed here.",
   "presentationStatus": [
     { "key": "presentation.status.1", "status": "exists" },
     { "key": "presentation.status.2", "status": "exists" },
@@ -25,23 +25,66 @@
     { "n": 5, "code": "im", "status": "planned" }
   ],
   "release": {
-    "version": "0.2.0-alpha.3",
+    "version": "0.2.0-alpha.4",
     "repo": "dnviti-personal-org/dentalcraft-app",
-    "tag": "v0.2.0-alpha.3",
-    "date": "2026-11-12",
-    "sums": "dentalcraft_0.2.0-alpha.3_SHA256SUMS.txt",
+    "tag": "v0.2.0-alpha.4",
+    "date": "2026-11-15",
+    "sums": "dentalcraft_0.2.0-alpha.4_SHA256SUMS.txt",
     "files": {
       "linux": {
-        "name": "dentalcraft_0.2.0-alpha.3_linux_x86_64.tar.gz",
-        "size": 25181423,
-        "sha256": "f8d55e3e661bb57853c09b47590d42abc91bb3b7f9ee1132c45ff4274d3b0929"
+        "name": "dentalcraft_0.2.0-alpha.4_linux_x86_64.tar.gz",
+        "size": 29268267,
+        "sha256": "8caa05a84d7237d00f31add3cb404c11cd39dd84ac8585bee13b737ae9ecd847"
       },
       "windows": {
-        "name": "dentalcraft_0.2.0-alpha.3_windows_x86_64.zip",
-        "size": 32529579,
-        "sha256": "3f22be120d846ea1e3359030253d85f480015456bfe111db2b91c12f3450c0eb"
+        "name": "dentalcraft_0.2.0-alpha.4_windows_x86_64.zip",
+        "size": 37268297,
+        "sha256": "5f0467f821355e295f35bda8685f2ddbef6e88113677c03a81958539ef99c911"
+      },
+      "appimage": {
+        "name": "DentalCraft-0.2.0-alpha.4-x86_64.AppImage",
+        "size": 27466232,
+        "sha256": "7da624ef843343ae948f97d5c99653af0114cb334db1439cf668736aa8c3f5a1"
+      },
+      "deb": {
+        "name": "dentalcraft_0.2.0-alpha.4_amd64.deb",
+        "size": 20186756,
+        "sha256": "a54f981fb3ef04504e405b7c73616fb39a9eec764d56f1da93c744e90b05d649"
+      },
+      "rpm": {
+        "name": "dentalcraft-0.2.0-alpha.4-1.x86_64.rpm",
+        "size": 19957105,
+        "sha256": "74b1e6579fd96573548c8d494aa6e75580b8d0d8ac06c7a4eb20018d3710e319"
+      },
+      "flatpak": {
+        "name": "DentalCraft-0.2.0-alpha.4.flatpak",
+        "size": 19543960,
+        "sha256": "374a4c87f66f3dec16c405a817710c7a99d27e1f63441d9273215d4965d4b19e"
+      },
+      "exe": {
+        "name": "DentalCraft-0.2.0-alpha.4-setup.exe",
+        "size": 25205073,
+        "sha256": "e44b8990e918775e5f9c20308de41418af2deb77db0f38f59168909371987445"
+      },
+      "msi": {
+        "name": "DentalCraft-0.2.0-alpha.4-x86_64.msi",
+        "size": 41221632,
+        "sha256": "2158f9021a8a0310d7b27f4bd557bab05a75fcb259ddbdcdbf5aa2da95a7d687"
+      },
+      "update": {
+        "name": "update.json",
+        "size": 1292,
+        "sha256": "a4aa951ac127250f099faafd9e68e5e9fde80064da475669305efd9f50290420"
+      },
+      "updateSig": {
+        "name": "update.json.minisig",
+        "size": 316,
+        "sha256": "f3d0c57c440975d7919f30f5f169dacd977df1782e230aa29bd38f3eb4c1e2b7"
       }
     }
+  },
+  "linux": {
+    "flatpak": { "appId": "com.dentalcraft.DentalCraft", "branch": "stable", "runtimeRepo": "https://dl.flathub.org/repo/flathub.flatpakrepo" }
   },
   "platforms": [
     { "id": "linux", "code": "LNX", "tag": "tag.alpha", "file": "linux" },
