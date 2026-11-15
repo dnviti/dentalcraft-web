@@ -511,6 +511,8 @@ html:not(.js) .top { position: static; }
 }
 .dl-note { max-width: 640px; }
 .dl-info { display: flex; flex-direction: column; gap: 12px; max-width: 640px; }
+.dl-new { display: flex; flex-direction: column; gap: 12px; max-width: 640px; padding: 20px 0; border-top: 1px solid var(--color-line-subtle); border-bottom: 1px solid var(--color-line-subtle); }
+.dl-new__list { margin: 0; padding-left: 20px; list-style: disc; display: flex; flex-direction: column; gap: 8px; }
 .dl-terms { font: 700 16px/24px var(--font-sans); color: var(--color-text-primary); }
 .dl-meta { font-size: 13px; line-height: 18px; }
 .dl-sum summary { cursor: pointer; font: 500 14px/20px var(--font-sans); color: var(--color-text-secondary); text-underline-offset: 3px; }

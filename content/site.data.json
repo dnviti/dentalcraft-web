@@ -1,22 +1,28 @@
 {
-  "_note": "Language-independent site data. Statuses here are the single source for the EN and IT pages: exists | progress | planned. Only the Case stage of Aligners is in progress. The release block pins the files of one app release (kinds: linux, windows, appimage, deb, rpm, flatpak, exe, msi, update, updateSig): the build fetches nothing, it checks downloads/ against these sizes and hashes. Rewrite it with `node build/pin-release.mjs downloads`. The page offers only the kinds listed here.",
+  "_note": "Language-independent site data. Statuses here are the single source for the EN and IT pages: exists | progress | planned. Rule: DONE in the port gap map (docs/plan/PORT-GAP-MAP.md) is exists, PARTIAL is progress, a function the site already lists and the app does not have is planned. Planning (setup, staging) and production are never shown as validated. whatsNew lists the copy keys (new.N) of the pinned release, in order; rewrite it with the release block, with the new.* copy. The release block pins the files of one app release (kinds: linux, windows, appimage, deb, rpm, flatpak, exe, msi, update, updateSig): the build fetches nothing, it checks downloads/ against these sizes and hashes. Rewrite it with `node build/pin-release.mjs downloads`. The page offers only the kinds listed here.",
   "presentationStatus": [
     { "key": "presentation.status.1", "status": "exists" },
     { "key": "presentation.status.2", "status": "exists" },
     { "key": "presentation.status.3", "status": "exists" },
-    { "key": "presentation.status.4", "status": "progress" },
-    { "key": "presentation.status.5", "status": "progress" }
+    { "key": "presentation.status.4", "status": "exists" },
+    { "key": "presentation.status.5", "status": "exists" },
+    { "key": "presentation.status.6", "status": "exists" },
+    { "key": "presentation.status.7", "status": "progress" },
+    { "key": "presentation.status.8", "status": "progress" },
+    { "key": "presentation.status.9", "status": "exists" },
+    { "key": "presentation.status.10", "status": "exists" }
   ],
   "alignerStages": [
-    { "n": 1, "status": "progress" },
-    { "n": 2, "status": "planned" },
-    { "n": 3, "status": "planned" },
-    { "n": 4, "status": "planned" },
-    { "n": 5, "status": "planned" },
-    { "n": 6, "status": "planned" },
-    { "n": 7, "status": "planned" },
-    { "n": 8, "status": "planned" }
+    { "n": 1, "status": "exists" },
+    { "n": 2, "status": "exists" },
+    { "n": 3, "status": "exists" },
+    { "n": 4, "status": "progress" },
+    { "n": 5, "status": "exists" },
+    { "n": 6, "status": "progress" },
+    { "n": 7, "status": "progress" },
+    { "n": 8, "status": "progress" }
   ],
+  "whatsNew": ["new.1", "new.2", "new.3", "new.4", "new.5", "new.6", "new.7", "new.8", "new.9", "new.10"],
   "modules": [
     { "n": 1, "code": "al", "status": "progress" },
     { "n": 2, "code": "mb", "status": "planned" },

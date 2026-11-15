@@ -49,13 +49,18 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 - **Testo:**
   DentalCraft è un CAD dentale. Nasce da uno strumento per la pianificazione degli allineatori ortodontici che l'autore aveva già realizzato: ne riprende il lavoro e lo trasforma in un'applicazione dedicata, autonoma e più veloce. L'impostazione è quella delle suite CAD dentali professionali: una base comune e, sopra, un ambito per ogni tipo di lavoro.
 
-  Il progetto è in fase iniziale. Oggi esistono la struttura dell'applicazione, il file unico per ogni caso e la visualizzazione 3D. L'importazione delle scansioni e le funzioni cliniche vengono riprese dallo strumento di partenza e validate.
+  Il progetto è in fase iniziale. L'alpha copre già il percorso dall'importazione delle scansioni a un primo piano: trovare e separare i denti, costruire i denti 3D, analizzare il caso, registrare il morso, impostare una posizione finale, pianificare gli allineatori e preparare i file per la stampa. Pianificazione e produzione sono ancora in validazione rispetto allo strumento di partenza: non fare affidamento sui loro risultati.
 - **Elenco di stato (con etichette):**
   - Struttura dell'applicazione - `Esiste oggi`
-  - File unico per ogni caso - `Esiste oggi`
-  - Visualizzazione 3D - `Esiste oggi`
-  - Importazione delle scansioni - `In corso` (ripresa dallo strumento di partenza e validazione)
-  - Funzioni cliniche - `In corso` (ripresa dallo strumento di partenza e validazione)
+  - File unico per ogni caso, salvato in automatico - `Esiste oggi`
+  - Vista 3D con selezione, spostamento, rotazione e scala - `Esiste oggi`
+  - Importazione delle scansioni, con chiusura automatica di quelle aperte - `Esiste oggi`
+  - Trovare i denti, separare denti e gengiva, denti 3D - `Esiste oggi`
+  - Analisi del caso e morso - `Esiste oggi`
+  - Posizione finale, allineatori e revisione clinica - `In corso`
+  - Produzione ed esportazione per la stampa - `In corso`
+  - Installer con aggiornamenti automatici - `Esiste oggi`
+  - Comandi per script e agenti IA - `Esiste oggi`
 
 ### Blocco video
 - **Titolo:** La presentazione in 75 secondi
@@ -104,34 +109,34 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 ## 4. Area Allineatori
 
 - **Etichetta sezione:** Allineatori - primo ambito
-- **Banner:** Flusso di lavoro previsto. Ogni fase è indicata come `Pianificato` o `In corso`. Nulla di quanto segue è ancora completo.
+- **Banner:** Stato di ogni fase nell'alpha. Pianificazione, produzione ed esportazione sono ancora in sviluppo: i loro risultati non sono validati e non vanno usati sui pazienti.
 - **Titolo:** Dalla scansione all'allineatore, in un'unica area di lavoro
-- **Testo:** L'area Allineatori è pensata per seguire il percorso clinico dalla scansione intraorale ai file per la stampa. Le fasi sono raggruppate come nel menu dell'applicazione.
-- **Legenda:** `In corso` = in lavorazione o in validazione. `Pianificato` = non ancora avviato.
+- **Testo:** L'area Allineatori segue il percorso clinico dalla scansione intraorale ai file per la stampa. Le fasi sono raggruppate come nel menu dell'applicazione e ognuna dice che cosa fa già l'alpha.
+- **Legenda:** `Esiste oggi` = funziona nell'alpha, versione iniziale, non validata per l'uso clinico. `In corso` = in parte disponibile, in lavorazione o in validazione. `Pianificato` = non ancora avviato (mostrato solo se una fase lo ha).
 
-| Gruppo | Fasi | Stato |
+| Gruppo | Che cosa fa l'alpha | Stato |
 |---|---|---|
-| **Caso** | Importazione delle scansioni intraorali (STL, OBJ, PLY) | In corso |
-| **Preparazione** | Orientamento e arcata; numerazione dentale FDI; segmentazione dei denti; ricostruzione dei denti e della gengiva | Pianificato |
-| **Diagnosi** | Analisi dello spazio; indice di irregolarità di Little; analisi di Bolton | Pianificato |
-| **Pianificazione** | Setup della posizione finale; stadiazione per allineatore, con limiti di movimento per ogni dente; riduzione interprossimale (IPR); attacchi | Pianificato |
-| **Occlusione** | Occlusione e morso, compreso il morso con gli allineatori | Pianificato |
-| **Produzione allineatori** | Guscio dell'allineatore con spessore e gioco; linea di rifilatura; marcatura identificativa; controllo di stampa | Pianificato |
-| **Follow-up** | Visite di controllo | Pianificato |
-| **Esportazione** | Esportazione STL per ogni stadio; relazioni | Pianificato |
+| **Caso** | Importazione delle scansioni intraorali (STL, OBJ, PLY). Una scansione aperta viene chiusa in automatico con una base piana. Scelta dell'arcata a mano e capovolgimento del lato occlusale. | Esiste oggi |
+| **Preparazione** | Trovare i denti e numerarli (FDI), con segni che puoi aggiungere, eliminare o rinumerare a mano, e denti mancanti. Separare denti e gengiva, con un pennello e la pulizia dei bordi per le correzioni. Denti 3D, ciascuno un modello chiuso, con una gengiva che li segue. Vedere la zona e la linea di margine di un dente. | Esiste oggi |
+| **Diagnosi** | Analisi del caso: spazio, affollamento, indice di irregolarità di Little, Bolton e complessità del caso. Puoi inserire i tuoi valori misurati e i risultati li seguono. | Esiste oggi |
+| **Pianificazione** | Posizione finale, con parametri, linea d'arcata disegnata a mano, spostamento di un dente e ritorno alla posizione iniziale. Allineatori: stadi, calendario dei cambi, rallentare un dente, cursore degli stadi. Revisione clinica con attacchi e segni di riduzione interprossimale (IPR). | In corso |
+| **Occlusione** | Relazione sul morso, scansioni del morso, registrazione sulla scansione del morso o con tre punti scelti a mano, correzione del morso e mappa dei contatti. | Esiste oggi |
+| **Produzione allineatori** | Impostazioni di produzione (spessore, gioco, qualità), dove termina l'allineatore, linea di rifilatura con ponti di contatto, fori e controlli, marcature identificative, morso con gli allineatori. L'allineatore si può vedere in anteprima nella vista 3D, solo quando lo chiedi. I file ad alta qualità richiedono ancora molto tempo. | In corso |
+| **Follow-up** | Visita di controllo: confronta una nuova scansione con il piano e ripianifica a partire da un allineatore consegnato. Il controllo dente per dente non c'è ancora. | In corso |
+| **Esportazione** | Esporta per la stampa: file STL di ogni stadio (allineatori e modelli), calendario dei cambi, relazione e programma per il paziente. Modelli da studio, mostrati anche nella vista 3D. | In corso |
 
-*(Decisione: solo Caso è In corso; tutte le altre fasi sono Pianificato. Il sito legge gli stati da `content/site.data.json`.)*
+*(Regola: DONE in `docs/plan/PORT-GAP-MAP.md` è Esiste oggi, PARTIAL è In corso. Pianificazione e produzione non sono mai mostrate come validate. Il sito legge gli stati da `content/site.data.json`.)*
 
 - **Microcopy dei gruppi:**
   - Caso: Si parte dalla scansione.
   - Preparazione: Scansioni pronte per la pianificazione.
   - Diagnosi: Misurare prima di muovere.
-  - Pianificazione: Definire obiettivo e tappe.
+  - Pianificazione: Definire obiettivo e tappe. In sviluppo: non usare i risultati sui pazienti.
   - Occlusione: Verificare come si incontrano le arcate.
-  - Produzione allineatori: Preparare il guscio per la stampa.
-  - Follow-up: Confrontare piano e andamento.
-  - Esportazione: File e relazioni.
-- **Alt schema del flusso:** Flusso in otto passaggi da Caso a Esportazione, ciascuno indicato come pianificato o in corso.
+  - Produzione allineatori: Preparare il guscio per la stampa. In sviluppo.
+  - Follow-up: Confrontare piano e andamento. Versione iniziale.
+  - Esportazione: File e relazioni. In completamento.
+- **Alt schema del flusso:** Flusso in otto passaggi da Caso a Esportazione, ciascuno indicato come esiste oggi o in corso.
 
 ---
 
@@ -141,7 +146,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 - **Titolo:** Una sola applicazione, più ambiti di lavoro
 - **Testo:** DentalCraft avrà una base comune e, sopra, un ambito per ogni tipo di lavoro. Gli Allineatori vengono per primi. Gli altri sono pianificati, senza date.
 - **Ambiti:**
-  - **Allineatori** - Primo ambito. In sviluppo attivo.
+  - **Allineatori** - Primo ambito. In sviluppo attivo: dalla scansione al morso funziona già nell'alpha; pianificazione e produzione sono ancora in validazione.
   - **Model Builder** - Pianificato.
   - **Bite** - Pianificato.
   - **Corone e ponti** - Pianificato.
@@ -157,12 +162,14 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 - **Titolo:** Il tuo lavoro, i tuoi dati
 - **Testo:** Scelte pensate per la velocità, il controllo e la tracciabilità del lavoro.
 - **Voci:**
-  - **Un'applicazione sul tuo computer.** Si installa e si usa sul computer dello studio o del laboratorio, senza passare dal browser.
-  - **Vista 3D fluida.** Pensata per gestire con fluidità anche le scansioni più dettagliate.
-  - **Un file per ogni caso.** Un file aperto e documentato, con un controllo di integrità.
+  - **Un'applicazione sul tuo computer.** Si installa e si usa sul computer dello studio o del laboratorio, senza passare dal browser. Gli installer per Linux e Windows controllano gli aggiornamenti e chiedono prima di installarli.
+  - **Vista 3D fluida.** Fai clic su un dente, sulla gengiva o su una scansione per selezionarlo e vederlo evidenziato, poi sposta, ruota o ridimensiona nella vista. Pensata per restare fluida anche con le scansioni più dettagliate.
+  - **Un file per ogni caso.** Un file aperto e documentato, con un controllo di integrità. Si salva da solo poco dopo ogni modifica, e ogni volta che salvi.
   - **Privacy fin dalla progettazione.** I dati dei pazienti sono pseudonimizzati: nessun nome nei file dei casi.
   - **I casi restano da te.** Si lavora sui casi salvati sul tuo computer. L'account è previsto solo per licenze e assistenza.
   - **In due lingue.** Italiano e inglese.
+  - **Comandabile da script e agenti IA.** Ogni azione è anche un comando di dentalcraft-cli e del suo server MCP: script e agenti di intelligenza artificiale possono eseguire gli stessi passaggi.
+  - **Niente resta indietro senza dirlo.** Quando cambi un passaggio, i risultati successivi che ne dipendono vengono segnalati come non aggiornati.
 - **Microcopy:** Pubblicheremo i dettagli quando il formato del file sarà definitivo.
 
 ---
@@ -200,7 +207,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 ## 9. FAQ
 
 1. **DentalCraft è disponibile?**
-   Una versione alpha per Linux e Windows si può scaricare dalla pagina iniziale, gratuitamente, per uso non clinico (valutazione, formazione, ricerca e prove di progettazione). È in fase iniziale di sviluppo: non è un dispositivo medico e non è per uso clinico. Esistono la struttura dell'applicazione, il file unico per ogni caso e la visualizzazione 3D. L'importazione delle scansioni e le funzioni cliniche vengono riprese dallo strumento di partenza e validate.
+   Una versione alpha per Linux e Windows si può scaricare dalla pagina iniziale, gratuitamente, per uso non clinico (valutazione, formazione, ricerca e prove di progettazione). È in fase iniziale di sviluppo: non è un dispositivo medico e non è per uso clinico. Permette già di importare le scansioni, trovare e separare i denti, costruire i denti 3D, analizzare il caso, registrare il morso, impostare una posizione finale, pianificare gli allineatori e preparare i file per la stampa. Pianificazione e produzione sono ancora in sviluppo.
 
 2. **È certificato? È un dispositivo medico?**
    No. DentalCraft non è un dispositivo medico e non ha alcuna certificazione. Non è per uso clinico. Lo sviluppo segue un approccio regolatorio e l'intenzione è percorrere in futuro il percorso di conformità appropriato.
@@ -208,8 +215,8 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 3. **Su quali computer funzionerà?**
    Prima su Linux e Windows. macOS in seguito.
 
-4. **Quanto costerà?**
-   Il prezzo non è ancora stato deciso.
+4. **È gratuito?**
+   Sì. L'alpha si può scaricare e usare gratuitamente, per uso non clinico, con la licenza DentalCraft. I termini sono nella pagina della licenza.
 
 5. **Che fine fanno i dati dei pazienti?**
    I casi sono pensati per restare sul tuo computer. I file dei casi sono pseudonimizzati e non contengono nomi di pazienti. L'account è previsto solo per licenze e assistenza.
@@ -217,11 +224,17 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 6. **Posso provarlo?**
    Sì. Una versione alpha per Linux e Windows si può scaricare dalla pagina iniziale, gratuitamente, per uso non clinico: valutazione, formazione, ricerca e prove di progettazione. È fornita così com'è. Non è un dispositivo medico e non è per uso clinico.
 
-7. **Che cosa farà per primo?**
-   Il primo ambito è Allineatori, per la pianificazione degli allineatori trasparenti. Il flusso previsto è descritto nella pagina iniziale: le fasi sono in corso o pianificate e nessuna è ancora completa.
+7. **Che cosa sa fare oggi?**
+   Il primo ambito è Allineatori, per la pianificazione degli allineatori trasparenti. La pagina iniziale elenca ogni fase con il suo stato. Dall'importazione delle scansioni al morso funziona già nell'alpha; posizione finale, allineatori, revisione clinica, produzione ed esportazione sono ancora in sviluppo e i loro risultati non sono validati: non vanno usati sui pazienti.
 
-8. **Quali file potrò usare?**
-   È previsto di importare le scansioni in STL, OBJ e PLY e di esportare ogni stadio in STL. Ogni caso si salva in un unico file aperto.
+8. **Quali file posso usare?**
+   Puoi importare scansioni in STL, OBJ e PLY; le scansioni aperte vengono chiuse automaticamente con una base. «Esporta per la stampa» scrive i file STL di ogni stadio, con il calendario dei cambi e una relazione: questa funzione è ancora in completamento. Ogni caso si salva in un unico file aperto, in automatico poco dopo ogni modifica e ogni volta che salvi.
+
+9. **Posso usarlo da script o con un agente di intelligenza artificiale?**
+   Sì. Ogni azione dell'applicazione è anche un comando dello strumento dentalcraft-cli, incluso nei download senza installazione e negli installer, e del suo server MCP: uno script o un agente di intelligenza artificiale può eseguire gli stessi passaggi.
+
+10. **Come si aggiorna?**
+    Le versioni Flatpak, Fedora e Debian/Ubuntu si aggiornano con il sistema. Tutte le altre controllano questo sito all'avvio di DentalCraft, chiedono prima di aggiornare e verificano la firma dell'aggiornamento prima di installarlo.
 
 ---
 
@@ -263,10 +276,11 @@ Guarda la presentazione / Prova l'alpha / Riproduci il video / Leggi la trascriz
 | `vision.rail` | Intenzioni, non funzioni |
 | `roadmap.rail` | Nessuna data annunciata |
 | `roadmap.core.label` | Base comune |
-| `roadmap.core.items` | Struttura dell'applicazione, file unico per ogni caso, visualizzazione 3D |
-| `roadmap.m1.note` | Primo ambito. In sviluppo attivo. |
+| `roadmap.core.items` | Struttura dell'applicazione, file unico per ogni caso (salvato in automatico), vista 3D con selezione, spostamento, rotazione e scala |
+| `roadmap.m1.note` | Primo ambito. In sviluppo attivo: dalla scansione al morso funziona già nell'alpha; pianificazione e produzione sono ancora in validazione. |
 | `aligners.rail` | Primo ambito |
-| `aligners.legend.inprogress` | In lavorazione o in validazione. |
+| `aligners.legend.exists` | Funziona nell'alpha. Versione iniziale, non validata per l'uso clinico. |
+| `aligners.legend.inprogress` | In parte disponibile. In lavorazione o in validazione. |
 | `aligners.legend.planned` | Non ancora avviato. |
 | `downloads.rail` | Alpha, da provare |
 | `downloads.terms` | Gratuita con la licenza DentalCraft, così com'è e senza garanzia. Non è un dispositivo medico: non usarla sui pazienti né per decisioni cliniche. |
@@ -347,3 +361,24 @@ Una card per sistema operativo (Linux, Windows, macOS in seguito), ognuna con du
 | `meta.download.description` | Scarica la versione alpha di DentalCraft per Linux (Flatpak, Fedora, Debian e Ubuntu, AppImage) e Windows (setup o MSI), o la versione senza installazione. Non è un dispositivo medico. |
 | `meta.download.ogTitle` | Scarica DentalCraft - con installer o senza installazione |
 | `meta.download.ogDescription` | La versione alpha di DentalCraft per Linux e Windows, con installer o senza installazione. Gratuita per uso non clinico. Non è un dispositivo medico. |
+
+## 14. Novità (pagina di download, `/it/download/#whats-new`)
+
+Un blocco tra l'introduzione e le schede dei sistemi operativi, con un link dalla sezione download della pagina iniziale. Elenca la release agganciata (`site.data.json` `whatsNew` = le chiavi `new.N`, in ordine). Va riscritto a ogni release dell'app, insieme alle funzioni descritte sopra.
+
+| Chiave | Testo |
+| --- | --- |
+| `new.title` | Novità della versione {version} |
+| `new.meta` | Rilasciata il {date} |
+| `new.link` | Novità della versione {version} |
+| `new.note` | Pianificazione, produzione ed esportazione sono ancora in sviluppo. Non è un dispositivo medico. Non per uso clinico. |
+| `new.1` | Installer per Linux (Flatpak, Fedora, Debian e Ubuntu, AppImage) e Windows (setup e MSI). DentalCraft controlla gli aggiornamenti all'avvio e chiede prima di installarli. |
+| `new.2` | Scansioni: una scansione aperta viene chiusa in automatico con una base piana quando la importi. Puoi scegliere l'arcata a mano, capovolgere il lato occlusale e vedere come è stata chiusa ogni scansione. |
+| `new.3` | Il menu è raggruppato per funzione. Un clic su una voce la seleziona soltanto: nel pannello a destra trovi i suoi parametri, il pulsante per eseguirla e le correzioni manuali. |
+| `new.4` | Analisi del caso: inserisci i tuoi valori (affollamento, indice di Little, linea mediana, spazio maggiore) e i risultati li seguono. |
+| `new.5` | Morso: una relazione, gli spazi per le scansioni del morso, la registrazione sulla scansione del morso o con tre punti scelti a mano, e la correzione del morso. Con entrambe le arcate il morso viene prima della posizione finale. |
+| `new.6` | Posizione finale: parametri, linea d'arcata disegnata a mano, spostamento di un singolo dente, un'ombra della posizione obiettivo e il ritorno alla posizione iniziale. |
+| `new.7` | Allineatori: parametri, calendario dei cambi, rallentare un dente e un cursore degli stadi. Revisione clinica con attacchi e segni di IPR. |
+| `new.8` | Esporta per la stampa: impostazioni di produzione, dove termina l'allineatore, ponti di contatto, fori e controlli della rifilatura, marcature. I modelli da studio e un'anteprima dell'allineatore si possono mostrare nella vista 3D; gli allineatori compaiono solo quando lo chiedi. |
+| `new.9` | Vista 3D: seleziona un dente, la gengiva o una scansione, vedila evidenziata e spostala, ruotala o ridimensionala. Elimina un dente, guarda la zona e la linea di margine di un dente. Il lavoro si salva in automatico. |
+| `new.10` | Correzioni: nel piano i denti non fanno più giri completi e per ogni arcata sono elencati i motivi per cui un risultato non è aggiornato. |
