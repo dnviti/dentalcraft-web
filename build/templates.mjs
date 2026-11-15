@@ -67,8 +67,9 @@ const statusTag = (ctx, kind) => tag(ctx, kind);
 
 const prefix = (lang) => `/${lang}/`;
 const aboutPath = (lang) => `/${lang}/about/`;
+const downloadPath = (lang) => `/${lang}/download/`;
 const licencePath = (lang) => `/${lang}/licence/`;
-const PAGE_REL = { home: "", about: "about/", licence: "licence/" };
+const PAGE_REL = { home: "", about: "about/", download: "download/", licence: "licence/" };
 
 // Link to a section: same page => hash only.
 function sectionHref(ctx, page, target, id) {
@@ -446,15 +447,11 @@ function downloads(ctx) {
     if (!f) {
       return `<li class="pcard">${handle}<div class="pcard__body">${title}<button class="btn btn--disabled" type="button" aria-disabled="true">${ICON.lock}<span>${esc(t("downloads.button"))}</span></button></div></li>`;
     }
-    const meta = t("downloads.meta")
-      .replace("{version}", rel.version)
-      .replace("{size}", fmtSize(lang, f.size))
-      .replace("{date}", fmtDate(lang, rel.date));
+    const meta = t("downloads.version").replace("{version}", rel.version).replace("{date}", fmtDate(lang, rel.date));
     return `<li class="pcard">${handle}<div class="pcard__body">${title}
-<a class="btn btn--primary" href="/download/${f.name}" download>${ICON.download}<span>${esc(t(`downloads.get.${p.id}`))}</span></a>
+<a class="btn btn--primary" href="${downloadPath(lang)}#${p.id}">${ICON.download}<span>${esc(t(`downloads.get.${p.id}`))}</span></a>
 <p class="detail">${esc(t(`downloads.req.${p.id}`))}</p>
 <p class="small dl-meta">${esc(meta)}</p>
-<details class="dl-sum"><summary>${esc(t("downloads.checksum"))}</summary><code class="dl-hash">${f.sha256}</code></details>
 </div></li>`;
   };
   const cards = data.platforms.map(card).join("");
@@ -488,6 +485,181 @@ ${rail(t("downloads.label"), t("downloads.rail"), true)}
 export function homePage(ctx) {
   const body = [hero(ctx), presentation(ctx), vision(ctx), roadmap(ctx), aligners(ctx), downloads(ctx)].join("\n");
   return shell(ctx, "home", body);
+}
+
+// ---------- Download ----------
+
+// A terminal command with a copy button (site.js shows the button; without JS the text stays selectable).
+function cmd(ctx, lines) {
+  return `<div class="cmd"><pre class="cmd__pre"><code>${lines.map(esc).join("\n")}</code></pre><button class="cmd__copy" type="button" data-copy hidden data-label-done="${esc(ctx.t("dl.copied"))}">${esc(ctx.t("dl.copy"))}</button></div>`;
+}
+
+// Download button, then version, size, date and the checksum of one release file.
+function fileLink(ctx, f, label, kind = "secondary") {
+  const { t, lang, data } = ctx;
+  const meta = t("downloads.meta")
+    .replace("{version}", data.release.version)
+    .replace("{size}", fmtSize(lang, f.size))
+    .replace("{date}", fmtDate(lang, data.release.date));
+  return `<a class="btn btn--${kind}" href="/download/${f.name}" download>${ICON.download}<span>${esc(label)}</span></a>
+<p class="small dl-meta">${esc(meta)} · <span class="dl-name">${esc(f.name)}</span></p>
+<details class="dl-sum"><summary>${esc(t("downloads.checksum"))}</summary><code class="dl-hash">${f.sha256}</code></details>`;
+}
+
+// One way to get the app: heading, text, then commands and buttons.
+function option(ctx, id, { recommended = false, body, parts }) {
+  const { t } = ctx;
+  const rec = recommended ? tag(ctx, "exists", t("dl.recommended"), "dlopt__tag") : "";
+  return `<li class="dlopt" id="${id}">
+<div class="dlopt__head"><h4 class="h3">${esc(t(`dl.${id}.title`))}</h4>${rec}</div>
+<p class="detail">${esc(body ?? t(`dl.${id}.body`))}</p>
+${parts.join("\n")}
+</li>`;
+}
+
+const unavailable = (ctx) =>
+  `<button class="btn btn--disabled" type="button" aria-disabled="true">${ICON.lock}<span>${esc(ctx.t("downloads.button"))}</span></button>`;
+
+function group(ctx, key, intro, options) {
+  const { t } = ctx;
+  return `<div class="dlgroup">
+<h3 class="mono-label dlgroup__h">${esc(t(`dl.${key}`))}</h3>
+<p class="small">${esc(intro)}</p>
+${options.length ? `<ul class="dlopts">${options.join("\n")}</ul>` : unavailable(ctx)}
+</div>`;
+}
+
+function linuxInstallers(ctx) {
+  const { t, siteUrl, data } = ctx;
+  const files = data.release.files;
+  const out = [];
+  if (files.flatpak) {
+    out.push(
+      option(ctx, "flatpak", {
+        recommended: true,
+        parts: [
+          `<a class="btn btn--primary" href="/linux/DentalCraft.flatpakref">${esc(t("dl.flatpak.open"))}</a>`,
+          `<p class="small">${esc(t("dl.terminal"))}</p>`,
+          cmd(ctx, [`flatpak install --user --from ${siteUrl}/linux/DentalCraft.flatpakref`]),
+        ],
+      }),
+    );
+  }
+  if (files.rpm) {
+    out.push(
+      option(ctx, "dnf", {
+        parts: [
+          cmd(ctx, [`sudo dnf config-manager addrepo --from-repofile=${siteUrl}/linux/dentalcraft.repo`, "sudo dnf install dentalcraft"]),
+          `<p class="small"><a class="ul" href="/download/${files.rpm.name}" download>${esc(t("dl.rpm.link"))}</a></p>`,
+        ],
+      }),
+    );
+  }
+  if (files.deb) {
+    out.push(
+      option(ctx, "apt", {
+        parts: [
+          cmd(ctx, [
+            `curl -fsSL ${siteUrl}/linux/dentalcraft.gpg | sudo tee /usr/share/keyrings/dentalcraft.gpg > /dev/null`,
+            `curl -fsSL ${siteUrl}/linux/dentalcraft.list | sudo tee /etc/apt/sources.list.d/dentalcraft.list > /dev/null`,
+            "sudo apt update && sudo apt install dentalcraft",
+          ]),
+          `<p class="small"><a class="ul" href="/download/${files.deb.name}" download>${esc(t("dl.deb.link"))}</a></p>`,
+        ],
+      }),
+    );
+  }
+  if (files.appimage) {
+    out.push(
+      option(ctx, "appimage", {
+        parts: [fileLink(ctx, files.appimage, t("dl.appimage.get")), cmd(ctx, [`chmod +x ${files.appimage.name}`, `./${files.appimage.name}`])],
+      }),
+    );
+  }
+  return out;
+}
+
+function windowsInstallers(ctx) {
+  const { t, data } = ctx;
+  const files = data.release.files;
+  const out = [];
+  if (files.exe) out.push(option(ctx, "exe", { recommended: true, parts: [fileLink(ctx, files.exe, t("dl.exe.get"), "primary")] }));
+  if (files.msi) {
+    out.push(
+      option(ctx, "msi", {
+        parts: [fileLink(ctx, files.msi, t("dl.msi.get")), `<p class="small">${esc(t("dl.msi.silent"))}</p>`, cmd(ctx, [`msiexec /i ${files.msi.name} /qn`])],
+      }),
+    );
+  }
+  return out;
+}
+
+function osCard(ctx, p, installers, standalone) {
+  const { t } = ctx;
+  return `<li class="pcard dlos" id="${p.id}">
+<div class="pcard__handle"><span class="pcard__code" aria-hidden="true">${p.code}</span>${tag(ctx, standalone ? "progress" : "planned", t(p.tag))}</div>
+<div class="pcard__body">
+<h2 class="h2" id="${p.id}-h">${esc(t(`downloads.platform.${p.id}`))}</h2>
+${standalone ? `<p class="detail">${esc(t(`dl.req.${p.id}`))}</p>\n<div class="dlos__cols">${installers}${standalone}</div>` : unavailable(ctx)}
+</div>
+</li>`;
+}
+
+function downloadBody(ctx) {
+  const { t, data, lang, signing } = ctx;
+  const rel = data.release;
+  const files = rel.files;
+  // Amber marks one action per card: the recommended installer, or the standalone file when there is no installer.
+  const card = (p, installers, intro, standaloneId, standaloneFile, after = "") => {
+    const kind = installers.length ? "secondary" : "primary";
+    return osCard(
+      ctx,
+      p,
+      group(ctx, "installer", t(`dl.installer.${p.id}`), installers),
+      group(ctx, "standalone", intro, [
+        option(ctx, standaloneId, { parts: [fileLink(ctx, standaloneFile, t(`dl.${standaloneId}.get`), kind)] }),
+      ]) + after,
+    );
+  };
+  const cards = data.platforms
+    .map((p) => {
+      if (p.id === "linux") return card(p, linuxInstallers(ctx), t("dl.standalone.linux"), "targz", files.linux);
+      if (p.id === "windows") {
+        const warn = `<p class="small dlos__warn">${MARK.progress}<span>${esc(t("downloads.smartscreen"))}</span></p>`;
+        return card(p, windowsInstallers(ctx), t("dl.standalone.windows"), "zip", files.windows, warn);
+      }
+      return osCard(ctx, p, "", "");
+    })
+    .join("\n");
+  const fpr = signing.gpgFingerprint.replace(/(.{4})(?!$)/g, "$1 ");
+  return `<section class="sec sec--first" id="download" aria-labelledby="download-h">
+<div class="wrap sec__grid">
+${rail(t("downloads.label"), t("dl.rail"))}
+<div class="content content--stack-sm">
+<h1 class="display" id="download-h">${esc(t("dl.headline"))}</h1>
+<p class="lead max640">${esc(t("dl.body"))}</p>
+<p class="detail max640">${esc(t("downloads.body"))}</p>
+<p class="detail max640">${esc(t("dl.updates"))}</p>
+<ul class="dloss">${cards}</ul>
+<div class="dl-info">
+<p class="dl-terms">${esc(t("downloads.terms"))} <a class="ul" href="${licencePath(lang)}">${esc(t("downloads.terms.link"))}</a></p>
+<h2 class="h3">${esc(t("dl.keys.title"))}</h2>
+<p class="small">${esc(t("dl.keys.body"))}</p>
+<p class="small"><span class="mono-label">${esc(t("dl.keys.fpr"))}</span> <code class="dl-fpr">${fpr}</code></p>
+<ul class="dl-keys small">
+<li><a class="ul" href="/keys/dentalcraft.gpg">${esc(t("dl.keys.gpg"))}</a></li>
+<li><a class="ul" href="/keys/dentalcraft.minisign.pub">${esc(t("dl.keys.minisign"))}</a></li>
+<li><a class="ul" href="/download/${rel.sums}">${esc(t("downloads.sums.link"))}</a></li>
+</ul>
+</div>
+<p class="disc disc--sm">${esc(t("disclaimer.full"))}</p>
+</div>
+</div>
+</section>`;
+}
+
+export function downloadPage(ctx) {
+  return shell(ctx, "download", downloadBody(ctx));
 }
 
 // ---------- About ----------

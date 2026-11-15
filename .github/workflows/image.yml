@@ -7,7 +7,9 @@ name: image
 # Runs on every push to main, on v* tags, and by hand (workflow_dispatch).
 # Same runner and action versions as dentalcraft-server's image workflow.
 # The Node build happens inside the image build, so the runner needs no toolchain.
-# The app archives for /download/ are fetched first with the APP_RELEASE_TOKEN secret (see README, Downloads).
+# All the files of the pinned app release are fetched first with the APP_RELEASE_TOKEN secret (see README, Downloads).
+# The image build signs the APT, RPM and Flatpak repositories with the DENTALCRAFT_GPG_KEY secret
+# (armored secret key of DentalCraft Releases), passed as the build secret "gpg".
 on:
   push:
     branches: [main]
@@ -59,7 +61,7 @@ jobs:
           printf '%s' "$repo" | grep -Eq '^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$' || { echo "bad release.repo in content/site.data.json: '$repo'" >&2; exit 1; }
           printf '%s' "$tag" | grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$' || { echo "bad release.tag in content/site.data.json: '$tag'" >&2; exit 1; }
           mkdir -p downloads
-          gh release download "$tag" -R "$repo" -p 'dentalcraft_*' -D downloads
+          gh release download "$tag" -R "$repo" -D downloads
           ls -l downloads
           sha256sum downloads/*
       - name: Derive the image tags
@@ -96,6 +98,8 @@ jobs:
           file: Containerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
+          secrets: |
+            "gpg=${{ secrets.DENTALCRAFT_GPG_KEY }}"
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
             org.opencontainers.image.revision=${{ github.sha }}

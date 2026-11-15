@@ -22,3 +22,6 @@ media/video/dentalcraft-presentation.mp4
 media/video/*.ecproj
 media/video/*.fcproj
 media/video/project-media/
+
+# Linux repository input written by the build (Flatpak bundle)
+repo-input/

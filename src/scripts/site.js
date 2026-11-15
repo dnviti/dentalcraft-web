@@ -1,4 +1,4 @@
-// DentalCraft site: language links, mobile menu, current section, video, transcript link.
+// DentalCraft site: language links, mobile menu, current section, video, transcript link, copy buttons.
 (function () {
   "use strict";
   var doc = document;
@@ -112,6 +112,23 @@
     video.addEventListener("play", function () { video.controls = true; box.classList.add("is-playing"); });
     // Hero "Watch the presentation" scrolls to the player but never starts it.
   });
+
+  // --- Download page: copy buttons on terminal commands (shown only when the clipboard is available) ---
+  if (navigator.clipboard && window.isSecureContext) {
+    $$("[data-copy]").forEach(function (b) {
+      var code = $("code", b.parentNode);
+      var label = b.textContent;
+      var timer;
+      b.hidden = false;
+      b.addEventListener("click", function () {
+        navigator.clipboard.writeText(code.textContent).then(function () {
+          b.textContent = b.getAttribute("data-label-done");
+          clearTimeout(timer);
+          timer = setTimeout(function () { b.textContent = label; }, 2000);
+        }, function () { /* the text stays selectable */ });
+      });
+    });
+  }
 
   if (reduce) root.classList.add("reduce-motion");
 })();
