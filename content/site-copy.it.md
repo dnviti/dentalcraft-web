@@ -55,6 +55,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
   - File unico per ogni caso, salvato in automatico - `Esiste oggi`
   - Vista 3D con selezione, spostamento, rotazione e scala - `Esiste oggi`
   - Importazione delle scansioni, con chiusura automatica di quelle aperte - `Esiste oggi`
+  - Scansione 3D e piatto girevole nell'applicazione (alpha) - `In corso`
   - Trovare i denti, separare denti e gengiva, denti 3D - `Esiste oggi`
   - Analisi del caso e morso - `Esiste oggi`
   - Posizione finale, allineatori e revisione clinica - `In corso`
@@ -116,7 +117,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 
 | Gruppo | Che cosa fa l'alpha | Stato |
 |---|---|---|
-| **Caso** | Importazione delle scansioni intraorali (STL, OBJ, PLY). Una scansione aperta viene chiusa in automatico con una base piana. Scelta dell'arcata a mano e capovolgimento del lato occlusale. | Esiste oggi |
+| **Caso** | Importazione delle scansioni intraorali (STL, OBJ, PLY). Una scansione aperta viene chiusa in automatico con una base piana. Scelta dell'arcata a mano e capovolgimento del lato occlusale. Puoi anche scansionare nell'applicazione con uno scanner 3D, con o senza piatto girevole: un'alpha iniziale. | Esiste oggi |
 | **Preparazione** | Trovare i denti e numerarli (FDI), con segni che puoi aggiungere, eliminare o rinumerare a mano, e denti mancanti. Separare denti e gengiva, con un pennello e la pulizia dei bordi per le correzioni. Denti 3D, ciascuno un modello chiuso, con una gengiva che li segue. Vedere la zona e la linea di margine di un dente. | Esiste oggi |
 | **Diagnosi** | Analisi del caso: spazio, affollamento, indice di irregolarità di Little, Bolton e complessità del caso. Puoi inserire i tuoi valori misurati e i risultati li seguono. | Esiste oggi |
 | **Pianificazione** | Posizione finale, con parametri, linea d'arcata disegnata a mano, spostamento di un dente e ritorno alla posizione iniziale. Allineatori: stadi, calendario dei cambi, rallentare un dente, cursore degli stadi. Revisione clinica con attacchi e segni di riduzione interprossimale (IPR). | In corso |
@@ -228,13 +229,16 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
    Il primo ambito è Allineatori, per la pianificazione degli allineatori trasparenti. La pagina iniziale elenca ogni fase con il suo stato. Dall'importazione delle scansioni al morso funziona già nell'alpha; posizione finale, allineatori, revisione clinica, produzione ed esportazione sono ancora in sviluppo e i loro risultati non sono validati: non vanno usati sui pazienti.
 
 8. **Quali file posso usare?**
-   Puoi importare scansioni in STL, OBJ e PLY; le scansioni aperte vengono chiuse automaticamente con una base. «Esporta per la stampa» scrive i file STL di ogni stadio, con il calendario dei cambi e una relazione: questa funzione è ancora in completamento. Ogni caso si salva in un unico file aperto, in automatico poco dopo ogni modifica e ogni volta che salvi.
+   Puoi importare scansioni in STL, OBJ e PLY; le scansioni aperte vengono chiuse automaticamente con una base. Puoi anche scansionare nell'applicazione con uno scanner 3D supportato (alpha iniziale) e importare il risultato nel caso. «Esporta per la stampa» scrive i file STL di ogni stadio, con il calendario dei cambi e una relazione: questa funzione è ancora in completamento. Ogni caso si salva in un unico file aperto, in automatico poco dopo ogni modifica e ogni volta che salvi.
 
 9. **Posso usarlo da script o con un agente di intelligenza artificiale?**
-   Sì. Ogni azione dell'applicazione è anche un comando dello strumento dentalcraft-cli, incluso nei download senza installazione e negli installer, e del suo server MCP: uno script o un agente di intelligenza artificiale può eseguire gli stessi passaggi.
+   Sì. Ogni azione dell'applicazione, scansione e piatto girevole compresi, è anche un comando dello strumento dentalcraft-cli, incluso nei download senza installazione e negli installer, e del suo server MCP: uno script o un agente di intelligenza artificiale può eseguire gli stessi passaggi.
 
 10. **Come si aggiorna?**
     Le versioni Flatpak, Fedora e Debian/Ubuntu si aggiornano con il sistema. Tutte le altre controllano questo sito all'avvio di DentalCraft, chiedono prima di aggiornare e verificano la firma dell'aggiornamento prima di installarlo.
+
+11. **Posso scansionare con uno scanner 3D dentro DentalCraft?**
+    Sì, come alpha iniziale. In Importazione scansioni, accanto al pulsante di importazione c'è il pulsante Scansiona, che apre una finestra di scansione: colleghi uno scanner, avvii, metti in pausa e fermi l'acquisizione dal vivo, pulisci la nuvola di punti, crei la superficie e la importi nel caso come arcata superiore, inferiore o morso. Funziona con il Revopoint MINI 2 via USB su Linux, senza SDK del produttore e con una calibrazione approssimativa se non fornisci un file di calibrazione. L'SDK Revopoint 3D Camera si può usare come backend facoltativo: lo fornisci tu, con l'autorizzazione di Revopoint, e non è incluso. Uno scanner simulato integrato permette di provare il flusso senza hardware. Il backend USB non è disponibile su Windows. Il Revopoint Dual-axis Turntable funziona via Bluetooth LE (provato su Linux). Non è un dispositivo medico: non usare le scansioni fatte così per decisioni cliniche.
 
 ---
 
@@ -276,7 +280,7 @@ Guarda la presentazione / Prova l'alpha / Riproduci il video / Leggi la trascriz
 | `vision.rail` | Intenzioni, non funzioni |
 | `roadmap.rail` | Nessuna data annunciata |
 | `roadmap.core.label` | Base comune |
-| `roadmap.core.items` | Struttura dell'applicazione, file unico per ogni caso (salvato in automatico), vista 3D con selezione, spostamento, rotazione e scala |
+| `roadmap.core.items` | Struttura dell'applicazione, file unico per ogni caso (salvato in automatico), vista 3D con selezione, spostamento, rotazione e scala, scansione 3D (alpha iniziale) |
 | `roadmap.m1.note` | Primo ambito. In sviluppo attivo: dalla scansione al morso funziona già nell'alpha; pianificazione e produzione sono ancora in validazione. |
 | `aligners.rail` | Primo ambito |
 | `aligners.legend.exists` | Funziona nell'alpha. Versione iniziale, non validata per l'uso clinico. |
@@ -371,14 +375,11 @@ Un blocco tra l'introduzione e le schede dei sistemi operativi, con un link dall
 | `new.title` | Novità della versione {version} |
 | `new.meta` | Rilasciata il {date} |
 | `new.link` | Novità della versione {version} |
-| `new.note` | Pianificazione, produzione ed esportazione sono ancora in sviluppo. Non è un dispositivo medico. Non per uso clinico. |
-| `new.1` | Installer per Linux (Flatpak, Fedora, Debian e Ubuntu, AppImage) e Windows (setup e MSI). DentalCraft controlla gli aggiornamenti all'avvio e chiede prima di installarli. |
-| `new.2` | Scansioni: una scansione aperta viene chiusa in automatico con una base piana quando la importi. Puoi scegliere l'arcata a mano, capovolgere il lato occlusale e vedere come è stata chiusa ogni scansione. |
-| `new.3` | Il menu è raggruppato per funzione. Un clic su una voce la seleziona soltanto: nel pannello a destra trovi i suoi parametri, il pulsante per eseguirla e le correzioni manuali. |
-| `new.4` | Analisi del caso: inserisci i tuoi valori (affollamento, indice di Little, linea mediana, spazio maggiore) e i risultati li seguono. |
-| `new.5` | Morso: una relazione, gli spazi per le scansioni del morso, la registrazione sulla scansione del morso o con tre punti scelti a mano, e la correzione del morso. Con entrambe le arcate il morso viene prima della posizione finale. |
-| `new.6` | Posizione finale: parametri, linea d'arcata disegnata a mano, spostamento di un singolo dente, un'ombra della posizione obiettivo e il ritorno alla posizione iniziale. |
-| `new.7` | Allineatori: parametri, calendario dei cambi, rallentare un dente e un cursore degli stadi. Revisione clinica con attacchi e segni di IPR. |
-| `new.8` | Esporta per la stampa: impostazioni di produzione, dove termina l'allineatore, ponti di contatto, fori e controlli della rifilatura, marcature. I modelli da studio e un'anteprima dell'allineatore si possono mostrare nella vista 3D; gli allineatori compaiono solo quando lo chiedi. |
-| `new.9` | Vista 3D: seleziona un dente, la gengiva o una scansione, vedila evidenziata e spostala, ruotala o ridimensionala. Elimina un dente, guarda la zona e la linea di margine di un dente. Il lavoro si salva in automatico. |
-| `new.10` | Correzioni: nel piano i denti non fanno più giri completi e per ogni arcata sono elencati i motivi per cui un risultato non è aggiornato. |
+| `new.note` | La scansione 3D è un'alpha iniziale; pianificazione, produzione ed esportazione sono ancora in sviluppo. Non è un dispositivo medico. Non per uso clinico. |
+| `new.1` | Scansione 3D nell'applicazione (alpha): in Importazione scansioni, accanto al pulsante di importazione c'è il pulsante Scansiona, che apre una finestra di scansione. Colleghi uno scanner, avvii, metti in pausa e fermi l'acquisizione dal vivo e vedi la nuvola di punti formarsi. Ogni ambito di lavoro può usarla. |
+| `new.2` | Pulizia della nuvola di punti: elimina i punti isolati, tieni il pezzo più grande, leviga, semplifica, cancella ciò che selezioni con un riquadro oppure taglia tutto ciò che sta sotto un piano. Annulla e ripeti sono disponibili a ogni passo. |
+| `new.3` | Superficie: creala dalla nuvola di punti con dettaglio Fine (0,15 mm), Standard (0,3 mm) o Rapida (0,6 mm), poi chiudi i fori, leviga, rimuovi i pezzi piccoli o semplifica. Importa il risultato nel caso come arcata superiore, inferiore o morso e annullalo come un'importazione da file. |
+| `new.4` | Scanner: il Revopoint MINI 2 via USB su Linux, senza SDK del produttore e con una calibrazione approssimativa se non fornisci un file di calibrazione; l'SDK Revopoint 3D Camera come backend facoltativo, che fornisci tu insieme all'autorizzazione di Revopoint e che non è incluso; e uno scanner simulato integrato per provare il flusso senza hardware. Il backend USB non è disponibile su Windows. |
+| `new.5` | Piatto girevole (alpha): il Revopoint Dual-axis Turntable via Bluetooth LE, provato su Linux. Ruota, inclina, Home e velocità a mano; calibra gli assi senza attrezzi, con un oggetto sul piatto; esegui una scansione automatica a più inclinazioni (per esempio -20, 0 e +20 gradi) che gira mentre scansiona e, a calibrazione fatta, tiene solo il volume del piatto. |
+| `new.6` | Comandi: ogni azione di scansione e del piatto girevole è anche un comando (scan.*, turntable.*, scan.auto) per dentalcraft-cli e il suo server MCP. |
+| `new.7` | Correzioni: la sessione di accesso viene mantenuta quando chiudi e riapri l'applicazione. |
