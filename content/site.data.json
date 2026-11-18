@@ -23,7 +23,7 @@
     { "n": 7, "status": "progress" },
     { "n": 8, "status": "progress" }
   ],
-  "whatsNew": ["new.1", "new.2", "new.3", "new.4", "new.5"],
+  "whatsNew": ["new.1", "new.2", "new.3", "new.4"],
   "modules": [
     { "n": 1, "code": "al", "status": "progress" },
     { "n": 2, "code": "mb", "status": "planned" },
@@ -32,61 +32,61 @@
     { "n": 5, "code": "im", "status": "planned" }
   ],
   "release": {
-    "version": "0.2.0-alpha.6",
+    "version": "0.2.0-alpha.7",
     "repo": "dnviti-personal-org/dentalcraft-app",
-    "tag": "v0.2.0-alpha.6",
-    "date": "2026-11-17",
-    "sums": "dentalcraft_0.2.0-alpha.6_SHA256SUMS.txt",
+    "tag": "v0.2.0-alpha.7",
+    "date": "2026-11-18",
+    "sums": "dentalcraft_0.2.0-alpha.7_SHA256SUMS.txt",
     "files": {
       "linux": {
-        "name": "dentalcraft_0.2.0-alpha.6_linux_x86_64.tar.gz",
-        "size": 32149389,
-        "sha256": "1e52518f554af0a9a8e3eb9d8be548270eaddfdf25ef211598865808410315f1"
+        "name": "dentalcraft_0.2.0-alpha.7_linux_x86_64.tar.gz",
+        "size": 32223275,
+        "sha256": "1ee5a0c1de52fd52c20b3c40f77a054f605c15f8306e0f7d28a504a69bbf7a55"
       },
       "windows": {
-        "name": "dentalcraft_0.2.0-alpha.6_windows_x86_64.zip",
-        "size": 39240482,
-        "sha256": "534aea0d5f7eb1d657b42536159e2dcd1b58757dadf19feba9e35bbaa2e261a9"
+        "name": "dentalcraft_0.2.0-alpha.7_windows_x86_64.zip",
+        "size": 39370508,
+        "sha256": "f2efbdd14abf1a61aaa90def74b734ce21467f146ebe8cf5711cce5324e4022c"
       },
       "appimage": {
-        "name": "DentalCraft-0.2.0-alpha.6-x86_64.AppImage",
-        "size": 30059000,
-        "sha256": "5937d8c132511cfd68a3ac3a5ab857ba60d8ee2e95c0326009036b3dcf31ada9"
+        "name": "DentalCraft-0.2.0-alpha.7-x86_64.AppImage",
+        "size": 30116344,
+        "sha256": "83b932a2bfc6f696da51fac8417b7d79a1ad869e7eeb074a59649b4dd17b3cf0"
       },
       "deb": {
-        "name": "dentalcraft_0.2.0-alpha.6_amd64.deb",
-        "size": 22029244,
-        "sha256": "782788a3f982b01d67a24f75410e8dc1bfb8e37aa6185d7e0b7d7c30bac7c346"
+        "name": "dentalcraft_0.2.0-alpha.7_amd64.deb",
+        "size": 22099808,
+        "sha256": "2aa32a7b4f2fd1f8a33e092f636fb8ed963636210e3474a1cd6d1a1bb9e84d39"
       },
       "rpm": {
-        "name": "dentalcraft-0.2.0-alpha.6-1.x86_64.rpm",
-        "size": 21772809,
-        "sha256": "6c6367bccb89a3e088b473ce075bdf0993cc9424c99581e8d76a65e64ca0b56e"
+        "name": "dentalcraft-0.2.0-alpha.7-1.x86_64.rpm",
+        "size": 21825965,
+        "sha256": "6d4abf43191c3e44f69deb4d7a454c85abb8becc7422b49f63429b609ffe1488"
       },
       "flatpak": {
-        "name": "DentalCraft-0.2.0-alpha.6.flatpak",
-        "size": 21345600,
-        "sha256": "59af375845cf1abb5350d47fba3d5b368fae837d185c1eaf52bc59e0c4d3ef50"
+        "name": "DentalCraft-0.2.0-alpha.7.flatpak",
+        "size": 21371312,
+        "sha256": "8fac5f783af5e9d1bd11bedab3a0fc0b446d6f33d7dd5ec8863e2e5fe3fbb9c7"
       },
       "exe": {
-        "name": "DentalCraft-0.2.0-alpha.6-setup.exe",
-        "size": 26454941,
-        "sha256": "f63e55719d2ba22b63a60fafa52bb656290b871e32e3b757e465d5a688cd1ba7"
+        "name": "DentalCraft-0.2.0-alpha.7-setup.exe",
+        "size": 26512032,
+        "sha256": "f251221df1fe9f9671ddeb3c9a11be72b83d7b0ee2cb2da66e2c4f6e7584a0db"
       },
       "msi": {
-        "name": "DentalCraft-0.2.0-alpha.6-x86_64.msi",
-        "size": 43427328,
-        "sha256": "987a0785f6402c4951921582f364fbc3226b583b1eafa3b2cc1af12d7c16e84c"
+        "name": "DentalCraft-0.2.0-alpha.7-x86_64.msi",
+        "size": 43573760,
+        "sha256": "45f8bc3d3e33e2a9dd3b2ea164a3d61745d51ed7792c6726e3b4fec1101d7f3a"
       },
       "update": {
         "name": "update.json",
         "size": 1292,
-        "sha256": "daf7c895e325fd790be2b3d080ab2cc8463fc525a3b6dcb4a595983f39f79261"
+        "sha256": "f9dce6cd594cd6d4559e24757230d30f9680f337e43c6a9166a75cada03cf480"
       },
       "updateSig": {
         "name": "update.json.minisig",
         "size": 316,
-        "sha256": "596f3320190e7ed89730662f683d01707d196a1869b8d0988a36f11f394505be"
+        "sha256": "664724a156153380575a49355867187bd75629daa5ffc70c4b4b5bc3ed998c11"
       }
     }
   },

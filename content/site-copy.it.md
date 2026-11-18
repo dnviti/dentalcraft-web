@@ -54,8 +54,8 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
   - Struttura dell'applicazione - `Esiste oggi`
   - File unico per ogni caso, salvato in automatico - `Esiste oggi`
   - Vista 3D con selezione, spostamento, rotazione e scala - `Esiste oggi`
-  - Importazione delle scansioni, con chiusura automatica di quelle aperte - `Esiste oggi`
-  - Scansione 3D e piatto girevole nell'applicazione (alpha) - `In corso`
+  - Importazione delle scansioni, con chiusura automatica di quelle aperte; un caso può partire senza scansioni - `Esiste oggi`
+  - Scansione 3D e piatto girevole, dalla schermata Nuovo progetto e dentro un caso (alpha) - `In corso`
   - Trovare i denti, separare denti e gengiva, denti 3D - `Esiste oggi`
   - Analisi del caso e morso - `Esiste oggi`
   - Posizione finale, allineatori e revisione clinica - `In corso`
@@ -117,7 +117,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 
 | Gruppo | Che cosa fa l'alpha | Stato |
 |---|---|---|
-| **Caso** | Importazione delle scansioni intraorali (STL, OBJ, PLY). Una scansione aperta viene chiusa in automatico con una base piana. Scelta dell'arcata a mano e capovolgimento del lato occlusale. Puoi anche scansionare nell'applicazione con uno scanner 3D, con o senza piatto girevole: un'alpha iniziale. | Esiste oggi |
+| **Caso** | Avvio del caso dalla schermata Nuovo progetto con scansioni importate (STL, OBJ, PLY), con una scansione fatta da uno scanner 3D o senza alcuna scansione, da aggiungere poi nel caso, importandole o con lo scanner. Una scansione aperta viene chiusa in automatico con una base piana. Scelta dell'arcata a mano e capovolgimento del lato occlusale. La scansione nell'applicazione, con o senza piatto girevole, è un'alpha iniziale. | Esiste oggi |
 | **Preparazione** | Trovare i denti e numerarli (FDI), con segni che puoi aggiungere, eliminare o rinumerare a mano, e denti mancanti. Separare denti e gengiva, con un pennello e la pulizia dei bordi per le correzioni. Denti 3D, ciascuno un modello chiuso, con una gengiva che li segue. Vedere la zona e la linea di margine di un dente. | Esiste oggi |
 | **Diagnosi** | Analisi del caso: spazio, affollamento, indice di irregolarità di Little, Bolton e complessità del caso. Puoi inserire i tuoi valori misurati e i risultati li seguono. | Esiste oggi |
 | **Pianificazione** | Posizione finale, con parametri, linea d'arcata disegnata a mano, spostamento di un dente e ritorno alla posizione iniziale. Allineatori: stadi, calendario dei cambi, rallentare un dente, cursore degli stadi. Revisione clinica con attacchi e segni di riduzione interprossimale (IPR). | In corso |
@@ -229,7 +229,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
    Il primo ambito è Allineatori, per la pianificazione degli allineatori trasparenti. La pagina iniziale elenca ogni fase con il suo stato. Dall'importazione delle scansioni al morso funziona già nell'alpha; posizione finale, allineatori, revisione clinica, produzione ed esportazione sono ancora in sviluppo e i loro risultati non sono validati: non vanno usati sui pazienti.
 
 8. **Quali file posso usare?**
-   Puoi importare scansioni in STL, OBJ e PLY; le scansioni aperte vengono chiuse automaticamente con una base. Puoi anche scansionare nell'applicazione con uno scanner 3D supportato (alpha iniziale) e importare il risultato nel caso. «Esporta per la stampa» scrive i file STL di ogni stadio, con il calendario dei cambi e una relazione: questa funzione è ancora in completamento. Ogni caso si salva in un unico file aperto, in automatico poco dopo ogni modifica e ogni volta che salvi.
+   Puoi importare scansioni in STL, OBJ e PLY; le scansioni aperte vengono chiuse automaticamente con una base. Puoi anche scansionare con uno scanner 3D supportato (alpha iniziale), dalla schermata Nuovo progetto o più tardi nel caso, e aggiungere il risultato al progetto. «Esporta per la stampa» scrive i file STL di ogni stadio, con il calendario dei cambi e una relazione: questa funzione è ancora in completamento. Ogni caso si salva in un unico file aperto, in automatico poco dopo ogni modifica e ogni volta che salvi.
 
 9. **Posso usarlo da script o con un agente di intelligenza artificiale?**
    Sì. Ogni azione dell'applicazione, scansione e piatto girevole compresi, è anche un comando dello strumento dentalcraft-cli, incluso nei download senza installazione e negli installer, e del suo server MCP: uno script o un agente di intelligenza artificiale può eseguire gli stessi passaggi.
@@ -238,7 +238,10 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
     Le versioni Flatpak, Fedora e Debian/Ubuntu si aggiornano con il sistema. Tutte le altre controllano questo sito all'avvio di DentalCraft, chiedono prima di aggiornare e verificano la firma dell'aggiornamento prima di installarlo.
 
 11. **Posso scansionare con uno scanner 3D dentro DentalCraft?**
-    Sì, come alpha iniziale. In Importazione scansioni, accanto al pulsante di importazione c'è il pulsante Scansiona, che apre una finestra di scansione: colleghi uno scanner, avvii, metti in pausa e fermi l'acquisizione dal vivo, pulisci la nuvola di punti, crei la superficie e la importi nel caso come arcata superiore, inferiore o morso. Funziona con il Revopoint MINI 2 via USB su Linux, senza SDK del produttore e con una calibrazione approssimativa se non fornisci un file di calibrazione. L'SDK Revopoint 3D Camera si può usare come backend facoltativo: lo fornisci tu, con l'autorizzazione di Revopoint, e non è incluso. Uno scanner simulato integrato permette di provare il flusso senza hardware. Il backend USB non è disponibile su Windows. Il Revopoint Dual-axis Turntable funziona via Bluetooth LE (provato su Linux). Non è un dispositivo medico: non usare le scansioni fatte così per decisioni cliniche.
+    Sì, come alpha iniziale. Nella schermata Nuovo progetto, il pulsante Scansiona accanto a «Sfoglia i file…» apre una finestra di scansione, e la stessa finestra si apre da Importazione scansioni nel caso: colleghi uno scanner, avvii, metti in pausa e fermi l'acquisizione dal vivo, pulisci la nuvola di punti, crei la superficie e la aggiungi al progetto come arcata superiore, inferiore o morso. La finestra è condivisa da tutta l'applicazione, quindi qualunque ambito può offrirla. Funziona con il Revopoint MINI 2 via USB su Linux, senza SDK del produttore e con una calibrazione approssimativa se non fornisci un file di calibrazione. L'SDK Revopoint 3D Camera si può usare come backend facoltativo: lo fornisci tu, con l'autorizzazione di Revopoint, e non è incluso. Uno scanner simulato integrato permette di provare il flusso senza hardware. Il backend USB non è disponibile su Windows. Il Revopoint Dual-axis Turntable funziona via Bluetooth LE (provato su Linux). Non è un dispositivo medico: non usare le scansioni fatte così per decisioni cliniche.
+
+12. **Posso iniziare un progetto senza scansioni?**
+    Sì. Nella schermata Nuovo progetto le scansioni sono facoltative: importa file, scansiona con uno scanner 3D supportato (alpha iniziale) o crea il progetto vuoto. Nel progetto puoi aggiungere arcata superiore, inferiore e morso più tardi, importandoli o con lo scanner. Non è un dispositivo medico: non usarlo per decisioni cliniche.
 
 ---
 
@@ -280,7 +283,7 @@ Guarda la presentazione / Prova l'alpha / Riproduci il video / Leggi la trascriz
 | `vision.rail` | Intenzioni, non funzioni |
 | `roadmap.rail` | Nessuna data annunciata |
 | `roadmap.core.label` | Base comune |
-| `roadmap.core.items` | Struttura dell'applicazione, file unico per ogni caso (salvato in automatico), vista 3D con selezione, spostamento, rotazione e scala, scansione 3D (alpha iniziale) |
+| `roadmap.core.items` | Struttura dell'applicazione, file unico per ogni caso (salvato in automatico), vista 3D con selezione, spostamento, rotazione e scala, scansione 3D in una finestra condivisa da tutta l'applicazione (alpha iniziale) |
 | `roadmap.m1.note` | Primo ambito. In sviluppo attivo: dalla scansione al morso funziona già nell'alpha; pianificazione e produzione sono ancora in validazione. |
 | `aligners.rail` | Primo ambito |
 | `aligners.legend.exists` | Funziona nell'alpha. Versione iniziale, non validata per l'uso clinico. |
@@ -376,8 +379,7 @@ Un blocco tra l'introduzione e le schede dei sistemi operativi, con un link dall
 | `new.meta` | Rilasciata il {date} |
 | `new.link` | Novità della versione {version} |
 | `new.note` | Pianificazione, produzione ed esportazione sono ancora in sviluppo e la scansione 3D è un'alpha iniziale. Non è un dispositivo medico. Non per uso clinico. |
-| `new.1` | Giorni di utilizzo: il calendario dei cambi e l'esportazione accettano ora solo da 5 a 21 giorni tra un allineatore e il successivo e rifiutano ogni altro valore con un messaggio chiaro. Prima, un valore fuori da questo intervallo poteva dare date sbagliate nelle versioni di rilascio. |
-| `new.2` | Casi limite: un calendario dei cambi vuoto o insolito, o un numero di stadio che non è un numero, non blocca più l'applicazione; la prossima visita e il giorno di ogni stadio vengono calcolati in modo sicuro. |
-| `new.3` | Semi dei denti: spostare gli stessi semi in un ordine diverso non viene più segnalato come una modifica, quindi non segna come non aggiornati i passi successivi. |
-| `new.4` | Linea temporale: la settimana mostrata per uno stadio non va più in overflow nei trattamenti molto lunghi. |
-| `new.5` | Verificato con dimostrazioni: la logica di base (numerazione dei denti, impacchettamento di voxel e mesh, pianificazione, forma canonica delle rotazioni e linea temporale) è ora controllata da verifica formale automatica con Kani, un model checker limitato che prova ogni valore degli ingressi entro limiti fissati e cerca anche overflow e accessi fuori intervallo. È un controllo di quelle parti del codice, non una validazione dell'applicazione né un'affermazione clinica. |
+| `new.1` | Scansione all'avvio del progetto (alpha): nella schermata Nuovo progetto, il pulsante Scansiona accanto a «Sfoglia i file…» apre la finestra di scansione. Ogni scansione che fai entra nell'elenco con la sua arcata, accanto ai file che importi, e passa nel progetto quando lo crei. Prima di allora non viene salvato nulla. |
+| `new.2` | Progetti senza scansioni: per creare un progetto non serve più una scansione. Si apre su una pagina vuota da cui puoi importare file o scansionare, e puoi aggiungere arcata superiore, inferiore e morso più tardi, importandoli o con lo scanner. |
+| `new.3` | Una sola finestra di scansione per tutta l'applicazione: la finestra di scansione è ora una parte condivisa dell'applicazione. Un ambito dice quali sue funzioni accettano scansioni e per quali arcate (Allineatori: arcata superiore, inferiore e morso), e la stessa finestra serve la schermata Nuovo progetto e il caso aperto. |
+| `new.4` | Scanner e piatto girevole: l'hardware supportato non cambia (Revopoint MINI 2 via USB su Linux, lo scanner simulato integrato, il Revopoint Dual-axis Turntable via Bluetooth LE) e la scansione resta un'alpha iniziale. Non è un dispositivo medico: non usare le scansioni fatte così per decisioni cliniche. |
