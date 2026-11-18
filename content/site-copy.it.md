@@ -62,6 +62,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
   - Produzione ed esportazione per la stampa - `In corso`
   - Installer con aggiornamenti automatici - `Esiste oggi`
   - Comandi per script e agenti IA - `Esiste oggi`
+  - Diagnostica anonima per correggere i difetti, solo se acconsenti - `Esiste oggi`
 
 ### Blocco video
 - **Titolo:** La presentazione in 75 secondi
@@ -166,7 +167,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
   - **Un'applicazione sul tuo computer.** Si installa e si usa sul computer dello studio o del laboratorio, senza passare dal browser. Gli installer per Linux e Windows controllano gli aggiornamenti e chiedono prima di installarli.
   - **Vista 3D fluida.** Fai clic su un dente, sulla gengiva o su una scansione per selezionarlo e vederlo evidenziato, poi sposta, ruota o ridimensiona nella vista. Pensata per restare fluida anche con le scansioni più dettagliate.
   - **Un file per ogni caso.** Un file aperto e documentato, con un controllo di integrità. Si salva da solo poco dopo ogni modifica, e ogni volta che salvi.
-  - **Privacy fin dalla progettazione.** I dati dei pazienti sono pseudonimizzati: nessun nome nei file dei casi.
+  - **Privacy fin dalla progettazione.** I dati dei pazienti sono pseudonimizzati: nessun nome nei file dei casi. La diagnostica anonima viene inviata solo se acconsenti.
   - **I casi restano da te.** Si lavora sui casi salvati sul tuo computer. L'account è previsto solo per licenze e assistenza.
   - **In due lingue.** Italiano e inglese.
   - **Comandabile da script e agenti IA.** Ogni azione è anche un comando di dentalcraft-cli e del suo server MCP: script e agenti di intelligenza artificiale possono eseguire gli stessi passaggi.
@@ -199,7 +200,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
   - **macOS** - tag In seguito. Pulsante (disattivato): Non ancora disponibile
 - **Sotto ogni card scaricabile:** Versione {version} · {date}. Dimensioni e checksum sono nella pagina di download (sezione 13).
 - **Sotto le card:** Windows potrebbe dire che l'editore è sconosciuto: i file non sono ancora firmati. Scegli «Ulteriori informazioni», poi «Esegui comunque». / Gratuita con la licenza DentalCraft, così com'è e senza garanzia. Non è un dispositivo medico: non usarla sui pazienti né per decisioni cliniche. [Licenza: link alla pagina della licenza] / Tutti i checksum (file di testo)
-- **Modulo di avviso:** rimosso (decisione: nessun back end, nessuna raccolta dati). Una nota sotto le card dice: Questo sito non ha moduli e non raccoglie dati. Leggi la nota sulla privacy.
+- **Modulo di avviso:** rimosso (decisione: nessun back end, nessuna raccolta dati). Una nota sotto le card dice: Questo sito non ha moduli e non raccoglie dati. L'applicazione invia dati diagnostici anonimi solo se acconsenti. Leggi la nota sulla privacy.
 - **Problemi o suggerimenti:** hello@dentalcraft.app
 - **Avviso:** In sviluppo. Non è un dispositivo medico. Non per uso clinico.
 
@@ -220,7 +221,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
    Sì. L'alpha si può scaricare e usare gratuitamente, per uso non clinico, con la licenza DentalCraft. I termini sono nella pagina della licenza.
 
 5. **Che fine fanno i dati dei pazienti?**
-   I casi sono pensati per restare sul tuo computer. I file dei casi sono pseudonimizzati e non contengono nomi di pazienti. L'account è previsto solo per licenze e assistenza.
+   I casi sono pensati per restare sul tuo computer. I file dei casi sono pseudonimizzati e non contengono nomi di pazienti. Scansioni, progetti e dati dei pazienti non vengono mai inviati a noi. L'account è previsto solo per licenze e assistenza.
 
 6. **Posso provarlo?**
    Sì. Una versione alpha per Linux e Windows si può scaricare dalla pagina iniziale, gratuitamente, per uso non clinico: valutazione, formazione, ricerca e prove di progettazione. È fornita così com'è. Non è un dispositivo medico e non è per uso clinico.
@@ -242,6 +243,9 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 
 12. **Posso iniziare un progetto senza scansioni?**
     Sì. Nella schermata Nuovo progetto le scansioni sono facoltative: importa file, scansiona con uno scanner 3D supportato (alpha iniziale) o crea il progetto vuoto. Nel progetto puoi aggiungere arcata superiore, inferiore e morso più tardi, importandoli o con lo scanner. Non è un dispositivo medico: non usarlo per decisioni cliniche.
+
+13. **DentalCraft invia dati allo sviluppatore?**
+    Solo se acconsenti. Al primo avvio l'applicazione chiede se può inviare dati diagnostici anonimi (segnalazioni di arresto anomalo, messaggi di errore, versione, sistema e scheda grafica, e ultime righe del registro senza i percorsi personali) per aiutare a correggere i difetti. La casella è non spuntata per impostazione predefinita e puoi cambiarla in qualsiasi momento dal menu dell'account. Scansioni, progetti, dati dei pazienti e dati dell'account non vengono mai inviati. La nota sulla privacy riporta l'elenco completo.
 
 ---
 
@@ -292,7 +296,7 @@ Guarda la presentazione / Prova l'alpha / Riproduci il video / Leggi la trascriz
 | `downloads.rail` | Alpha, da provare |
 | `downloads.terms` | Gratuita con la licenza DentalCraft, così com'è e senza garanzia. Non è un dispositivo medico: non usarla sui pazienti né per decisioni cliniche. |
 | `downloads.terms.link` | Licenza |
-| `downloads.note` | Questo sito non ha moduli e non raccoglie dati. Leggi la nota sulla privacy. |
+| `downloads.note` | Questo sito non ha moduli e non raccoglie dati. L'applicazione invia dati diagnostici anonimi solo se acconsenti. Leggi la nota sulla privacy. |
 | `technology.rail` | Lavoro e dati |
 | `regulatory.rail` | Posizione normativa |
 | `faq.headline` | Domande, risposte chiare |
@@ -300,9 +304,14 @@ Guarda la presentazione / Prova l'alpha / Riproduci il video / Leggi la trascriz
 | `footer.language.label` | Lingua |
 | `privacy.label` | Privacy |
 | `privacy.rail` | Nota sulla privacy |
-| `privacy.headline` | Niente cookie, niente tracciamento, niente moduli |
+| `privacy.headline` | Nessun tracciamento sul sito; diagnostica dell'applicazione solo se acconsenti |
 | `privacy.body.1` | Questo sito non imposta cookie, non usa strumenti di analisi o tracciamento, non carica nulla da terze parti e non ha moduli. Non raccogliamo dati personali tramite il sito. La lingua scelta resta solo nel tuo browser, così il sito può aprirsi nella tua lingua la volta successiva. |
 | `privacy.body.2` | Come ogni sito web, anche questo può conservare i normali registri di accesso (indirizzo IP, ora, pagina richiesta) per sicurezza e diagnosi. Se scrivi a hello@dentalcraft.app, useremo il tuo messaggio solo per risponderti. |
+| `privacy.app.title` | L'applicazione: diagnostica anonima, solo se acconsenti |
+| `privacy.app.1` | L'applicazione DentalCraft può inviare allo sviluppatore dati diagnostici anonimi, per trovare e correggere i difetti. È disattivata finché non acconsenti: al primo avvio una finestra te lo chiede, con la casella non spuntata, e puoi cambiare scelta in qualsiasi momento dal menu dell'account. Se non acconsenti, non viene raccolto né inviato nulla. |
+| `privacy.app.2` | Cosa viene inviato: la versione dell'applicazione e come è stata installata; il sistema operativo e la lingua; la scheda grafica e il suo driver, la quantità di memoria e il numero di processori; le segnalazioni di arresto anomalo con il relativo backtrace; i codici e i messaggi di errore e di avviso; le ultime righe del registro prima di un problema, senza i percorsi personali; un record a ogni avvio dell'applicazione; e un identificativo di installazione casuale, generato sul tuo computer e non collegato al tuo account. |
+| `privacy.app.3` | Cosa non viene mai inviato: scansioni, progetti e file dei casi, dati dei pazienti, alias o codici dei casi, nomi di file e dati dell'account (nome, email, token di accesso). Il server non conserva il tuo indirizzo IP insieme a questi dati. |
+| `privacy.app.4` | Dove vanno e per quanto tempo: solo al server di DentalCraft (auth.dentalcraft.app), mai a terzi. Sono conservati per 90 giorni, poi eliminati, e sono usati solo per trovare e correggere i difetti. Se disattivi l'opzione, i dati non ancora inviati e l'identificativo di installazione vengono eliminati dal tuo computer. Domande: hello@dentalcraft.app. |
 | `footer.licence` | Licenza |
 | `footer.privacy` | Nota sulla privacy |
 
@@ -379,7 +388,7 @@ Un blocco tra l'introduzione e le schede dei sistemi operativi, con un link dall
 | `new.meta` | Rilasciata il {date} |
 | `new.link` | Novità della versione {version} |
 | `new.note` | Pianificazione, produzione ed esportazione sono ancora in sviluppo e la scansione 3D è un'alpha iniziale. Non è un dispositivo medico. Non per uso clinico. |
-| `new.1` | Scansione all'avvio del progetto (alpha): nella schermata Nuovo progetto, il pulsante Scansiona accanto a «Sfoglia i file…» apre la finestra di scansione. Ogni scansione che fai entra nell'elenco con la sua arcata, accanto ai file che importi, e passa nel progetto quando lo crei. Prima di allora non viene salvato nulla. |
-| `new.2` | Progetti senza scansioni: per creare un progetto non serve più una scansione. Si apre su una pagina vuota da cui puoi importare file o scansionare, e puoi aggiungere arcata superiore, inferiore e morso più tardi, importandoli o con lo scanner. |
-| `new.3` | Una sola finestra di scansione per tutta l'applicazione: la finestra di scansione è ora una parte condivisa dell'applicazione. Un ambito dice quali sue funzioni accettano scansioni e per quali arcate (Allineatori: arcata superiore, inferiore e morso), e la stessa finestra serve la schermata Nuovo progetto e il caso aperto. |
-| `new.4` | Scanner e piatto girevole: l'hardware supportato non cambia (Revopoint MINI 2 via USB su Linux, lo scanner simulato integrato, il Revopoint Dual-axis Turntable via Bluetooth LE) e la scansione resta un'alpha iniziale. Non è un dispositivo medico: non usare le scansioni fatte così per decisioni cliniche. |
+| `new.1` | Diagnostica anonima, solo se acconsenti: DentalCraft può inviare dati tecnici anonimi al proprio server, per trovare e correggere i difetti più in fretta: segnalazioni di arresto anomalo, messaggi di errore, e la versione, il sistema e la scheda grafica su cui sono avvenuti. È disattivata per impostazione predefinita e non viene raccolto né inviato nulla finché non acconsenti. |
+| `new.2` | La scelta è tua, al primo avvio e in qualsiasi momento: la prima volta che avvii l'applicazione una finestra te lo chiede, con la casella non spuntata, e puoi cambiare idea dal menu dell'account, accanto al controllo degli aggiornamenti all'avvio. Se la disattivi, i dati non ancora inviati e l'identificativo di installazione casuale vengono eliminati. |
+| `new.3` | Cosa non viene mai inviato: scansioni, progetti, dati dei pazienti, alias dei casi e dati dell'account. I percorsi personali sono tolti dalle righe del registro, l'identificativo di installazione è casuale e non collegato al tuo account, e il server non conserva il tuo indirizzo IP. I dati sono conservati per 90 giorni e usati solo per trovare e correggere i difetti. |
+| `new.4` | Per script e agenti IA: i comandi app.diagnostics mostrano l'impostazione, la cambiano, mostrano esattamente cosa verrebbe inviato ora e lo inviano. Non è un dispositivo medico: non per decisioni cliniche. |

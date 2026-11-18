@@ -713,7 +713,7 @@ ${rail(t("regulatory.label"), t("regulatory.rail"))}
 
 function faq(ctx) {
   const { t } = ctx;
-  const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
     .map(
       (n) =>
         `<details class="faq"${n === 1 ? " open" : ""}><summary><h3 class="h3">${esc(t(`faq.q${n}`))}</h3><span class="faq__tog">${ICON.plus}${ICON.minus}</span></summary><div class="faq__a"><p class="sec-text">${esc(t(`faq.a${n}`))}</p></div></details>`,
@@ -753,6 +753,11 @@ ${rail(t("privacy.label"), t("privacy.rail"))}
 <h2 class="h2" id="privacy-h">${esc(t("privacy.headline"))}</h2>
 <p class="sec-text max640">${esc(t("privacy.body.1"))}</p>
 <p class="sec-text max640">${esc(t("privacy.body.2"))}</p>
+<h3 class="h3">${esc(t("privacy.app.title"))}</h3>
+<p class="sec-text max640">${esc(t("privacy.app.1"))}</p>
+<p class="sec-text max640">${esc(t("privacy.app.2"))}</p>
+<p class="sec-text max640">${esc(t("privacy.app.3"))}</p>
+<p class="sec-text max640">${esc(t("privacy.app.4"))}</p>
 </div>
 </div>
 </section>`;
