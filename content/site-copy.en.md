@@ -62,6 +62,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
   - Production and export for printing - `In progress`
   - Installers with automatic updates - `Exists today`
   - Commands for scripts and AI agents - `Exists today`
+  - Anonymous diagnostics to help fix bugs, only if you opt in - `Exists today`
 
 ### Video block
 - **Heading:** The 75-second presentation
@@ -166,7 +167,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
   - **An application on your computer.** You install and use it on the practice or lab computer, not through a browser. Installers for Linux and Windows check for updates and ask before installing them.
   - **A smooth 3D view.** Click any tooth, gum or scan to select it and see it outlined, then move, rotate or scale it in the view. Designed to stay smooth even with detailed scans.
   - **One file for each case.** An open, documented file with an integrity check. It is saved automatically a moment after each change, and whenever you save.
-  - **Privacy by design.** Patient data is pseudonymised: no names in case files.
+  - **Privacy by design.** Patient data is pseudonymised: no names in case files. Anonymous diagnostics are sent only if you opt in.
   - **Cases stay with you.** You work on cases saved on your computer. An account is planned for licences and support only.
   - **Two languages.** English and Italian.
   - **Driven by scripts and AI agents.** Every action is also a command of dentalcraft-cli and its MCP server, so scripts and AI agents can run the same steps.
@@ -199,7 +200,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
   - **macOS** - tag Later. Button (disabled): Not available yet
 - **Under each downloadable card:** Version {version} · {date}. Sizes and checksums are on the download page (section 13).
 - **Below the cards:** Windows may say the publisher is unknown: the files are not signed yet. Choose More info, then Run anyway. / Free of charge under the DentalCraft licence, as is and without warranty. Not a medical device: do not use it on patients or for clinical decisions. [Licence link to the licence page] / All checksums (text file)
-- **Notify form:** removed (decision: no back end, no data collection). A note under the cards says: This site has no forms and collects no data. See the privacy note.
+- **Notify form:** removed (decision: no back end, no data collection). A note under the cards says: This site has no forms and collects no data. The application sends anonymous diagnostic data only if you opt in. See the privacy note.
 - **Problems or feedback:** hello@dentalcraft.app
 - **Disclaimer:** In development. Not a medical device. Not for clinical use.
 
@@ -220,7 +221,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
    Yes. The alpha can be downloaded and used free of charge, for non-clinical use, under the DentalCraft licence. See the licence page for the terms.
 
 5. **What happens to patient data?**
-   Cases are designed to stay on your computer. Case files are pseudonymised and carry no patient names. An account is planned only for licences and support.
+   Cases are designed to stay on your computer. Case files are pseudonymised and carry no patient names. Scans, projects and patient data are never sent to us. An account is planned only for licences and support.
 
 6. **Can I try it?**
    Yes. An alpha version for Linux and Windows can be downloaded from the home page, free of charge, for non-clinical use: evaluation, training, research and design trials. It is provided as is. It is not a medical device and not for clinical use.
@@ -242,6 +243,9 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 
 12. **Can I start a project without scans?**
     Yes. On the New project screen scans are optional: import files, scan with a supported 3D scanner (early alpha), or create the project empty. In the project you can add the upper arch, lower arch and bite later, by import or with the scanner. Not a medical device: do not use it for clinical decisions.
+
+13. **Does DentalCraft send any data to you?**
+    Only if you agree. At first start the application asks whether it may send anonymous diagnostic data (crash reports, error messages, the version, system and graphics card, and recent log lines with personal paths removed) to help fix bugs. The box is unticked by default and you can change it at any time in the account menu. Scans, projects, patient data and account data are never sent. See the privacy note for the full list.
 
 ---
 
@@ -292,7 +296,7 @@ Watch the presentation / Try the alpha / Play video / Read the transcript / Not 
 | `downloads.rail` | Alpha, to try |
 | `downloads.terms` | Free of charge under the DentalCraft licence, as is and without warranty. Not a medical device: do not use it on patients or for clinical decisions. |
 | `downloads.terms.link` | Licence |
-| `downloads.note` | This site has no forms and collects no data. See the privacy note. |
+| `downloads.note` | This site has no forms and collects no data. The application sends anonymous diagnostic data only if you opt in. See the privacy note. |
 | `technology.rail` | Work and data |
 | `regulatory.rail` | Regulatory stance |
 | `faq.headline` | Questions, answered plainly |
@@ -300,9 +304,14 @@ Watch the presentation / Try the alpha / Play video / Read the transcript / Not 
 | `footer.language.label` | Language |
 | `privacy.label` | Privacy |
 | `privacy.rail` | Privacy note |
-| `privacy.headline` | No cookies, no tracking, no forms |
+| `privacy.headline` | No tracking on the site; app diagnostics only if you agree |
 | `privacy.body.1` | This website sets no cookies, runs no analytics or tracking scripts, loads nothing from third parties and has no forms. We do not collect personal data through it. Your language choice is kept only in your own browser, so that the site can open in your language next time. |
 | `privacy.body.2` | Like any website, this one may keep standard access logs (IP address, time, page requested) for security and troubleshooting. If you write to hello@dentalcraft.app, we use your message only to reply. |
+| `privacy.app.title` | The application: anonymous diagnostics, only if you opt in |
+| `privacy.app.1` | The DentalCraft application can send anonymous diagnostic data to the developer, to find and fix bugs. It is off until you agree: at first start a window asks you, with the checkbox unticked, and you can change your choice at any time in the account menu. If you do not agree, nothing is collected or sent. |
+| `privacy.app.2` | What is sent: the application version and how it was installed; your operating system and language; the graphics card and its driver, the amount of memory and the number of processors; crash reports with their backtrace; error and warning codes and messages; the latest log lines before a problem, with personal paths removed; one record each time the application starts; and a random installation ID, generated on your computer and not linked to your account. |
+| `privacy.app.3` | What is never sent: scans, projects and case files, patient data, case aliases or codes, file names, and account data (name, email, sign-in tokens). The server does not store your IP address with this data. |
+| `privacy.app.4` | Where it goes and for how long: only to DentalCraft's own server (auth.dentalcraft.app), never to a third party. It is kept for 90 days, then deleted, and it is used only to find and fix bugs. If you turn the option off, the data not yet sent and the installation ID are deleted from your computer. Questions: hello@dentalcraft.app. |
 | `footer.licence` | Licence |
 | `footer.privacy` | Privacy note |
 
@@ -379,7 +388,7 @@ A block between the intro and the OS cards, with a link from the home page downl
 | `new.meta` | Released {date} |
 | `new.link` | What's new in version {version} |
 | `new.note` | Planning, production and export are still in development, and 3D scanning is an early alpha. Not a medical device. Not for clinical use. |
-| `new.1` | Scan when you start a project (alpha): on the New project screen, a Scan button next to Browse files… opens the scan window. Each scan you make joins the list with its jaw, next to the files you import, and enters the project when you create it. Nothing is saved before that. |
-| `new.2` | Projects without scans: you no longer need a scan to create a project. It opens on an empty page where you can import files or scan, and you can add the upper arch, lower arch and bite later, by import or with the scanner. |
-| `new.3` | One scan window for the whole app: the scan window is now a shared part of the application. An area of work says which of its functions take scans and for which jaws (Aligners: upper arch, lower arch and bite), and the same window serves the New project screen and the open case. |
-| `new.4` | Scanners and turntable: the supported hardware is unchanged (Revopoint MINI 2 over USB on Linux, the built-in simulated scanner, the Revopoint Dual-axis Turntable over Bluetooth LE) and scanning is still an early alpha. Not a medical device: do not use scans made this way for clinical decisions. |
+| `new.1` | Anonymous diagnostics, only if you opt in: DentalCraft can send anonymous technical data to its own server, so that bugs are found and fixed faster: crash reports, error messages, and the version, system and graphics card they happened on. It is off by default, and nothing is collected or sent until you agree. |
+| `new.2` | Your choice, at first start and at any time: a window asks you the first time you run the application, with the checkbox unticked, and you can change your mind in the account menu, next to the update check at startup. Turning it off deletes the data not yet sent and the random installation ID. |
+| `new.3` | What is never sent: scans, projects, patient data, case aliases and account data. Personal paths are removed from the log lines, the installation ID is random and not linked to your account, and the server does not store your IP address. Data is kept for 90 days and used only to find and fix bugs. |
+| `new.4` | For scripts and AI agents: the app.diagnostics commands show the setting, change it, show exactly what would be sent now and send it. Not a medical device: not for clinical decisions. |

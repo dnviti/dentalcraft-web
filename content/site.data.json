@@ -11,7 +11,8 @@
     { "key": "presentation.status.7", "status": "progress" },
     { "key": "presentation.status.8", "status": "progress" },
     { "key": "presentation.status.9", "status": "exists" },
-    { "key": "presentation.status.10", "status": "exists" }
+    { "key": "presentation.status.10", "status": "exists" },
+    { "key": "presentation.status.12", "status": "exists" }
   ],
   "alignerStages": [
     { "n": 1, "status": "exists" },

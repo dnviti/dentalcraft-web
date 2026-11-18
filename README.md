@@ -155,7 +155,7 @@ The software is proprietary and free of charge to download and use for non-clini
 
 ## Privacy
 
-The site sets no cookies, loads nothing from third parties, has no forms and no analytics. The only thing stored is the language choice, in the visitor's own `localStorage` (`dc-lang`), so that `/` can open in the right language. The privacy note is on the About page (`#privacy`), EN and IT.
+The site sets no cookies, loads nothing from third parties, has no forms and no analytics. The only thing stored is the language choice, in the visitor's own `localStorage` (`dc-lang`), so that `/` can open in the right language. The privacy note is on the About page (`#privacy`), EN and IT. It also covers the application: it sends anonymous diagnostic data (crash reports, errors, system and graphics card, sanitised log lines, a random installation ID) to `auth.dentalcraft.app` only after the user opts in (unticked checkbox at first start, changeable in the account menu); keep the note in line with the app's diagnostics contract (what is sent, what is never sent, 90 days retention).
 
 ## Open points
 
