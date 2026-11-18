@@ -713,7 +713,7 @@ ${rail(t("regulatory.label"), t("regulatory.rail"))}
 
 function faq(ctx) {
   const { t } = ctx;
-  const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+  const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     .map(
       (n) =>
         `<details class="faq"${n === 1 ? " open" : ""}><summary><h3 class="h3">${esc(t(`faq.q${n}`))}</h3><span class="faq__tog">${ICON.plus}${ICON.minus}</span></summary><div class="faq__a"><p class="sec-text">${esc(t(`faq.a${n}`))}</p></div></details>`,

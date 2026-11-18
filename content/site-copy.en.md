@@ -54,8 +54,8 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
   - Application structure - `Exists today`
   - Single file for each case, saved automatically - `Exists today`
   - 3D view with selection, move, rotate and scale - `Exists today`
-  - Scan import, with automatic closing of open scans - `Exists today`
-  - 3D scanning and turntable in the app (alpha) - `In progress`
+  - Scan import, with automatic closing of open scans; a case can start with no scans - `Exists today`
+  - 3D scanning and turntable, from the New project screen and inside a case (alpha) - `In progress`
   - Find the teeth, separate teeth and gum, 3D teeth - `Exists today`
   - Case analysis and bite - `Exists today`
   - Final position, aligners and clinical review - `In progress`
@@ -117,7 +117,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 
 | Group | What the alpha does | Tag |
 |---|---|---|
-| **Case** | Import intraoral scans (STL, OBJ, PLY). An open scan is closed automatically with a flat base. Choose the arch by hand and flip the occlusal side. You can also scan inside the app with a 3D scanner, with or without a turntable: an early alpha. | Exists today |
+| **Case** | Start a case from the New project screen with imported scans (STL, OBJ, PLY), with a scan made by a 3D scanner, or with no scans at all, and add them later in the case, by import or by scanner. An open scan is closed automatically with a flat base. Choose the arch by hand and flip the occlusal side. Scanning inside the app, with or without a turntable, is an early alpha. | Exists today |
 | **Preparation** | Find the teeth and number them (FDI), with marks you can add, delete or renumber by hand, and missing teeth. Separate teeth and gum, with a brush and border cleaning for corrections. 3D teeth, each a closed model, with a gum that follows them. See a tooth's region and margin line. | Exists today |
 | **Diagnosis** | Case analysis: space, crowding, Little irregularity index, Bolton and the complexity of the case. Enter your own measured values and the results follow them. | Exists today |
 | **Planning** | Final position, with parameters, the arch line drawn by hand, move a tooth and back to the initial position. Aligners: stages, change calendar, slow a tooth, stage slider. Clinical review with attachments and interproximal reduction (IPR) marks. | In progress |
@@ -229,7 +229,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
    The first area is Aligners, for clear aligner planning. The home page lists every stage with its status. From scan import to the bite it works in the alpha; the final position, the aligners, the clinical review, production and export are still in development, and their results are not validated: do not use them for patients.
 
 8. **Which files can I use?**
-   You can import scans in STL, OBJ and PLY; open scans are closed automatically with a base. You can also scan inside the app with a supported 3D scanner (early alpha) and import the result into the case. Export for printing writes STL files for each stage, with a change calendar and a report: that function is still being completed. Each case is saved in a single open file, automatically a moment after each change and whenever you save.
+   You can import scans in STL, OBJ and PLY; open scans are closed automatically with a base. You can also scan with a supported 3D scanner (early alpha), from the New project screen or later in the case, and add the result to the project. Export for printing writes STL files for each stage, with a change calendar and a report: that function is still being completed. Each case is saved in a single open file, automatically a moment after each change and whenever you save.
 
 9. **Can I use it from scripts or with an AI agent?**
    Yes. Every action in the application, scanning and the turntable included, is also a command of the dentalcraft-cli tool, which comes with the standalone downloads and the installers, and of its MCP server, so a script or an AI agent can run the same steps.
@@ -238,7 +238,10 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
     The Flatpak, Fedora and Debian/Ubuntu versions update with your system. All the others check this site when DentalCraft starts, ask before updating and verify the signature of the update before installing it.
 
 11. **Can I scan with a 3D scanner inside DentalCraft?**
-    Yes, as an early alpha. In Scan import, a Scan button next to Import opens a scan window: connect a scanner, start, pause and stop the live capture, clean up the point cloud, create the surface and import it into the case as upper arch, lower arch or bite. It works with the Revopoint MINI 2 over USB on Linux, with no vendor SDK and an approximate calibration unless you supply a calibration file. The Revopoint 3D Camera SDK can be used as an optional backend: you supply it, with Revopoint's own authorisation, and it is not bundled. A built-in simulated scanner lets you try the workflow without hardware. The USB backend is not available on Windows. The Revopoint Dual-axis Turntable works over Bluetooth LE (tested on Linux). Not a medical device: do not use scans made this way for clinical decisions.
+    Yes, as an early alpha. On the New project screen, a Scan button next to Browse files… opens a scan window, and the same window opens from Scan import in the case: connect a scanner, start, pause and stop the live capture, clean up the point cloud, create the surface and add it to the project as upper arch, lower arch or bite. The window is shared by the whole application, so any area of work can offer it. It works with the Revopoint MINI 2 over USB on Linux, with no vendor SDK and an approximate calibration unless you supply a calibration file. The Revopoint 3D Camera SDK can be used as an optional backend: you supply it, with Revopoint's own authorisation, and it is not bundled. A built-in simulated scanner lets you try the workflow without hardware. The USB backend is not available on Windows. The Revopoint Dual-axis Turntable works over Bluetooth LE (tested on Linux). Not a medical device: do not use scans made this way for clinical decisions.
+
+12. **Can I start a project without scans?**
+    Yes. On the New project screen scans are optional: import files, scan with a supported 3D scanner (early alpha), or create the project empty. In the project you can add the upper arch, lower arch and bite later, by import or with the scanner. Not a medical device: do not use it for clinical decisions.
 
 ---
 
@@ -280,7 +283,7 @@ Watch the presentation / Try the alpha / Play video / Read the transcript / Not 
 | `vision.rail` | Intent, not features |
 | `roadmap.rail` | No dates announced |
 | `roadmap.core.label` | Common base |
-| `roadmap.core.items` | Application structure, single file for each case (saved automatically), 3D view with selection and move, rotate and scale, 3D scanning (early alpha) |
+| `roadmap.core.items` | Application structure, single file for each case (saved automatically), 3D view with selection and move, rotate and scale, 3D scanning in a window shared by the whole application (early alpha) |
 | `roadmap.m1.note` | First area. In active development: from scan to bite it works in the alpha; planning and production are still being validated. |
 | `aligners.rail` | First area |
 | `aligners.legend.exists` | Works in the alpha. Early version, not validated for clinical use. |
@@ -376,8 +379,7 @@ A block between the intro and the OS cards, with a link from the home page downl
 | `new.meta` | Released {date} |
 | `new.link` | What's new in version {version} |
 | `new.note` | Planning, production and export are still in development, and 3D scanning is an early alpha. Not a medical device. Not for clinical use. |
-| `new.1` | Days of wear: the change calendar and the export now accept only 5 to 21 days between aligners and refuse any other value with a clear message. Before, a value outside that range could produce wrong dates in the release builds. |
-| `new.2` | Edge cases: an empty or unusual change calendar, or a stage number that is not a number, no longer makes the app stop; the next visit and the day of each stage are worked out safely. |
-| `new.3` | Tooth seeds: moving the same seeds into a different order is no longer reported as a change, so it does not mark the steps that follow as out of date. |
-| `new.4` | Timeline: the week shown for a stage no longer overflows on very long treatments. |
-| `new.5` | Checked by proof: the core logic (tooth numbering, voxel and mesh packing, scheduling, the canonical form of rotations and the timeline) is now checked by automatic formal verification with Kani, a bounded model checker that tries every value of the inputs within set bounds and also looks for overflows and out-of-range accesses. It is a check of those parts of the code, not a validation of the app and not a clinical claim. |
+| `new.1` | Scan when you start a project (alpha): on the New project screen, a Scan button next to Browse files… opens the scan window. Each scan you make joins the list with its jaw, next to the files you import, and enters the project when you create it. Nothing is saved before that. |
+| `new.2` | Projects without scans: you no longer need a scan to create a project. It opens on an empty page where you can import files or scan, and you can add the upper arch, lower arch and bite later, by import or with the scanner. |
+| `new.3` | One scan window for the whole app: the scan window is now a shared part of the application. An area of work says which of its functions take scans and for which jaws (Aligners: upper arch, lower arch and bite), and the same window serves the New project screen and the open case. |
+| `new.4` | Scanners and turntable: the supported hardware is unchanged (Revopoint MINI 2 over USB on Linux, the built-in simulated scanner, the Revopoint Dual-axis Turntable over Bluetooth LE) and scanning is still an early alpha. Not a medical device: do not use scans made this way for clinical decisions. |
