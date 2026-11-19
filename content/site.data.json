@@ -24,7 +24,7 @@
     { "n": 7, "status": "progress" },
     { "n": 8, "status": "progress" }
   ],
-  "whatsNew": ["new.1", "new.2", "new.3", "new.4", "new.5", "new.6"],
+  "whatsNew": ["new.1", "new.2", "new.3", "new.4", "new.5", "new.6", "new.7", "new.8", "new.9"],
   "modules": [
     { "n": 1, "code": "al", "status": "progress" },
     { "n": 2, "code": "mb", "status": "planned" },
