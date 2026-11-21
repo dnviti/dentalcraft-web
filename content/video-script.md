@@ -58,8 +58,8 @@ Music: calm, precise, minimal electronic/piano with soft pulse; builds gradually
 
 ### Scene 7 - The app today (0:55-1:03)
 - **Visual:** Real screen captures: Home, then the Aligners workspace with the 3D viewport. Soft zoom and parallax. Badge top-right: "Work in progress".
-- **On-screen (EN):** The application today: shell, project format, 3D viewport, scan import. / Clinical algorithms: being ported and validated.
-- **Subtitle (IT):** L'applicazione oggi: struttura, formato di progetto, viewport 3D, importazione scansioni. / Algoritmi clinici: in porting e validazione.
+- **On-screen (EN):** The application today: scan import, teeth, case analysis, bite. / Planning, aligners and printing: alpha, not yet validated on real prints.
+- **Subtitle (IT):** L'applicazione oggi: importazione scansioni, denti, analisi del caso, morso. / Pianificazione, allineatori e stampa: alpha, non ancora validati su stampe reali.
 - **Music:** Holds steady; slight filter opening.
 
 ### Scene 8 - Modules roadmap (1:03-1:10)
@@ -87,7 +87,7 @@ Read at a calm pace; trim lines if timing is tight.
 | 4 | Segment the teeth, rebuild them, measure the space. | Segmentare i denti, ricostruirli, misurare lo spazio. |
 | 5 | Then plan the final position and the steps to reach it, with limits for each tooth. | Poi pianificare la posizione finale e le tappe per raggiungerla, con limiti per ogni dente. |
 | 6 | And prepare the aligner shell for printing. | E preparare la shell dell'allineatore per la stampa. |
-| 7 | Today, the application shell, project format, 3D viewport and scan import are in place. The clinical algorithms are being ported and validated. | Oggi esistono la struttura dell'applicazione, il formato di progetto, il viewport 3D e l'importazione delle scansioni. Gli algoritmi clinici sono in porting e validazione. |
+| 7 | Today, scan import, teeth, case analysis and bite are in place. Planning, aligners and printing are in alpha, not yet validated on real prints. | Oggi esistono l'importazione delle scansioni, i denti, l'analisi del caso e il morso. Pianificazione, allineatori e stampa sono in alpha, non ancora validati su stampe reali. |
 | 8 | More modules are planned. | Altri moduli sono in programma. |
 | 9 | DentalCraft. In development. Not a medical device. Not for clinical use. | DentalCraft. In sviluppo. Non è un dispositivo medico. Non per uso clinico. |
 
