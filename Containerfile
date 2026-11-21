@@ -49,7 +49,7 @@ RUN --mount=type=secret,id=gpg linux-repos.sh rpm /in /out \
 FROM docker.io/nginxinc/nginx-unprivileged:stable-alpine
 LABEL org.opencontainers.image.title="dentalcraft-web" \
       org.opencontainers.image.description="DentalCraft site (static, EN/IT), downloads, Linux repositories and update manifest" \
-      org.opencontainers.image.source="https://github.com/dnviti-personal-org/dentalcraft-web"
+      org.opencontainers.image.source="https://github.com/dnviti/dentalcraft-web"
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY nginx/security-headers.conf /etc/nginx/snippets/security-headers.conf
 COPY --from=build /src/dist /usr/share/nginx/html

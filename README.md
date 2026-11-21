@@ -95,11 +95,11 @@ The page lists only the kinds present in the pinned release; a release with arch
 - `downloads/` (git-ignored) holds the release files. `node build/build.mjs` fails if one is missing or differs from the pin. Fetch them with your own `gh` login, then pin a new release:
 
   ```sh
-  gh release download v0.3.0 -R dnviti-personal-org/dentalcraft-app -D downloads
+  gh release download v0.3.0 -R dnviti/dentalcraft-app -D downloads
   node build/pin-release.mjs downloads     # rewrites only the release block, from the release's SHA256SUMS file
   ```
 
-- CI (`image.yml`) downloads the same files before the image build, with the repository secret `APP_RELEASE_TOKEN`: a fine-grained personal access token with read-only `Contents` access to `dnviti-personal-org/dentalcraft-app`. Without it the job stops with a clear message.
+- CI (`image.yml`) downloads the same files before the image build, with the repository secret `APP_RELEASE_TOKEN`: a fine-grained personal access token with read-only `Contents` access to `dnviti/dentalcraft-app`. Without it the job stops with a clear message.
 - One copy of each payload: the `.deb` and `.rpm` live in `/download/` and nginx serves them under the repository paths too; the `.flatpak` bundle is not served (it only feeds the OSTree repository). Every repository holds only the pinned release.
 - `/releases` redirects to `/en/download/`, because the app links to it.
 - No macOS build yet: the card stays disabled.
@@ -141,7 +141,7 @@ Check one by hand: `minisign -Vm stable.json -p keys/dentalcraft.minisign.pub`.
 
 ## Deploy
 
-Pushes to `main`, `v*` tags and manual runs trigger `.github/workflows/image.yml` on a self-hosted runner with Docker-in-Docker. It pushes `ghcr.io/dnviti-personal-org/dentalcraft-web` with the tags `latest`, `sha-<short>` and, on a `v1.2.3` tag, `1.2.3`. Run the image behind the proxy of your choice and point `/healthz` at the health check.
+Pushes to `main`, `v*` tags and manual runs trigger `.github/workflows/image.yml` on a self-hosted runner with Docker-in-Docker. It pushes `ghcr.io/<owner>/dentalcraft-web` with the tags `latest`, `sha-<short>` and, on a `v1.2.3` tag, `1.2.3`. While GitHub Actions are suspended, `scripts/release-local.sh web-image` in the superproject builds the same image and pushes it to `ghcr.io/dnviti-personal-org/dentalcraft-web`, the image the deployed site runs (it stayed there when this repository moved to `dnviti`). Run the image behind the proxy of your choice and point `/healthz` at the health check.
 
 ## Editing
 

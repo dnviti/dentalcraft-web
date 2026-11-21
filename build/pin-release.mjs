@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Pin an app release in content/site.data.json (block "release") from its downloaded files.
-//   gh release download vX.Y.Z -R dnviti-personal-org/dentalcraft-app -D downloads
+//   gh release download vX.Y.Z -R dnviti/dentalcraft-app -D downloads
 //   node build/pin-release.mjs downloads [--date YYYY-MM-DD]
 // Reads the release's dentalcraft_<V>_SHA256SUMS.txt, checks every known file against it, and records
 // name, size and SHA-256 of each one present. The date comes from --date, else from update.json, else
