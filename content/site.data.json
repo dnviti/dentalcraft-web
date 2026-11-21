@@ -10,9 +10,13 @@
     { "key": "presentation.status.6", "status": "exists" },
     { "key": "presentation.status.7", "status": "progress" },
     { "key": "presentation.status.8", "status": "progress" },
+    { "key": "presentation.status.14", "status": "exists" },
+    { "key": "presentation.status.15", "status": "planned" },
+    { "key": "presentation.status.16", "status": "planned" },
     { "key": "presentation.status.9", "status": "exists" },
     { "key": "presentation.status.10", "status": "exists" },
-    { "key": "presentation.status.12", "status": "exists" }
+    { "key": "presentation.status.12", "status": "exists" },
+    { "key": "presentation.status.13", "status": "exists" }
   ],
   "alignerStages": [
     { "n": 1, "status": "exists" },
@@ -33,64 +37,65 @@
     { "n": 5, "code": "im", "status": "planned" }
   ],
   "links": {
-    "github": "https://github.com/dnviti/dentalcraft"
+    "github": "https://github.com/dnviti/dentalcraft",
+    "docs": "https://dnviti.github.io/dentalcraft-docs/"
   },
   "release": {
-    "version": "0.2.0-alpha.12",
+    "version": "0.2.0-alpha.13",
     "repo": "dnviti/dentalcraft-app",
-    "tag": "v0.2.0-alpha.12",
-    "date": "2026-11-20",
-    "sums": "dentalcraft_0.2.0-alpha.12_SHA256SUMS.txt",
+    "tag": "v0.2.0-alpha.13",
+    "date": "2026-11-21",
+    "sums": "dentalcraft_0.2.0-alpha.13_SHA256SUMS.txt",
     "files": {
       "linux": {
-        "name": "dentalcraft_0.2.0-alpha.12_linux_x86_64.tar.gz",
-        "size": 33598485,
-        "sha256": "6f89a9a665b5efd24fc26dfd1244933015d7845ae64f909f86f9adb5b2d4915d"
+        "name": "dentalcraft_0.2.0-alpha.13_linux_x86_64.tar.gz",
+        "size": 34758315,
+        "sha256": "b3d5383a3fdc7bfe00d9cfa2c16216ef4857f8e11e553af35c9e652c3f508ac0"
       },
       "windows": {
-        "name": "dentalcraft_0.2.0-alpha.12_windows_x86_64.zip",
-        "size": 42413944,
-        "sha256": "539c22619195bdf9cffc4c809ba406326a81e00975d8a6a0e74a115693a163f7"
+        "name": "dentalcraft_0.2.0-alpha.13_windows_x86_64.zip",
+        "size": 43792894,
+        "sha256": "8fe4e7315032a6cac096664e30c6e1a9173b4dfda513afe04e6110971a629669"
       },
       "appimage": {
-        "name": "DentalCraft-0.2.0-alpha.12-x86_64.AppImage",
-        "size": 31390200,
-        "sha256": "6f831ed54e856458f60ad59c35400fad8fcbee63218e5a2e3c429ef3b231127f"
+        "name": "DentalCraft-0.2.0-alpha.13-x86_64.AppImage",
+        "size": 32438776,
+        "sha256": "1ab62263dce0d4a79532b2f70c1d540fb64952c2724d9cda1dec328723a007a6"
       },
       "deb": {
-        "name": "dentalcraft_0.2.0-alpha.12_amd64.deb",
-        "size": 22961456,
-        "sha256": "85d9039d4b41901169d477e777a7234a03fccb7fc5f54a41566e079ffb905015"
+        "name": "dentalcraft_0.2.0-alpha.13_amd64.deb",
+        "size": 23638676,
+        "sha256": "e4d1970e6e996238879e38c1938b1876ddc9bea1a7dca29c8cfa15cb44494328"
       },
       "rpm": {
-        "name": "dentalcraft-0.2.0-alpha.12-1.x86_64.rpm",
-        "size": 22676685,
-        "sha256": "294f4b735a4b409f4aae563b977d98c7447ce111263232e05978010bf3b8048f"
+        "name": "dentalcraft-0.2.0-alpha.13-1.x86_64.rpm",
+        "size": 23414373,
+        "sha256": "a80881711107f7f399339eeda1141edfc27f15f0377933e794bbb86ce4e0c6e8"
       },
       "flatpak": {
-        "name": "DentalCraft-0.2.0-alpha.12.flatpak",
-        "size": 22231576,
-        "sha256": "41840e49ab726dbf98dad766b9962ca30485f4ab94866822a1145af5b8078be2"
+        "name": "DentalCraft-0.2.0-alpha.13.flatpak",
+        "size": 22882008,
+        "sha256": "7962e9b318e6c0dd5a611b21a71d3413f92bd269d851a2c99e9e13331c845bf3"
       },
       "exe": {
-        "name": "DentalCraft-0.2.0-alpha.12-setup.exe",
-        "size": 28394032,
-        "sha256": "ed69df91b52446bb0153f9238495a067bc5557f0641360d7450c7b92eb830632"
+        "name": "DentalCraft-0.2.0-alpha.13-setup.exe",
+        "size": 29215760,
+        "sha256": "30735cc4170d0ccff1558f9ba97bdd196c5516436d0ca597b6428739c68cc793"
       },
       "msi": {
-        "name": "DentalCraft-0.2.0-alpha.12-x86_64.msi",
-        "size": 46960128,
-        "sha256": "bd61a66b3b49a7c3a47f3afb84e816dc7c0fcf15d28e3d1b9ceec83d93107a5c"
+        "name": "DentalCraft-0.2.0-alpha.13-x86_64.msi",
+        "size": 48494080,
+        "sha256": "7c9bcee5e2def6ec65666c2b0db88c52d43423c92b138fbb48c3b3e81cf381e6"
       },
       "update": {
         "name": "update.json",
         "size": 1299,
-        "sha256": "74458457d0287293b80c77da2b7316446e1f56dbe0e493205f6a553a1fb9e5c2"
+        "sha256": "f6549739b9b2d984f800e057351b0fa23eb4d04ba2f91c12f196cf92bef037ec"
       },
       "updateSig": {
         "name": "update.json.minisig",
         "size": 317,
-        "sha256": "21d4ebd7c53e2c5a8889451bf66ab8ce0900d5cd3f2153ce10b1c8febdc0993a"
+        "sha256": "dbf640a6640624ccfaba09421e26555a8d3fec65eeb2e886ba44c757b49e1c42"
       }
     }
   },

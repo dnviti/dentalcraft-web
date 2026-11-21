@@ -169,6 +169,7 @@ ${langSwitch(ctx, page)}
 <li><a class="ul" href="${licencePath(ctx.lang)}">${esc(t("footer.licence"))}</a></li>
 <li><a class="ul" href="${sectionHref(ctx, page, "about", "privacy")}">${esc(t("footer.privacy"))}</a></li>
 <li><a class="ul" href="${esc(ctx.data.links.github)}" rel="noopener">${esc(t("footer.source"))}</a></li>
+<li><a class="ul" href="${esc(ctx.data.links.docs)}" rel="noopener">${esc(t("footer.docs"))}</a></li>
 </ul>
 </div>
 </div>
@@ -714,7 +715,7 @@ ${rail(t("regulatory.label"), t("regulatory.rail"))}
 
 function faq(ctx) {
   const { t } = ctx;
-  const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
     .map(
       (n) =>
         `<details class="faq"${n === 1 ? " open" : ""}><summary><h3 class="h3">${esc(t(`faq.q${n}`))}</h3><span class="faq__tog">${ICON.plus}${ICON.minus}</span></summary><div class="faq__a"><p class="sec-text">${esc(t(`faq.a${n}`))}</p></div></details>`,
@@ -780,6 +781,7 @@ ${rail(t("srclicence.label"), t("srclicence.rail"))}
 <p class="sec-text max640">${inline(t("srclicence.body.2"))}</p>
 <p class="sec-text max640">${esc(t("srclicence.body.3"))}</p>
 <p class="sec-text max640"><a class="ul" href="${esc(data.links.github)}" rel="noopener">${esc(t("srclicence.github"))}</a></p>
+<p class="sec-text max640"><a class="ul" href="${esc(data.links.docs)}" rel="noopener">${esc(t("srclicence.docs"))}</a></p>
 <p class="sec-text max640">${esc(t("srclicence.fonts"))}</p>
 <ul class="eula__list">${fonts.map(([name, key]) => `<li><a class="ul" href="${asset(name)}">${esc(t(key))}</a></li>`).join("")}</ul>
 </div>

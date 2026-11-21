@@ -63,6 +63,10 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
   - Installers with automatic updates - `Exists today`
   - Commands for scripts and AI agents - `Exists today`
   - Anonymous diagnostics to help fix bugs, only if you opt in - `Exists today`
+  - Settings, with a simple interface by default and a Next step marker - `Exists today`
+  - Print the aligners directly on the Elegoo Saturn 4 Ultra 16K: files saved to a folder or a USB stick, with a record of the aligners printed and missing - `Exists today`
+  - Printing over the network, straight to the printer - `Planned`
+  - Checking the printed aligners on real prints (not done yet) - `Planned`
 
 ### Video block
 - **Heading:** The 75-second presentation
@@ -123,7 +127,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 | **Diagnosis** | Case analysis: space, crowding, Little irregularity index, Bolton and the complexity of the case. Enter your own measured values and the results follow them. | Exists today |
 | **Planning** | Final position, with parameters, the arch line drawn by hand, move a tooth and back to the initial position. Aligners: stages, change calendar, slow a tooth, stage slider. Clinical review with attachments and interproximal reduction (IPR) marks. | In progress |
 | **Occlusion** | Bite report, bite scans, registration on the bite scan or with three points picked by hand, bite correction and a contact map. | Exists today |
-| **Aligner production** | Production settings (thickness, clearance, quality), where the aligner ends, trim line with contact bridges, holes and checks, a bar over each missing tooth that keeps the aligner in one piece, clean ends behind the last molars, identification stamps, bite with aligners. The aligner can be previewed in the 3D view, only when you ask. High-quality files are still slow to produce. | In progress |
+| **Aligner production** | Production settings (thickness, clearance, quality), where the aligner ends, trim line with contact bridges, holes and checks, a bar over each missing tooth that keeps the aligner in one piece, clean ends behind the last molars, identification stamps, bite with aligners. The aligner can be previewed in the 3D view, only when you ask. High-quality files are still slow to produce. Print: the aligners are printed directly on the Elegoo Saturn 4 Ultra 16K. Each one is turned so that the side that fits the teeth faces away from the plate, gets supports on its outer side only and stands on a U-shaped raft; the parts are arranged on the plate and sliced into GOO files with the DENTAL 45 machine parameters. A Print window saves the files to a folder or a USB stick (printing over the network is not available yet) and keeps track of which aligners are printed and which are missing. Not yet checked on real prints: do not rely on it for patients. | In progress |
 | **Follow-up** | Control visit: compare a new scan with the plan, and re-plan from a delivered aligner. Tooth-by-tooth tracking is not there yet. | In progress |
 | **Export** | Export for printing: STL files for each stage (aligners and models), change calendar, report and patient programme. The export ends in error, naming the files, when a file fails the print check. Study models, also shown in the 3D view. | In progress |
 
@@ -135,7 +139,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
   - Diagnosis: Measure before moving.
   - Planning: Define the target and the steps. In development: do not use the results for patients.
   - Occlusion: Check how the arches meet.
-  - Aligner production: Prepare the shell for printing. In development.
+  - Aligner production: Prepare the shell and print it. In development.
   - Follow-up: Compare plan and progress. Early version.
   - Export: Files and reports. Being completed.
 - **Workflow diagram alt:** Eight-step flow from Case to Export, each step tagged as exists today or in progress.
@@ -246,6 +250,12 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 
 13. **Does DentalCraft send any data to you?**
     Only if you agree. At first start the application asks whether it may send anonymous diagnostic data (crash reports, error messages, the version, system and graphics card, and recent log lines with personal paths removed) to help fix bugs. The box is unticked by default and you can change it at any time in the account menu. Scans, projects, patient data and account data are never sent. See the privacy note for the full list.
+14. **What are Settings and the simple interface?**
+    Settings opens from the menu at the top right and gathers the general options, the workspace, updates and privacy. Its option Advanced options and parameters is off by default: the side panels then show only the automatic steps and the most useful corrections, and the menu marks the Next step to take. Turn it on to see every parameter and technical value.
+15. **Can I print the aligners with DentalCraft?**
+    Yes, directly, on the Elegoo Saturn 4 Ultra 16K. The Print window turns each aligner so that the side that fits the teeth faces away from the plate, adds supports on the outer side only and a U-shaped raft, arranges the parts on the plate and slices them into GOO files with the DENTAL 45 machine parameters. You save the files to a folder or a USB stick and print from the printer; printing over the network is planned, not available yet. DentalCraft also keeps track of which aligners are printed and which are missing. It has not been checked on real prints yet, so do not use the printed aligners on patients. Not a medical device.
+16. **Where are the source code and the documentation?**
+    The source code is public on GitHub, under the PolyForm Noncommercial License 1.0.0 (source-available, not open source). The documentation is at https://dnviti.github.io/dentalcraft-docs/.
 
 ---
 
@@ -258,6 +268,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
 - **Links:** Presentation / Vision / What's next / Downloads / FAQ
 - **Licence:** Licence (link to the licence page)
 - **Privacy note:** Privacy note (link to the About page, section Privacy)
+- **Documentation:** Documentation (link to https://dnviti.github.io/dentalcraft-docs/)
 - **Copyright:** © 2026 Daniele Viti
 - **Language switch:** English | Italiano
 
@@ -287,7 +298,7 @@ Watch the presentation / Try the alpha / Play video / Read the transcript / Not 
 | `vision.rail` | Intent, not features |
 | `roadmap.rail` | No dates announced |
 | `roadmap.core.label` | Common base |
-| `roadmap.core.items` | Application structure, single file for each case (saved automatically), 3D view with selection and move, rotate and scale, 3D scanning in a window shared by the whole application (early alpha) |
+| `roadmap.core.items` | Application structure, single file for each case (saved automatically), 3D view with selection and move, rotate and scale, 3D scanning in a window shared by the whole application (early alpha), a Settings window with a simple interface by default |
 | `roadmap.m1.note` | First area. In active development: from scan to bite it works in the alpha; planning and production are still being validated. |
 | `aligners.rail` | First area |
 | `aligners.legend.exists` | Works in the alpha. Early version, not validated for clinical use. |
@@ -315,6 +326,7 @@ Watch the presentation / Try the alpha / Play video / Read the transcript / Not 
 | `footer.licence` | Licence |
 | `footer.privacy` | Privacy note |
 | `footer.source` | Source code (link to the GitHub repository) |
+| `footer.docs` | Documentation (link to https://dnviti.github.io/dentalcraft-docs/) |
 | `srclicence.label` | Licence |
 | `srclicence.rail` | Source code |
 | `srclicence.headline` | Public source code, free for non-commercial use |
@@ -322,6 +334,7 @@ Watch the presentation / Try the alpha / Play video / Read the transcript / Not 
 | `srclicence.body.2` | Commercial use is not allowed without a licence from the author. To ask for one, write to hello@dentalcraft.app. |
 | `srclicence.body.3` | The account server is closed source and is not part of the public code. DentalCraft is not a medical device. |
 | `srclicence.github` | Source code on GitHub |
+| `srclicence.docs` | Documentation (link to https://dnviti.github.io/dentalcraft-docs/) |
 | `srclicence.fonts` | This site uses the fonts Atkinson Hyperlegible Next and B612 Mono, both under the SIL Open Font License 1.1: |
 | `srclicence.fonts.atkinson` | Atkinson Hyperlegible Next, licence text |
 | `srclicence.fonts.b612` | B612 Mono, licence text |
@@ -398,10 +411,10 @@ A block between the intro and the OS cards, with a link from the home page downl
 | `new.title` | What's new in version {version} |
 | `new.meta` | Released {date} |
 | `new.link` | What's new in version {version} |
-| `new.note` | Planning, production and export are still in development, and 3D scanning is an early alpha. Not a medical device. Not for clinical use. |
-| `new.1` | The Revopoint MINI 2 on Windows now works as on Linux (alpha): the fill light stays steady while scanning, the calibration stored in the scanner is read when you supply no calibration file (and kept for the next time), the faster exposure is used, and the live view always shows the newest frame. Tested with the real scanner and turntable on a Windows virtual machine. Not a medical device: not for clinical use. |
-| `new.2` | The turntable connects at the first attempt on Windows: when the link does not come up, DentalCraft tries again, and a table that Windows has not heard for a while is looked for again, so you no longer need to remove it and pair it again. |
-| `new.3` | The scan window shows what the scanner is doing: a line under the status says whether the fill light is on, whether the fast exposure is applied and where the calibration comes from (your file, the scanner or an estimate), with a warning when the calibration is only an estimate or a setting failed. |
-| `new.4` | An outdated turntable calibration is noticed at once: if the scanner or the table was moved after the calibration, the automatic scan stops after its first views (the views taken are kept) and asks you to calibrate again, instead of scanning for ten minutes and rejecting the views at the end. The scan window shows No longer fits the rig in place of the fit quality. |
-| `new.5` | Clearer errors: if the scanner is unplugged during a scan, the scan window stops and keeps what was captured, instead of showing a scan still under way. On Windows, DentalCraft says when the camera is blocked by the privacy settings, and when it runs from a network or shared drive (a copy on a local disk works). A changed calibration file is read again without restarting. |
-| `new.6` | The scan window fits smaller screens: its steps column is no longer cut off, down to 1280×800, because long rows wrap. DentalCraft no longer closes at start when another program launches it with its output closed. |
+| `new.note` | Planning, production, export and printing are still in development, and 3D scanning is an early alpha. Printing is a preview, in alpha, and has not been checked on real prints yet. Not a medical device. Not for clinical use. |
+| `new.1` | A Settings window, opened from the menu at the top right. It gathers the general options, the workspace, updates and privacy in one place. |
+| `new.2` | A simple interface by default. With Advanced options and parameters off, which is the default, the side panels show only the automatic steps and the most useful corrections, and the menu marks the Next step to take. Turn the option on to see every parameter and technical value. |
+| `new.3` | Print the aligners directly. A new Print window prepares the aligners for the Elegoo Saturn 4 Ultra 16K: each one is turned automatically so that the side that fits the teeth faces away from the plate, supports are added on the outer side only, and each part stands on a U-shaped raft. |
+| `new.4` | The parts are arranged on the plate and sliced into GOO files with the printer's DENTAL 45 machine parameters. You save the files to a folder or a USB stick and print from the printer. Printing over the network is not available yet. |
+| `new.5` | DentalCraft keeps track of each aligner: printed, or still missing. The record is saved with the case. Printing is a preview in alpha: it has not been checked on real prints yet, so the printed aligners are not validated. |
+| `new.6` | The code is public on GitHub (source-available, under the PolyForm Noncommercial License 1.0.0) and the documentation is online at https://dnviti.github.io/dentalcraft-docs/. Both are linked from the About page and from the footer. |
