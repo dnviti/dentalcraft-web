@@ -411,10 +411,10 @@ A block between the intro and the OS cards, with a link from the home page downl
 | `new.title` | What's new in version {version} |
 | `new.meta` | Released {date} |
 | `new.link` | What's new in version {version} |
-| `new.note` | Planning, production, export and printing are still in development, and 3D scanning is an early alpha. Printing has not been checked on real prints yet. Not a medical device. Not for clinical use. |
+| `new.note` | Planning, production, export and printing are still in development, and 3D scanning is an early alpha. Printing is a preview, in alpha, and has not been checked on real prints yet. Not a medical device. Not for clinical use. |
 | `new.1` | A Settings window, opened from the menu at the top right. It gathers the general options, the workspace, updates and privacy in one place. |
 | `new.2` | A simple interface by default. With Advanced options and parameters off, which is the default, the side panels show only the automatic steps and the most useful corrections, and the menu marks the Next step to take. Turn the option on to see every parameter and technical value. |
 | `new.3` | Print the aligners directly. A new Print window prepares the aligners for the Elegoo Saturn 4 Ultra 16K: each one is turned automatically so that the side that fits the teeth faces away from the plate, supports are added on the outer side only, and each part stands on a U-shaped raft. |
 | `new.4` | The parts are arranged on the plate and sliced into GOO files with the printer's DENTAL 45 machine parameters. You save the files to a folder or a USB stick and print from the printer. Printing over the network is not available yet. |
-| `new.5` | DentalCraft keeps track of each aligner: printed, or still missing. The record is saved with the case. Printing has not been checked on real prints yet, so the printed aligners are not validated. |
+| `new.5` | DentalCraft keeps track of each aligner: printed, or still missing. The record is saved with the case. Printing is a preview in alpha: it has not been checked on real prints yet, so the printed aligners are not validated. |
 | `new.6` | The code is public on GitHub (source-available, under the PolyForm Noncommercial License 1.0.0) and the documentation is online at https://dnviti.github.io/dentalcraft-docs/. Both are linked from the About page and from the footer. |
