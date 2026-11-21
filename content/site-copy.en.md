@@ -218,7 +218,7 @@ Presentation / Vision / Aligners / What's next / In practice / Regulatory / Down
    Linux and Windows first. macOS later.
 
 4. **Is it free?**
-   Yes. The alpha can be downloaded and used free of charge, for non-clinical use, under the DentalCraft licence. See the licence page for the terms.
+   Yes. The alpha can be downloaded and used free of charge for non-commercial purposes, under the PolyForm Noncommercial 1.0.0 licence (source-available). Commercial use needs a licence from the author. It is not for clinical use. See the licence page for the terms.
 
 5. **What happens to patient data?**
    Cases are designed to stay on your computer. Case files are pseudonymised and carry no patient names. Scans, projects and patient data are never sent to us. An account is planned only for licences and support.
@@ -294,7 +294,7 @@ Watch the presentation / Try the alpha / Play video / Read the transcript / Not 
 | `aligners.legend.inprogress` | Partly there. Being worked on or validated. |
 | `aligners.legend.planned` | Not started. |
 | `downloads.rail` | Alpha, to try |
-| `downloads.terms` | Free of charge under the DentalCraft licence, as is and without warranty. Not a medical device: do not use it on patients or for clinical decisions. |
+| `downloads.terms` | Free of charge under the PolyForm Noncommercial 1.0.0 licence (source-available), as is and without warranty. Not a medical device: do not use it on patients or for clinical decisions. |
 | `downloads.terms.link` | Licence |
 | `downloads.note` | This site has no forms and collects no data. The application sends anonymous diagnostic data only if you opt in. See the privacy note. |
 | `technology.rail` | Work and data |
@@ -314,24 +314,35 @@ Watch the presentation / Try the alpha / Play video / Read the transcript / Not 
 | `privacy.app.4` | Where it goes and for how long: only to DentalCraft's own server (auth.dentalcraft.app), never to a third party. It is kept for 90 days, then deleted, and it is used only to find and fix bugs. If you turn the option off, the data not yet sent and the installation ID are deleted from your computer. Questions: hello@dentalcraft.app. |
 | `footer.licence` | Licence |
 | `footer.privacy` | Privacy note |
+| `footer.source` | Source code (link to the GitHub repository) |
+| `srclicence.label` | Licence |
+| `srclicence.rail` | Source code |
+| `srclicence.headline` | Public source code, free for non-commercial use |
+| `srclicence.body.1` | The source code of DentalCraft is public on GitHub. It is source-available, not open source: you can read it, build it and use it for any noncommercial purpose, under the PolyForm Noncommercial License 1.0.0. |
+| `srclicence.body.2` | Commercial use is not allowed without a licence from the author. To ask for one, write to hello@dentalcraft.app. |
+| `srclicence.body.3` | The account server is closed source and is not part of the public code. DentalCraft is not a medical device. |
+| `srclicence.github` | Source code on GitHub |
+| `srclicence.fonts` | This site uses the fonts Atkinson Hyperlegible Next and B612 Mono, both under the SIL Open Font License 1.1: |
+| `srclicence.fonts.atkinson` | Atkinson Hyperlegible Next, licence text |
+| `srclicence.fonts.b612` | B612 Mono, licence text |
 
 ## 12. Licence page (`/en/licence/`)
 
-The page renders `content/licence.md` (the end-user licence agreement, Italian part and English part, verbatim). Each language page shows its own part. The English page notes that the Italian text prevails and links to it.
+The page renders `content/licence.md`, the PolyForm Noncommercial License 1.0.0 (same bytes as `LICENSE.md`, English only), under a short plain-language summary per language. The summary is not part of the licence.
 
 | Key | Text |
 | --- | --- |
-| `meta.licence.title` | Licence - DentalCraft end-user licence agreement |
-| `meta.licence.description` | The DentalCraft end-user licence agreement: free of charge for non-clinical use, as is and without warranty. Not a medical device. |
-| `meta.licence.ogTitle` | Licence - DentalCraft end-user licence agreement |
-| `meta.licence.ogDescription` | DentalCraft is free of charge for non-clinical use under this licence. Not a medical device and not for clinical use. |
+| `meta.licence.title` | Licence - DentalCraft, PolyForm Noncommercial 1.0.0 |
+| `meta.licence.description` | DentalCraft is source-available under the PolyForm Noncommercial License 1.0.0: free for non-commercial use. Commercial use needs a licence from the author. Not a medical device. |
+| `meta.licence.ogTitle` | Licence - DentalCraft, PolyForm Noncommercial 1.0.0 |
+| `meta.licence.ogDescription` | DentalCraft is source-available and free for non-commercial use. Commercial use needs a licence from the author. Not a medical device. |
 | `licence.label` | Licence |
-| `licence.rail` | End-user licence agreement |
-| `licence.note` | This is the English translation. In case of conflict, the Italian text prevails. |
-| `licence.note.link` | Italian text |
-| `licence.meta.version` | Version |
-| `licence.meta.licensor` | Licensor |
-| `licence.meta.contact` | Contact |
+| `licence.rail` | Source-available licence |
+| `licence.headline` | Licence |
+| `licence.summary.1` | DentalCraft is source-available under the PolyForm Noncommercial License 1.0.0. You can use it, change it and share it for any noncommercial purpose, free of charge. |
+| `licence.summary.2` | Commercial use is not allowed without a licence from the author. To ask for one, write to hello@dentalcraft.app. |
+| `licence.summary.3` | DentalCraft is not a medical device and is not validated for clinical use. It comes as is, without warranty. |
+| `licence.note` | This summary is not part of the licence. The text below is the official English text of the PolyForm Noncommercial License 1.0.0 and is the only text that applies. |
 
 ## 13. Download page (`/en/download/`)
 

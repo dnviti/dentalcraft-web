@@ -168,6 +168,7 @@ ${langSwitch(ctx, page)}
 <ul class="foot__legal-links">
 <li><a class="ul" href="${licencePath(ctx.lang)}">${esc(t("footer.licence"))}</a></li>
 <li><a class="ul" href="${sectionHref(ctx, page, "about", "privacy")}">${esc(t("footer.privacy"))}</a></li>
+<li><a class="ul" href="${esc(ctx.data.links.github)}" rel="noopener">${esc(t("footer.source"))}</a></li>
 </ul>
 </div>
 </div>
@@ -763,8 +764,31 @@ ${rail(t("privacy.label"), t("privacy.rail"))}
 </section>`;
 }
 
+// Source licence: the code is public on GitHub, PolyForm Noncommercial; the licence texts of the bundled fonts.
+function sourceLicence(ctx) {
+  const { t, asset, data } = ctx;
+  const fonts = [
+    ["fonts/OFL-AtkinsonHyperlegibleNext.txt", "srclicence.fonts.atkinson"],
+    ["fonts/OFL-B612Mono.txt", "srclicence.fonts.b612"],
+  ];
+  return `<section class="sec" id="source-licence" aria-labelledby="source-licence-h">
+<div class="wrap sec__grid">
+${rail(t("srclicence.label"), t("srclicence.rail"))}
+<div class="content content--stack-sm">
+<h2 class="h2" id="source-licence-h">${esc(t("srclicence.headline"))}</h2>
+<p class="sec-text max640">${esc(t("srclicence.body.1"))}</p>
+<p class="sec-text max640">${inline(t("srclicence.body.2"))}</p>
+<p class="sec-text max640">${esc(t("srclicence.body.3"))}</p>
+<p class="sec-text max640"><a class="ul" href="${esc(data.links.github)}" rel="noopener">${esc(t("srclicence.github"))}</a></p>
+<p class="sec-text max640">${esc(t("srclicence.fonts"))}</p>
+<ul class="eula__list">${fonts.map(([name, key]) => `<li><a class="ul" href="${asset(name)}">${esc(t(key))}</a></li>`).join("")}</ul>
+</div>
+</div>
+</section>`;
+}
+
 export function aboutPage(ctx) {
-  const body = [technology(ctx), regulatory(ctx), faq(ctx), contact(ctx), privacy(ctx)].join("\n");
+  const body = [technology(ctx), regulatory(ctx), faq(ctx), sourceLicence(ctx), contact(ctx), privacy(ctx)].join("\n");
   return shell(ctx, "about", body);
 }
 
@@ -773,60 +797,46 @@ export function aboutPage(ctx) {
 // Inline text: escape, then link e-mail addresses.
 const inline = (s) => esc(s).replace(/[\w.+-]+@[\w-]+(?:\.[\w-]+)+/g, (m) => `<a class="ul" href="mailto:${m}">${m}</a>`);
 
-// content/licence.md = header block, Italian part, English part, separated by "---" lines.
-// Renders one part: "## " title, "### " clauses, paragraphs, and runs of "a) ..." lines as a list.
-function renderPart(md) {
+// content/licence.md is the PolyForm Noncommercial License 1.0.0, byte for byte the same file as LICENSE.md
+// ("Required Notice:" line, "# " title, "<url>", "## " clauses, paragraphs, "> " example, **bold** and [text](#clause) links).
+const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+function mdInline(s) {
+  return esc(s)
+    .replace(/\*\*\*(.+?)\*\*\*/g, "<strong><em>$1</em></strong>")
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\[([^\]]+)\]\(#([a-z-]+)\)/g, '<a class="ul" href="#$2">$1</a>')
+    .replace(/&lt;(https?:\/\/[^&\s]+?)&gt;/g, '<a class="ul" href="$1" rel="noopener">$1</a>');
+}
+function renderLicence(md) {
   const out = [];
-  let list = [];
-  const flush = () => {
-    if (list.length) out.push(`<ul class="eula__list">${list.map((l) => `<li>${inline(l)}</li>`).join("")}</ul>`);
-    list = [];
-  };
+  let title = "";
   for (const raw of md.split("\n")) {
     const line = raw.trim();
-    if (/^[a-z]\) /.test(line)) { list.push(line); continue; }
-    flush();
     if (!line) continue;
-    if (line.startsWith("### ")) out.push(`<h3 class="h3 eula__h">${inline(line.slice(4))}</h3>`);
-    else if (line.startsWith("## ")) continue;
-    else out.push(`<p class="sec-text">${inline(line)}</p>`);
+    if (line.startsWith("## ")) out.push(`<h3 class="h3 eula__h" id="${slug(line.slice(3))}">${mdInline(line.slice(3))}</h3>`);
+    else if (line.startsWith("# ")) title = line.slice(2);
+    else if (line.startsWith("> ")) out.push(`<blockquote class="eula__quote">${mdInline(line.slice(2))}</blockquote>`);
+    else out.push(`<p class="sec-text">${mdInline(line)}</p>`);
   }
-  flush();
-  return out.join("\n");
+  if (!title) throw new Error("content/licence.md: no title line");
+  return { title, html: out.join("\n") };
 }
 
 function licenceBody(ctx) {
-  const { t, lang } = ctx;
-  const blocks = ctx.licenceMd.split(/^---$/m);
-  if (blocks.length !== 3) throw new Error("content/licence.md: expected header, Italian part and English part");
-  const [headBlock, itPart, enPart] = blocks;
-  const part = lang === "it" ? itPart : enPart;
-  const title = (part.match(/^## (.+)$/m) || [])[1];
-  if (!title) throw new Error("content/licence.md: part without title");
-  // Header lines are "Italian / English: value" (the value may be bilingual too); show the side for this language.
-  const meta = headBlock
-    .split("\n")
-    .map((l) => l.match(/^(.+?) \/ (.+?): (.+)$/))
-    .filter(Boolean)
-    .map((m) => {
-      const v = m[3].replace(/\((.+?) \/ (.+?)\)/, (_, it, en) => `(${lang === "it" ? it : en})`); // "(Italia / Italy)"
-      return `<li><span class="mono-label">${esc(lang === "it" ? m[1] : m[2])}</span> ${inline(v)}</li>`;
-    })
-    .join("");
-  const other = lang === "it" ? "en" : "it";
-  const note = esc(t("licence.note")).replace(
-    esc(t("licence.note.link")),
-    `<a class="ul" href="${licencePath(other)}" hreflang="${other}" lang="${other}">${esc(t("licence.note.link"))}</a>`,
-  );
+  const { t } = ctx;
+  const { title, html } = renderLicence(ctx.licenceMd);
   return `<section class="sec sec--first" id="licence" aria-labelledby="licence-h">
 <div class="wrap sec__grid">
 ${rail(t("licence.label"), t("licence.rail"))}
 <div class="content content--stack-sm eula">
-<h1 class="display" id="licence-h">${esc(title.replace(/\s*\((?:italiano|English)\)\s*$/, ""))}</h1>
-<ul class="eula__meta">${meta}</ul>
-<p class="eula__note">${note}</p>
-<div class="eula__body">
-${renderPart(part)}
+<h1 class="display" id="licence-h">${esc(t("licence.headline"))}</h1>
+<p class="sec-text">${esc(t("licence.summary.1"))}</p>
+<p class="sec-text">${inline(t("licence.summary.2"))}</p>
+<p class="sec-text">${esc(t("licence.summary.3"))}</p>
+<p class="eula__note">${esc(t("licence.note"))}</p>
+<h2 class="h2" id="licence-text" lang="en">${esc(title)}</h2>
+<div class="eula__body" lang="en">
+${html}
 </div>
 </div>
 </div>
