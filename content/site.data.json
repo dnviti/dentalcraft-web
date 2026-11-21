@@ -37,7 +37,7 @@
   },
   "release": {
     "version": "0.2.0-alpha.12",
-    "repo": "dnviti-personal-org/dentalcraft-app",
+    "repo": "dnviti/dentalcraft-app",
     "tag": "v0.2.0-alpha.12",
     "date": "2026-11-20",
     "sums": "dentalcraft_0.2.0-alpha.12_SHA256SUMS.txt",
