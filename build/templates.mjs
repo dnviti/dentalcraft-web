@@ -637,11 +637,19 @@ function downloadBody(ctx) {
     })
     .join("\n");
   const fpr = signing.gpgFingerprint.replace(/(.{4})(?!$)/g, "$1 ");
-  const bullets = data.whatsNew.map((k) => `<li>${esc(t(k))}</li>`).join("");
+  const list = (keys) => `<ul class="dl-new__list detail">${keys.map((k) => `<li>${esc(t(k))}</li>`).join("")}</ul>`;
+  const earlier = (data.whatsNewPrevious ?? [])
+    .map(
+      (p) => `<h3 class="h3">${esc(t("new.title").replace("{version}", p.version))}</h3>
+<p class="small">${esc(t("new.meta").replace("{date}", fmtDate(lang, p.date)))}</p>
+${list(p.keys)}`,
+    )
+    .join("\n");
   const news = `<div class="dl-new" id="whats-new">
 <h2 class="h2">${esc(t("new.title").replace("{version}", rel.version))}</h2>
 <p class="small">${esc(t("new.meta").replace("{date}", fmtDate(lang, rel.date)))}</p>
-<ul class="dl-new__list detail">${bullets}</ul>
+${list(data.whatsNew)}
+${earlier}
 <p class="small">${esc(t("new.note"))}</p>
 </div>`;
   return `<section class="sec sec--first" id="download" aria-labelledby="download-h">

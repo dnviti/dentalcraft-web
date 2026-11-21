@@ -147,7 +147,7 @@ Pushes to `main`, `v*` tags and manual runs trigger `.github/workflows/image.yml
 
 - **Copy**: edit `content/site.en.json` and `content/site.it.json` together. Keep `content/site-copy.*.md` in step (it is the editorial text; the JSON is what the build reads).
 - **Statuses** (Exists today / In progress / Planned): one place, `content/site.data.json`. It feeds the EN and IT pages. Rule: DONE in `docs/plan/PORT-GAP-MAP.md` is Exists today, PARTIAL is In progress, a function the site lists and the app lacks is Planned. Never show planning (setup, staging) or production as validated.
-- **What's new**: with every app release, rewrite the `new.*` keys in both language files and the `whatsNew` list in `content/site.data.json`, together with the function texts and statuses above. The block shows on the download page (`#whats-new`) and is linked from the home downloads section.
+- **What's new**: with every app release, write the new release's entry as `new.*` in both language files and list its keys in `whatsNew` in `content/site.data.json`; move the previous entry to `whatsNewPrevious` (version, date, keys, renamed e.g. `new13.*`), together with the function texts and statuses above. The block shows the pinned release first, then the earlier ones, on the download page (`#whats-new`) and is linked from the home downloads section.
 - **Video**: replace the files in `media/video/` keeping the names. The page uses `preload="none"` with `poster.jpg`, never autoplays, and turns the Italian captions on by default (both pages: the video carries English on-screen text).
 - **Screenshots**: the second one (Aligners workspace) is a design mock, not a capture. Replace `src/assets/img/aligners-{en,it}-{960,1920}.webp` with real captures before launch.
 
