@@ -165,7 +165,6 @@ The site sets no cookies, loads nothing from third parties, has no forms and no 
 
 ## Open points
 
-- The presentation video (scene 7 and its captions, and the transcript copied from them) still says the clinical algorithms are being ported and validated. The site now shows scan import and the preparation, diagnosis and bite stages as Exists today. The video needs an edit to match.
 - The header and hero buttons read "Try the alpha" and jump to Downloads. There is no sign-up (no back end).
 - The Windows files are not signed; the page tells visitors to expect a SmartScreen warning.
 - Light theme is not designed. The site is dark only.
