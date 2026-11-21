@@ -63,6 +63,10 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
   - Installer con aggiornamenti automatici - `Esiste oggi`
   - Comandi per script e agenti IA - `Esiste oggi`
   - Diagnostica anonima per correggere i difetti, solo se acconsenti - `Esiste oggi`
+  - Impostazioni, con interfaccia semplice di default e indicatore del passo successivo (Avanti) - `Esiste oggi`
+  - Stampa diretta degli allineatori sulla Elegoo Saturn 4 Ultra 16K: file salvati in una cartella o su una chiavetta USB, con il registro degli allineatori stampati e mancanti - `Esiste oggi`
+  - Stampa in rete, direttamente sulla stampante - `Pianificato`
+  - Verifica degli allineatori stampati con stampe reali (non ancora fatta) - `Pianificato`
 
 ### Blocco video
 - **Titolo:** La presentazione in 75 secondi
@@ -123,7 +127,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 | **Diagnosi** | Analisi del caso: spazio, affollamento, indice di irregolarità di Little, Bolton e complessità del caso. Puoi inserire i tuoi valori misurati e i risultati li seguono. | Esiste oggi |
 | **Pianificazione** | Posizione finale, con parametri, linea d'arcata disegnata a mano, spostamento di un dente e ritorno alla posizione iniziale. Allineatori: stadi, calendario dei cambi, rallentare un dente, cursore degli stadi. Revisione clinica con attacchi e segni di riduzione interprossimale (IPR). | In corso |
 | **Occlusione** | Relazione sul morso, scansioni del morso, registrazione sulla scansione del morso o con tre punti scelti a mano, correzione del morso e mappa dei contatti. | Esiste oggi |
-| **Produzione allineatori** | Impostazioni di produzione (spessore, gioco, qualità), dove termina l'allineatore, linea di rifilatura con ponti di contatto, fori e controlli, una barra sopra ogni dente mancante che tiene l'allineatore in un solo pezzo, estremità pulite dietro gli ultimi molari, marcature identificative, morso con gli allineatori. L'allineatore si può vedere in anteprima nella vista 3D, solo quando lo chiedi. I file ad alta qualità richiedono ancora molto tempo. | In corso |
+| **Produzione allineatori** | Impostazioni di produzione (spessore, gioco, qualità), dove termina l'allineatore, linea di rifilatura con ponti di contatto, fori e controlli, una barra sopra ogni dente mancante che tiene l'allineatore in un solo pezzo, estremità pulite dietro gli ultimi molari, marcature identificative, morso con gli allineatori. L'allineatore si può vedere in anteprima nella vista 3D, solo quando lo chiedi. I file ad alta qualità richiedono ancora molto tempo. Stampa: gli allineatori si stampano direttamente sulla Elegoo Saturn 4 Ultra 16K. Ognuno viene orientato in modo che il lato che combacia con i denti sia rivolto lontano dal piatto, riceve supporti solo sul lato esterno e poggia su una base a U; i pezzi vengono disposti sul piatto e tagliati in file GOO con i parametri macchina DENTAL 45. Una finestra Stampa salva i file in una cartella o su una chiavetta USB (la stampa in rete non è ancora disponibile) e tiene traccia di quali allineatori sono stampati e quali mancano. Non ancora verificata con stampe reali: non fare affidamento sui risultati per i pazienti. | In corso |
 | **Follow-up** | Visita di controllo: confronta una nuova scansione con il piano e ripianifica a partire da un allineatore consegnato. Il controllo dente per dente non c'è ancora. | In corso |
 | **Esportazione** | Esporta per la stampa: file STL di ogni stadio (allineatori e modelli), calendario dei cambi, relazione e programma per il paziente. L'esportazione termina con un errore, che elenca i file, se un file non supera il controllo di stampa. Modelli da studio, mostrati anche nella vista 3D. | In corso |
 
@@ -135,7 +139,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
   - Diagnosi: Misurare prima di muovere.
   - Pianificazione: Definire obiettivo e tappe. In sviluppo: non usare i risultati sui pazienti.
   - Occlusione: Verificare come si incontrano le arcate.
-  - Produzione allineatori: Preparare il guscio per la stampa. In sviluppo.
+  - Produzione allineatori: Preparare il guscio e stamparlo. In sviluppo.
   - Follow-up: Confrontare piano e andamento. Versione iniziale.
   - Esportazione: File e relazioni. In completamento.
 - **Alt schema del flusso:** Flusso in otto passaggi da Caso a Esportazione, ciascuno indicato come esiste oggi o in corso.
@@ -246,6 +250,12 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 
 13. **DentalCraft invia dati allo sviluppatore?**
     Solo se acconsenti. Al primo avvio l'applicazione chiede se può inviare dati diagnostici anonimi (segnalazioni di arresto anomalo, messaggi di errore, versione, sistema e scheda grafica, e ultime righe del registro senza i percorsi personali) per aiutare a correggere i difetti. La casella è non spuntata per impostazione predefinita e puoi cambiarla in qualsiasi momento dal menu dell'account. Scansioni, progetti, dati dei pazienti e dati dell'account non vengono mai inviati. La nota sulla privacy riporta l'elenco completo.
+14. **Cosa sono Impostazioni e l'interfaccia semplice?**
+    Impostazioni si apre dal menu in alto a destra e raccoglie le opzioni generali, l'area di lavoro, gli aggiornamenti e la privacy. L'opzione Opzioni e parametri avanzati è disattivata di default: i pannelli laterali mostrano allora solo i passaggi automatici e le correzioni più utili, e il menu segna il passo successivo (Avanti). Attivala per vedere tutti i parametri e i valori tecnici.
+15. **Posso stampare gli allineatori con DentalCraft?**
+    Sì, direttamente, sulla Elegoo Saturn 4 Ultra 16K. La finestra Stampa orienta ogni allineatore in modo che il lato che combacia con i denti sia rivolto lontano dal piatto, aggiunge supporti solo sul lato esterno e una base a U, dispone i pezzi sul piatto e li taglia in file GOO con i parametri macchina DENTAL 45. Salvi i file in una cartella o su una chiavetta USB e stampi dalla stampante; la stampa in rete è prevista, non ancora disponibile. DentalCraft tiene anche traccia di quali allineatori sono stampati e quali mancano. Non è ancora stata verificata con stampe reali, quindi non usare gli allineatori stampati sui pazienti. Non è un dispositivo medico.
+16. **Dove sono il codice sorgente e la documentazione?**
+    Il codice sorgente è pubblico su GitHub, con la PolyForm Noncommercial License 1.0.0 (source-available, non open source). La documentazione è su https://dnviti.github.io/dentalcraft-docs/.
 
 ---
 
@@ -258,6 +268,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
 - **Link:** Presentazione / Visione / In programma / Download / FAQ
 - **Licenza:** Licenza (link alla pagina della licenza)
 - **Nota privacy:** Nota sulla privacy (link alla pagina Su, sezione Privacy)
+- **Documentazione:** Documentazione (link a https://dnviti.github.io/dentalcraft-docs/)
 - **Copyright:** © 2026 Daniele Viti
 - **Cambio lingua:** English | Italiano
 
@@ -287,7 +298,7 @@ Guarda la presentazione / Prova l'alpha / Riproduci il video / Leggi la trascriz
 | `vision.rail` | Intenzioni, non funzioni |
 | `roadmap.rail` | Nessuna data annunciata |
 | `roadmap.core.label` | Base comune |
-| `roadmap.core.items` | Struttura dell'applicazione, file unico per ogni caso (salvato in automatico), vista 3D con selezione, spostamento, rotazione e scala, scansione 3D in una finestra condivisa da tutta l'applicazione (alpha iniziale) |
+| `roadmap.core.items` | Struttura dell'applicazione, file unico per ogni caso (salvato in automatico), vista 3D con selezione, spostamento, rotazione e scala, scansione 3D in una finestra condivisa da tutta l'applicazione (alpha iniziale), una finestra Impostazioni con interfaccia semplice di default |
 | `roadmap.m1.note` | Primo ambito. In sviluppo attivo: dalla scansione al morso funziona già nell'alpha; pianificazione e produzione sono ancora in validazione. |
 | `aligners.rail` | Primo ambito |
 | `aligners.legend.exists` | Funziona nell'alpha. Versione iniziale, non validata per l'uso clinico. |
@@ -315,6 +326,7 @@ Guarda la presentazione / Prova l'alpha / Riproduci il video / Leggi la trascriz
 | `footer.licence` | Licenza |
 | `footer.privacy` | Nota sulla privacy |
 | `footer.source` | Codice sorgente (link al repository GitHub) |
+| `footer.docs` | Documentazione (link a https://dnviti.github.io/dentalcraft-docs/) |
 | `srclicence.label` | Licenza |
 | `srclicence.rail` | Codice sorgente |
 | `srclicence.headline` | Codice sorgente pubblico, gratuito per uso non commerciale |
@@ -322,6 +334,7 @@ Guarda la presentazione / Prova l'alpha / Riproduci il video / Leggi la trascriz
 | `srclicence.body.2` | L'uso commerciale non è consentito senza una licenza dell'autore. Per richiederla, scrivi a hello@dentalcraft.app. |
 | `srclicence.body.3` | Il server degli account è closed source e non fa parte del codice pubblico. DentalCraft non è un dispositivo medico. |
 | `srclicence.github` | Codice sorgente su GitHub |
+| `srclicence.docs` | Documentazione (link a https://dnviti.github.io/dentalcraft-docs/) |
 | `srclicence.fonts` | Questo sito usa i caratteri Atkinson Hyperlegible Next e B612 Mono, entrambi con la SIL Open Font License 1.1: |
 | `srclicence.fonts.atkinson` | Atkinson Hyperlegible Next, testo della licenza |
 | `srclicence.fonts.b612` | B612 Mono, testo della licenza |
@@ -398,10 +411,10 @@ Un blocco tra l'introduzione e le schede dei sistemi operativi, con un link dall
 | `new.title` | Novità della versione {version} |
 | `new.meta` | Rilasciata il {date} |
 | `new.link` | Novità della versione {version} |
-| `new.note` | Pianificazione, produzione ed esportazione sono ancora in sviluppo e la scansione 3D è un'alpha iniziale. Non è un dispositivo medico. Non per uso clinico. |
-| `new.1` | Il Revopoint MINI 2 su Windows ora funziona come su Linux (alpha): la luce di riempimento resta fissa durante la scansione, se non fornisci un file di calibrazione viene letta quella memorizzata nello scanner (e conservata per la volta successiva), si usa l'esposizione rapida e la vista dal vivo mostra sempre il fotogramma più recente. Provato con lo scanner e il piatto girevole reali su una macchina virtuale Windows. Non è un dispositivo medico: non per uso clinico. |
-| `new.2` | Il piatto girevole si collega al primo tentativo su Windows: se il collegamento non parte, DentalCraft riprova, e un piatto che Windows non sente da un po' viene cercato di nuovo, così non serve più rimuoverlo e associarlo di nuovo. |
-| `new.3` | La finestra di scansione mostra cosa fa lo scanner: una riga sotto lo stato dice se la luce di riempimento è accesa, se l'esposizione rapida è applicata e da dove viene la calibrazione (il tuo file, lo scanner o una stima), con un avviso quando la calibrazione è solo una stima o un'impostazione non è riuscita. |
-| `new.4` | Una calibrazione del piatto non più valida viene notata subito: se lo scanner o il piatto sono stati spostati dopo la calibrazione, la scansione automatica si ferma dopo le prime viste (le viste prese vengono conservate) e chiede di calibrare di nuovo, invece di scansionare per dieci minuti e scartare le viste alla fine. La finestra di scansione mostra Non corrisponde più alla postazione al posto della qualità dell'adattamento. |
-| `new.5` | Errori più chiari: se lo scanner viene scollegato durante una scansione, la finestra di scansione si ferma e conserva quanto acquisito, invece di mostrare una scansione ancora in corso. Su Windows, DentalCraft dice quando la fotocamera è bloccata dalle impostazioni della privacy e quando viene avviato da un'unità di rete o condivisa (una copia su un disco locale funziona). Un file di calibrazione modificato viene riletto senza riavviare. |
-| `new.6` | La finestra di scansione sta negli schermi più piccoli: la colonna dei passi non viene più tagliata, fino a 1280×800, perché le righe lunghe vanno a capo. DentalCraft non si chiude più all'avvio quando un altro programma lo avvia con l'uscita chiusa. |
+| `new.note` | Pianificazione, produzione, esportazione e stampa sono ancora in sviluppo e la scansione 3D è un'alpha iniziale. La stampa non è ancora stata verificata con stampe reali. Non è un dispositivo medico. Non per uso clinico. |
+| `new.1` | Una finestra Impostazioni, che si apre dal menu in alto a destra. Raccoglie in un posto solo le opzioni generali, l'area di lavoro, gli aggiornamenti e la privacy. |
+| `new.2` | Un'interfaccia semplice di default. Con Opzioni e parametri avanzati disattivato, come all'inizio, i pannelli laterali mostrano solo i passaggi automatici e le correzioni più utili, e il menu segna il passo successivo (Avanti). Attiva l'opzione per vedere tutti i parametri e i valori tecnici. |
+| `new.3` | Stampa diretta degli allineatori. Una nuova finestra Stampa prepara gli allineatori per la Elegoo Saturn 4 Ultra 16K: ognuno viene orientato in automatico in modo che il lato che combacia con i denti sia rivolto lontano dal piatto, i supporti sono aggiunti solo sul lato esterno e ogni pezzo poggia su una base a U. |
+| `new.4` | I pezzi vengono disposti sul piatto e tagliati in file GOO con i parametri macchina DENTAL 45 della stampante. Salvi i file in una cartella o su una chiavetta USB e stampi dalla stampante. La stampa in rete non è ancora disponibile. |
+| `new.5` | DentalCraft tiene traccia di ogni allineatore: stampato o ancora mancante. Il registro si salva insieme al caso. La stampa non è ancora stata verificata con stampe reali, quindi gli allineatori stampati non sono validati. |
+| `new.6` | Il codice è pubblico su GitHub (source-available, con la PolyForm Noncommercial License 1.0.0) e la documentazione è online su https://dnviti.github.io/dentalcraft-docs/. Entrambi sono collegati dal piè di pagina e dalla pagina «Su DentalCraft». |

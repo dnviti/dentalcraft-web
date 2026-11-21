@@ -10,9 +10,13 @@
     { "key": "presentation.status.6", "status": "exists" },
     { "key": "presentation.status.7", "status": "progress" },
     { "key": "presentation.status.8", "status": "progress" },
+    { "key": "presentation.status.14", "status": "exists" },
+    { "key": "presentation.status.15", "status": "planned" },
+    { "key": "presentation.status.16", "status": "planned" },
     { "key": "presentation.status.9", "status": "exists" },
     { "key": "presentation.status.10", "status": "exists" },
-    { "key": "presentation.status.12", "status": "exists" }
+    { "key": "presentation.status.12", "status": "exists" },
+    { "key": "presentation.status.13", "status": "exists" }
   ],
   "alignerStages": [
     { "n": 1, "status": "exists" },
@@ -33,7 +37,8 @@
     { "n": 5, "code": "im", "status": "planned" }
   ],
   "links": {
-    "github": "https://github.com/dnviti/dentalcraft"
+    "github": "https://github.com/dnviti/dentalcraft",
+    "docs": "https://dnviti.github.io/dentalcraft-docs/"
   },
   "release": {
     "version": "0.2.0-alpha.12",
