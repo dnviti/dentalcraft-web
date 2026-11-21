@@ -2,6 +2,8 @@
 
 DentalCraft marketing website: a static site in English and Italian, with its brand kit and media. Plain HTML and CSS, about 120 lines of vanilla JS, no framework, no runtime dependencies.
 
+Source: <https://github.com/dnviti/dentalcraft-web>. The whole project: <https://github.com/dnviti/dentalcraft>. Documentation: <https://github.com/dnviti/dentalcraft-docs>. Sources of the science and standards behind the application: [`SOURCES.md`](https://github.com/dnviti/dentalcraft/blob/main/SOURCES.md).
+
 > In development · Not a medical device · Not for clinical use
 
 ## Layout
@@ -11,8 +13,8 @@ DentalCraft marketing website: a static site in English and Italian, with its br
 | `build/` | `build.mjs` (the build), `templates.mjs` (HTML templates), `release.mjs` (release files, key and signature checks, Linux setup files), `pin-release.mjs` (pins a release in `site.data.json`), `linux-repos.sh` (signed APT, RPM and Flatpak repositories, run in the image build). Node >= 18, no dependencies |
 | `src/styles/site.css` | All CSS. Tokens as custom properties, mobile first (breakpoints 768 and 1200) |
 | `src/scripts/` | `site.js` (menu, language links, current section, video, copy buttons) and `redirect.js` (root page) |
-| `src/assets/` | Self-hosted fonts (Atkinson Hyperlegible Next, B612 Mono; woff2, Latin subset) and screenshot WebPs |
-| `content/` | `site.en.json`, `site.it.json` (copy, same keys), `site.data.json` (statuses, pinned release), `licence.md` (end-user licence agreement, Italian and English, rendered by the licence pages), `site-copy.*.md` (editorial copy), `video-script.md` |
+| `src/assets/` | Self-hosted fonts (Atkinson Hyperlegible Next, B612 Mono; woff2, Latin subset) with their OFL 1.1 licence texts (`fonts/OFL-*.txt`, linked from the About page) and screenshot WebPs |
+| `content/` | `site.en.json`, `site.it.json` (copy, same keys), `site.data.json` (statuses, pinned release), `licence.md` (the PolyForm Noncommercial License 1.0.0, a byte-for-byte copy of `LICENSE.md`, rendered by the licence pages), `site-copy.*.md` (editorial copy), `video-script.md` |
 | `keys/` | Public keys of DentalCraft Releases: `dentalcraft.gpg` (OpenPGP, signs packages and repositories) and `dentalcraft.minisign.pub` (signs the update manifest). Served at `/keys/` |
 | `linux/` | `dentalcraft.list`, `dentalcraft.repo`: APT and DNF repository definitions, single source for the site and the packages |
 | `design/` | FigCraft source, `site-spec.md`, `web-tokens.json`, reference PNGs, hero art |
@@ -80,7 +82,7 @@ Every response carries a CSP that allows `self` only (no inline script or style)
 
 ## Downloads
 
-The download page `/en/download/` (`/it/download/`) offers, per operating system, an **Installer** and a **Standalone** version. Everything is served by the site itself, baked into the image; the GitHub repositories are private and nothing points at them.
+The download page `/en/download/` (`/it/download/`) offers, per operating system, an **Installer** and a **Standalone** version. Everything is served by the site itself, baked into the image, so a visitor never has to go to GitHub for a file.
 
 | | Installer | Standalone |
 | --- | --- | --- |
@@ -139,7 +141,7 @@ Check one by hand: `minisign -Vm stable.json -p keys/dentalcraft.minisign.pub`.
 
 ## Deploy
 
-Pushes to `main`, `v*` tags and manual runs trigger `.github/workflows/image.yml` on the `golgari-dev` runner (the same ARC scale set with Docker-in-Docker as `dentalcraft-server`). It pushes `ghcr.io/dnviti-personal-org/dentalcraft-web` with the tags `latest`, `sha-<short>` and, on a `v1.2.3` tag, `1.2.3`. Run the image behind the proxy of your choice and point `/healthz` at the health check.
+Pushes to `main`, `v*` tags and manual runs trigger `.github/workflows/image.yml` on a self-hosted runner with Docker-in-Docker. It pushes `ghcr.io/dnviti-personal-org/dentalcraft-web` with the tags `latest`, `sha-<short>` and, on a `v1.2.3` tag, `1.2.3`. Run the image behind the proxy of your choice and point `/healthz` at the health check.
 
 ## Editing
 
@@ -151,7 +153,11 @@ Pushes to `main`, `v*` tags and manual runs trigger `.github/workflows/image.yml
 
 ## Licence
 
-The software is proprietary and free of charge to download and use for non-clinical purposes, under the end-user licence agreement in `content/licence.md` (holder: Daniele Viti). The licence pages `/en/licence/` and `/it/licence/` render that file, so edit the agreement there, never in the templates. The download section and the footer link to them. The source of this repository is private: see `LICENSE.md`.
+The source of this repository is source-available under the [PolyForm Noncommercial License 1.0.0](LICENSE.md) (holder: Daniele Viti): you may read, use, change and share it for any noncommercial purpose. Commercial use is not allowed without a licence from the author (hello@dentalcraft.app). This is not an open source licence in the OSI sense. See [`NOTICE.md`](NOTICE.md) for third-party material, including the font licences.
+
+`content/licence.md` is the PolyForm Noncommercial License 1.0.0, the same bytes as `LICENSE.md` (keep them equal). The licence pages `/en/licence/` and `/it/licence/` render it, with a short plain-language summary on top (`licence.*` keys, per language). The licence text itself is English only and is the only text that applies. The download section and the footer link to these pages. The About page has a short "Licence" section (`srclicence.*` keys) that says the source is public and non-commercial, and the footer links to the GitHub repository.
+
+Contributing: [`CONTRIBUTING.md`](CONTRIBUTING.md) (DCO sign-off, inbound licence grant). Security: [`SECURITY.md`](SECURITY.md). Conduct: [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
 
 ## Privacy
 
@@ -167,4 +173,4 @@ The site sets no cookies, loads nothing from third parties, has no forms and no 
 
 ## Part of DentalCraft
 
-This repository is a submodule of the `dentalcraft` superproject, next to `dentalcraft-core`, `dentalcraft-aligners`, `dentalcraft-app` and `dentalcraft-server`.
+This repository is a submodule of the [`dentalcraft`](https://github.com/dnviti/dentalcraft) superproject, next to `dentalcraft-core`, `dentalcraft-aligners` and `dentalcraft-app`. The account server is closed and private.

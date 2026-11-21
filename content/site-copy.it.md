@@ -218,7 +218,7 @@ Presentazione / Visione / Allineatori / In programma / In pratica / Normativa / 
    Prima su Linux e Windows. macOS in seguito.
 
 4. **È gratuito?**
-   Sì. L'alpha si può scaricare e usare gratuitamente, per uso non clinico, con la licenza DentalCraft. I termini sono nella pagina della licenza.
+   Sì. L'alpha si può scaricare e usare gratuitamente per scopi non commerciali, con la licenza PolyForm Noncommercial 1.0.0 (source-available). L'uso commerciale richiede una licenza dell'autore. Non è per uso clinico. I termini sono nella pagina della licenza.
 
 5. **Che fine fanno i dati dei pazienti?**
    I casi sono pensati per restare sul tuo computer. I file dei casi sono pseudonimizzati e non contengono nomi di pazienti. Scansioni, progetti e dati dei pazienti non vengono mai inviati a noi. L'account è previsto solo per licenze e assistenza.
@@ -294,7 +294,7 @@ Guarda la presentazione / Prova l'alpha / Riproduci il video / Leggi la trascriz
 | `aligners.legend.inprogress` | In parte disponibile. In lavorazione o in validazione. |
 | `aligners.legend.planned` | Non ancora avviato. |
 | `downloads.rail` | Alpha, da provare |
-| `downloads.terms` | Gratuita con la licenza DentalCraft, così com'è e senza garanzia. Non è un dispositivo medico: non usarla sui pazienti né per decisioni cliniche. |
+| `downloads.terms` | Gratuita con la licenza PolyForm Noncommercial 1.0.0 (source-available), così com'è e senza garanzia. Non è un dispositivo medico: non usarla sui pazienti né per decisioni cliniche. |
 | `downloads.terms.link` | Licenza |
 | `downloads.note` | Questo sito non ha moduli e non raccoglie dati. L'applicazione invia dati diagnostici anonimi solo se acconsenti. Leggi la nota sulla privacy. |
 | `technology.rail` | Lavoro e dati |
@@ -314,24 +314,35 @@ Guarda la presentazione / Prova l'alpha / Riproduci il video / Leggi la trascriz
 | `privacy.app.4` | Dove vanno e per quanto tempo: solo al server di DentalCraft (auth.dentalcraft.app), mai a terzi. Sono conservati per 90 giorni, poi eliminati, e sono usati solo per trovare e correggere i difetti. Se disattivi l'opzione, i dati non ancora inviati e l'identificativo di installazione vengono eliminati dal tuo computer. Domande: hello@dentalcraft.app. |
 | `footer.licence` | Licenza |
 | `footer.privacy` | Nota sulla privacy |
+| `footer.source` | Codice sorgente (link al repository GitHub) |
+| `srclicence.label` | Licenza |
+| `srclicence.rail` | Codice sorgente |
+| `srclicence.headline` | Codice sorgente pubblico, gratuito per uso non commerciale |
+| `srclicence.body.1` | Il codice sorgente di DentalCraft è pubblico su GitHub. È source-available, non open source: puoi leggerlo, compilarlo e usarlo per qualsiasi scopo non commerciale, con la PolyForm Noncommercial License 1.0.0. |
+| `srclicence.body.2` | L'uso commerciale non è consentito senza una licenza dell'autore. Per richiederla, scrivi a hello@dentalcraft.app. |
+| `srclicence.body.3` | Il server degli account è closed source e non fa parte del codice pubblico. DentalCraft non è un dispositivo medico. |
+| `srclicence.github` | Codice sorgente su GitHub |
+| `srclicence.fonts` | Questo sito usa i caratteri Atkinson Hyperlegible Next e B612 Mono, entrambi con la SIL Open Font License 1.1: |
+| `srclicence.fonts.atkinson` | Atkinson Hyperlegible Next, testo della licenza |
+| `srclicence.fonts.b612` | B612 Mono, testo della licenza |
 
 ## 12. Pagina Licenza (`/it/licence/`)
 
-La pagina rende `content/licence.md` (il contratto di licenza d'uso, parte italiana e parte inglese, testo invariato). Ogni pagina linguistica mostra la propria parte. La pagina italiana rimanda alla traduzione inglese.
+La pagina rende `content/licence.md`, la PolyForm Noncommercial License 1.0.0 (stessi byte di `LICENSE.md`, solo in inglese), sotto un breve riassunto in linguaggio semplice per ogni lingua. Il riassunto non fa parte della licenza.
 
 | Chiave | Testo |
 | --- | --- |
-| `meta.licence.title` | Licenza - Contratto di licenza d'uso di DentalCraft |
-| `meta.licence.description` | Il contratto di licenza d'uso di DentalCraft: gratuito per uso non clinico, così com'è e senza garanzia. Non è un dispositivo medico. |
-| `meta.licence.ogTitle` | Licenza - Contratto di licenza d'uso di DentalCraft |
-| `meta.licence.ogDescription` | DentalCraft è gratuito per uso non clinico con questa licenza. Non è un dispositivo medico e non è per uso clinico. |
+| `meta.licence.title` | Licenza - DentalCraft, PolyForm Noncommercial 1.0.0 |
+| `meta.licence.description` | DentalCraft è source-available con la PolyForm Noncommercial License 1.0.0: gratuito per uso non commerciale. L'uso commerciale richiede una licenza dell'autore. Non è un dispositivo medico. |
+| `meta.licence.ogTitle` | Licenza - DentalCraft, PolyForm Noncommercial 1.0.0 |
+| `meta.licence.ogDescription` | DentalCraft è source-available e gratuito per uso non commerciale. L'uso commerciale richiede una licenza dell'autore. Non è un dispositivo medico. |
 | `licence.label` | Licenza |
-| `licence.rail` | Contratto di licenza d'uso |
-| `licence.note` | Questo testo italiano prevale in caso di contrasto. Leggi la traduzione inglese. |
-| `licence.note.link` | traduzione inglese |
-| `licence.meta.version` | Versione |
-| `licence.meta.licensor` | Licenziante |
-| `licence.meta.contact` | Contatto |
+| `licence.rail` | Licenza source-available |
+| `licence.headline` | Licenza |
+| `licence.summary.1` | DentalCraft è source-available con la PolyForm Noncommercial License 1.0.0. Puoi usarlo, modificarlo e condividerlo per qualsiasi scopo non commerciale, gratuitamente. |
+| `licence.summary.2` | L'uso commerciale non è consentito senza una licenza dell'autore. Per richiederla, scrivi a hello@dentalcraft.app. |
+| `licence.summary.3` | DentalCraft non è un dispositivo medico e non è validato per uso clinico. Viene fornito così com'è, senza garanzia. |
+| `licence.note` | Questo riassunto non fa parte della licenza. Il testo qui sotto è il testo inglese ufficiale della PolyForm Noncommercial License 1.0.0 ed è l'unico testo che si applica. |
 
 ## 13. Pagina di download (`/it/download/`)
 

@@ -32,6 +32,9 @@
     { "n": 4, "code": "cb", "status": "planned" },
     { "n": 5, "code": "im", "status": "planned" }
   ],
+  "links": {
+    "github": "https://github.com/dnviti/dentalcraft"
+  },
   "release": {
     "version": "0.2.0-alpha.12",
     "repo": "dnviti-personal-org/dentalcraft-app",
