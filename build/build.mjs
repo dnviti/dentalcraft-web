@@ -13,7 +13,7 @@ import { chmodSync, cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rm
 import { basename, dirname, extname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { aboutPage, downloadPage, homePage, indexPage, licencePage, notFoundPage } from "./templates.mjs";
-import { SERVED, dearmor, gpgFingerprint, linuxDescriptors, minisignVerify, releaseFiles } from "./release.mjs";
+import { PUBLIC_URL, SERVED, dearmor, gpgFingerprint, linuxDescriptors, minisignVerify, releaseFiles } from "./release.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = join(ROOT, "dist");
@@ -187,7 +187,9 @@ for (const f of ["dentalcraft-presentation.webm", "dentalcraft-presentation-720p
     if (m.version !== rel.version || m.tag !== rel.tag) throw new Error(`update.json: version ${m.version} / ${m.tag}, expected ${rel.version}`);
     const byName = new Map(Object.entries(rel.files).filter(([id]) => SERVED.has(id)).map(([, f]) => [f.name, f]));
     for (const [kind, a] of Object.entries(m.assets || {})) {
-      const f = byName.get(basename(new URL(a.url).pathname));
+      // The signed manifest always names the public origin (release.mjs PUBLIC_URL), whatever SITE_URL a build uses.
+      const url = new URL(a.url);
+      const f = url.origin === new URL(PUBLIC_URL).origin ? byName.get(basename(url.pathname)) : undefined;
       if (!f || f.sha256 !== a.sha256 || f.size !== a.size) throw new Error(`update.json: asset ${kind} (${a.url}) is not a served release file`);
     }
     write("update/stable.json", bufs.update);
@@ -208,6 +210,27 @@ for (const f of ["dentalcraft-presentation.webm", "dentalcraft-presentation-720p
 
 // robots.txt and sitemap.xml
 write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+
+// /.well-known/security.txt (RFC 9116). Contacts come from SECURITY.md; Expires is computed at build time (SOURCE_DATE_EPOCH honoured).
+{
+  const policy = read("SECURITY.md");
+  const advisories = policy.match(/https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/security\/advisories\/new/)?.[0];
+  const email = policy.match(/[\w.+-]+@[\w-]+(?:\.[\w-]+)+/)?.[0];
+  if (!advisories || !email) throw new Error("SECURITY.md: reporting URL or e-mail address not found (needed for security.txt)");
+  const now = process.env.SOURCE_DATE_EPOCH ? Number(process.env.SOURCE_DATE_EPOCH) * 1000 : Date.now();
+  const expires = new Date(now + 335 * 86400_000).toISOString().replace(/\.\d{3}Z$/, "Z"); // about 11 months
+  write(
+    ".well-known/security.txt",
+    [
+      `Contact: ${advisories}`,
+      `Contact: mailto:${email}`,
+      `Expires: ${expires}`,
+      "Preferred-Languages: en, it",
+      `Canonical: ${SITE_URL}/.well-known/security.txt`,
+      "",
+    ].join("\n"),
+  );
+}
 const alt = (p) => {
   const rel = p.replace(/^\/(en|it)\//, "");
   return ["en", "it"].map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE_URL}/${l}/${rel}"/>`).join("\n");
