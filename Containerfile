@@ -18,7 +18,7 @@ FROM docker.io/library/node:22-alpine@sha256:1314fb30ec37592d5845e5a160d522c0e68
 ARG SITE_URL=https://dentalcraft.app
 ENV SITE_URL=${SITE_URL}
 WORKDIR /src
-COPY package.json ./
+COPY package.json SECURITY.md ./
 COPY build ./build
 COPY src ./src
 COPY content ./content
