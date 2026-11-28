@@ -34,7 +34,7 @@ SITE_URL=https://example.org node build/build.mjs   # absolute URLs in canonical
 
 `SITE_URL` defaults to `https://dentalcraft.app`. The build:
 
-- generates `/en/`, `/it/`, `/en/about/`, `/it/about/`, `/en/download/`, `/it/download/`, `/en/licence/`, `/it/licence/`, the root redirect page `/`, `404.html`, `sitemap.xml`, `robots.txt`;
+- generates `/en/`, `/it/`, `/en/about/`, `/it/about/`, `/en/download/`, `/it/download/`, `/en/licence/`, `/it/licence/`, the root redirect page `/`, `404.html`, `sitemap.xml`, `robots.txt`, `.well-known/security.txt` (RFC 9116; contacts read from `SECURITY.md`, `Expires` about 11 months after the build);
 - fails when the EN and IT copy keys differ, when a copy key is missing, or when an internal link or asset does not exist;
 - writes CSS, JS, fonts, images and brand SVGs to `dist/assets/` with a content hash in the name;
 - copies the favicon set to the root and the five video files to `dist/media/video/`;
